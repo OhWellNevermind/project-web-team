@@ -1,2 +1,9 @@
-@import './common';
-@import './example';
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+@import './dark_theme';
+@import './ligth_theme';
+@import './partials_style/partial_styles';
+
+body {
+  color: var(--text-color);
+  background-color: var(--page-bg);
+}

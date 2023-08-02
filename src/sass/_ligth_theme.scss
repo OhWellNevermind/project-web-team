@@ -1,0 +1,35 @@
+:root[data-theme='light'] { 
+    // Global
+    --page-bg: #F6F6F6;
+    --logo-bg: #fff;
+    --text-color: #111;
+    --icons-color: #111111;
+
+    // Main
+    // Header
+    --header-bg: #fff;
+    --header-border-color: #111;
+    --header-highlight: #EAC645;
+    
+    // All categories
+    --all-categories-active: #4F2EE8;
+    --all-categories-text-color: rgba(17, 17, 17, 0.60);
+    --all-categories-scroll-color: #E0E0E0;
+    
+    // Shopping list
+    --empty-message-text-color: rgba(0, 0, 0, 0.60);
+    
+    // Pagination section
+    --pagination-bg: #111111;
+    --pagination-left-bg: #111;
+    --pagination-left-arrow: #fff;
+    --pagination-rigth-bg: #EAC645;
+    --pagination-rigth-arrow: #000;
+
+    // Sign up modal window
+    --sign-up-btn-bg: #111;
+    --sign-up-icon-color: #111;
+    --sign-up-active-text-color: #4F2EE8;
+    --sign-up-text-color: rgba(17, 17, 17, 0.50);
+    --sign-up-border-color: #111111;
+}
