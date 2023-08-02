@@ -1,9 +1,11 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
+@import './fonts/fonts';
 @import './dark_theme';
 @import './ligth_theme';
 @import './partials_style/partial_styles';
 
 body {
+  font-family: 'DMSans';
   color: var(--text-color);
   background-color: var(--page-bg);
 }
