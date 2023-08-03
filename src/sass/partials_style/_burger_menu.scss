@@ -1,0 +1,37 @@
+li {
+    list-style: none; 
+}
+
+a {
+    text-decoration: none;
+}
+
+.burger-menu-signup-btn {
+    margin-bottom: 130px;
+}
+
+.burger-menu-nav-item-home {
+    margin-bottom: 15px;
+}
+
+.burger-menu-signup-btn {
+    min-width: 184px;
+    cursor: pointer;
+    background: #4f2ee8;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 13px 14px;
+    display: flex;
+}
+
+.burger-menu-signup-btn-text {
+    letter-spacing: -.04em;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28571;
+}
