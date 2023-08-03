@@ -50,3 +50,130 @@
   display: flex;
   align-items: center;
 }
+
+.page-navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .page-navigation-list {
+    display: none;
+  }
+}
+
+.page-logo-header {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  gap: 8px;
+  margin-right: 93px;
+}
+
+.page-logo-last {
+  fill: currentColor;
+  transition: fill 200ms;
+}
+
+.page-navigation-link {
+  display: flex;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  align-items: center;
+  padding: 8px 16px;
+}
+.page-navigation-link-icon {
+  fill: currentColor;
+  transition: fill 200ms;
+}
+
+.current {
+  font-weight: 700;
+  background-color: #eac645;
+  border-radius: 36px;
+  transition: color 200ms, background-color 200ms;
+}
+
+.page-navigation-link-icon.current {
+  fill: currentColor;
+  transition: fill;
+}
+
+.page-navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media screen and (max-width: 767px) {
+  .page-navigation-list {
+    display: none;
+  }
+}
+
+.page-navigation-link {
+  display: flex;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  align-items: center;
+  padding: 8px 16px;
+  transition: color 200ms;
+}
+
+.page-navigation-link-icon {
+  fill: currentColor;
+  transition: fill 200ms;
+}
+
+.page-navigation-list {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .page-navigation-list {
+    display: none;
+  }
+}
+
+.page-navigation-list-last {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+// .page-navigation-link
+.current {
+  font-weight: 700;
+  background-color: #eac645;
+  border-radius: 36px;
+}
+
+.page-navigation-list-item {
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.page-navigation-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  position: relative;
+
+  @media screen and (max-width: 767px) {
+    flex-grow: 0;
+    display: flex;
+    position: relative;
+    gap: 4px;
+  }
+}

@@ -19,20 +19,114 @@
       >
         <use href="./images/icons.svg#icon-Bookshelf"></use>
       </svg>
-        <ul>
-          <li><a class="link header-link" href="">Home</a></li>
-          <li><a class="link header-link" href="">Shopping list</a></li>
-        </ul>
-      </nav>
-      <button
-        class="sign-up-button"
-        type="button"
-        data-modal-open
-        aria-label="sign in"
-      >
-        <span class="sign-up-button_text">Sign up</span>
-        <svg class="sign-up-button_icon" width="20" height="20">
-          <use href="./images/icons.svg#golder-arrow-right"></use>
+       <!-- Navigation -->
+      <ul class="page-navigation-list list">
+        <li class="page-navigation-list-item-home">
+          <a
+            class="page-navigation-link navigation-link-home link current"
+            href="./index.html"
+            >Home</a>
+        </li>
+        <li class="page-navigation-list-item-shopping">
+          <a
+            class="page-navigation-link navigation-link-shopping link"
+            href="/src/partials/shopping_list.html"
+            >Shopping list
+            <svg
+              class="page-navigation-link-icon"
+              lang=""
+              aria-label="Suitcase icon"
+              width="20"
+              height="20"
+            >
+              <use href="./images/icons.svg#icon-uil_cart"></use>
+            </svg>
+          </a>
+        </li>
+        <!--  -->
+      </ul>
+         <!--<button
+            type="button"
+            class="mobile-menu-open"
+            data-menu-open
+            aria-label="Open mobile menu"
+          >
+            <svg width="28" height="28">
+              <use
+                class="mobile-menu-open mobile-menu-open__icon"
+                href="./images/icons.svg#icon-align-left"
+              ></use>
+              <use
+                class="mobile-menu__close-button mobile-menu__close-icon is-hidden"
+                href="./images/icons.svg#icon-x-close"
+              ></use>
+            </svg>
+          </button>
+        </li>
+    
+          <div class="backdrop" id="sign-up-modal">
+  <div class="modal" id="sign-up-modal-window">
+    <button
+      class="modal__close-button"
+      type="button"
+      id="signUp-modal-close-btn"
+      aria-label="Close sign-up modal"
+    >
+      <svg class="close-button__x-icon">
+        <use href="./images/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <form class="modal-form" name="modal-form" id="singUp">
+      <div class="modal-form__input-field" id="name-input-wrapper">
+        <input
+          class="modal-form__input"
+          type="text"
+          id="signup-user-name"
+          name="user_name"
+          placeholder="Stephen"
+        />
+        <label for="user_name" class="modal-form__label">name</label>
+      </div>
+      <div class="modal-form__input-field">
+        <input
+          class="modal-form__input"
+          type="email"
+          id="signup-user-email"
+          name="user_email"
+          placeholder="stephen14@mail.com"
+        />
+        <label for="user_email" class="modal-form__label">email</label>
+        <svg class="modal-form__icon">
+          <use href="./images/icons.svg#icon-mail"></use>
         </svg>
+      </div>
+      <div class="modal-form__input-field">
+        <input
+          class="modal-form__input"
+          type="password"
+          id="signup-user-password"
+          name="user_password"
+          placeholder="stephenTheBest"
+        />
+        <label for="user_password" class="modal-form__label">password</label>
+        <svg class="modal-form__icon">
+          <use href="./images/icons.svg#icon-lock"></use>
+        </svg>
+      </div>
+
+      <button type="submit" class="modal-form__submit" >Sign up</button>
+    </form>
+    <div class="modal-toggle">
+      <button type="button" class="modal-toggle__el modal-toggle__el--current">
+        Sign up
       </button>
-    </header>
+      <button type="button" class="modal-toggle__el" id="signIn-open-btn">Sign in</button>
+    </div>
+        </li>-->
+        <!--  -->
+      </ul>
+      <!--  -->
+    </div>
+  </div>
+</header>
