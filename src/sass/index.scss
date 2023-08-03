@@ -4,6 +4,10 @@
 @import './ligth_theme';
 @import './partials_style/partial_styles';
 
+li {
+  list-style: none;
+}
+
 body {
   font-family: 'DMSans';
   color: var(--text-color);
