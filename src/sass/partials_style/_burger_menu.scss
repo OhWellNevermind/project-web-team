@@ -1,4 +1,3 @@
-
 li {
     list-style: none; 
 }
@@ -7,8 +6,9 @@ a {
     text-decoration: none;
 }
 
-.burger-menu-signup-btn {
-    margin-bottom: 130px;
+.stephen {
+    // height: 50px;
+    // display: none;
 }
 
 .burger-menu-nav-item-home {
@@ -23,10 +23,11 @@ a {
     border-radius: 18px;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    // margin-top: 20px;
     margin-left: 20px;
     padding: 13px 14px;
-    display: flex;
+    display: flex; //flex!!!!!!!!!!!!//
+    margin-bottom: 130px;
 }
 
 .burger-menu-signup-btn-text {
@@ -40,17 +41,32 @@ a {
 .burger-menu-container {
     width: 375px;
     height: 812px;
-    z-index: 20;
+    z-index: 1;
     // opacity: 0;
     // visibility: hidden;
     // pointer-events: none;
-    transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), 250ms cubic-bezier(.4, 0, .2, 1);
+    transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), transform 250ms cubic-bezier(.4, 0, .2, 1);
     background: linear-gradient(#4f2ee8 0%, #fff 130%);
     position: fixed;
     top: 0;
     left: 0;
+    position: relative;
+    padding-top: 40px;
     // transform: translateY(-100%);
 }
+
+
+.burger-menu-nav-backgimage-container {
+    background-image: url(/src/images/burger-menu-image.png);
+    background-position: bottom 248px right 0px;   
+    background-repeat: no-repeat;
+    padding: 0;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 // .is-hidden {
 //     opacity: 1;
@@ -112,20 +128,23 @@ ul {
     display: flex;
 }
 
+.burger-menu-nav-svg-sl {
+    fill: #FFFFFF; 
+    margin-left: 4px;
+}
+
 .burger-menu-btn-logout {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 24px;
-    margin-top: 447px;
-    position: relative;
-    top: -20px;
-    z-index: 1;
-    margin-left: 20px;
-    background-color: #ffffff;
-    border: 1.5px solid #111111;
-    border-radius: 18px;
     cursor: pointer;
+    background-color: #fff;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20px;
+    padding: 14px 24px;
+    display: flex;
+    position: absolute;
+    bottom: 20px;
 }
 
 .burger-menu-btn-logout-text {
@@ -137,4 +156,8 @@ ul {
     letter-spacing: -0.04em;
 
     color: #111111;
+}
+
+.burger-menu-btn-logout-svg {
+    margin-left: 4px;
 }
