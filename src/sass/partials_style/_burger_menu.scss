@@ -1,0 +1,143 @@
+
+li {
+    list-style: none; 
+}
+
+a {
+    text-decoration: none;
+}
+
+.burger-menu-signup-btn {
+    margin-bottom: 130px;
+}
+
+.burger-menu-nav-item-home {
+    margin-bottom: 15px;
+}
+
+.burger-menu-signup-btn {
+    min-width: 184px;
+    cursor: pointer;
+    background: #4f2ee8;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 13px 14px;
+    display: flex;
+}
+
+.burger-menu-signup-btn-text {
+    letter-spacing: -.04em;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28571;
+}
+
+.burger-menu-container {
+    width: 375px;
+    height: 812px;
+    z-index: 20;
+    // opacity: 0;
+    // visibility: hidden;
+    // pointer-events: none;
+    transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), 250ms cubic-bezier(.4, 0, .2, 1);
+    background: linear-gradient(#4f2ee8 0%, #fff 130%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    // transform: translateY(-100%);
+}
+
+// .is-hidden {
+//     opacity: 1;
+//     visibility: visible;
+//     pointer-events: auto;
+//     transform: translateY(0);
+// }
+
+.burger-menu-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 126px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.burger-menu-nav-ul {
+
+}
+
+.burger-menu-nav-item-home {
+    background-color: #eac645;
+    border-radius: 36px;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+}
+
+.burger-menu-nav-link-home {
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+    color: #111;
+    align-items: center;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.28;
+    display: flex;
+}
+
+.burger-menu-nav-item {
+    padding: 8px 16px;
+}
+
+.burger-menu-nav-link-sl {
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+    color: #FFFFFF; 
+    align-items: center;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.28;
+    display: flex;
+}
+
+main {
+    position: absolute;
+    z-index: 1000; 
+}
+
+.burger-menu-btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    margin-top: 447px;
+    position: relative;
+    top: -20px;
+    z-index: 1;
+    margin-left: 20px;
+    background-color: #ffffff;
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.burger-menu-btn-logout-text {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.04em;
+
+    color: #111111;
+}
