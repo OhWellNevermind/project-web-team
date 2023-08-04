@@ -1,0 +1,1 @@
+import * as categories from './js/categories.js';

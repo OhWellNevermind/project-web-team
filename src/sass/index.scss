@@ -4,8 +4,36 @@
 @import './ligth_theme';
 @import './partials_style/partial_styles';
 
+li {
+  list-style: none;
+}
+
 body {
   font-family: 'DMSans';
   color: var(--text-color);
   background-color: var(--page-bg);
+}
+
+.container {
+  width: 335px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 767px) {
+  .container {
+    width: 704px;
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+}
+
+@media screen and (min-width: 1439px) {
+  .container {
+    width: 1392px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
 }
