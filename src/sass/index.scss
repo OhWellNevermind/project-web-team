@@ -20,16 +20,14 @@ body {
 }
 
 .container {
-  width: 335px;
+  width: 375px;
   padding-right: 20px;
   padding-left: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media screen and (min-width: 767px) {
   .container {
-    width: 704px;
+    width: 768px;
     padding-right: 32px;
     padding-left: 32px;
   }
@@ -37,7 +35,7 @@ body {
 
 @media screen and (min-width: 1439px) {
   .container {
-    width: 1392px;
+    width: 1440px;
     padding-right: 24px;
     padding-left: 24px;
   }
