@@ -35,6 +35,11 @@ async function getTopBooks() {
     const topBooks = await response.json();
     booksTitleEl.textContent = 'Best sellers book';
     booksWrapperEl.innerHTML = createAllBooksMarkup( topBooks );
+    const topBooksBtn = document.querySelectorAll( '.home__books-all-wrapper' );
+    topBooksBtn.forEach(item => {
+      item.addEventListener( 'click', topBooksSeeMore );
+    });
+    
   } catch ( err ) {
     console.log(err);
   } 
@@ -70,24 +75,40 @@ function createSelectCategoryMarkup( array ) {
 async function changeCategory( event ) {
   let selectedCategory = event.target.textContent;
   addActiveClass( event.target );
-  booksTitleEl.textContent = selectedCategory;
+  getSelectedCategory( selectedCategory ); 
+}
+
+async function getSelectedCategory( category ) {
+  booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
   try {
-    const response = await fetch( `${BASIC_URL}category?category=${selectedCategory}` );
-      if ( !response.ok ) {
-        throw new Error(response.statusText)
+    const response = await fetch( `${BASIC_URL}category?category=${category}` );
+    if ( !response.ok ) {
+      throw new Error( response.statusText )
     }
     const booksOfSelectegCategory = await response.json();
     booksWrapperEl.innerHTML = createSelectCategoryMarkup( booksOfSelectegCategory );
   } catch ( err ) {
-    console.log(err);
-  } 
+    console.log( err );
+  }
 }
 
-function addActiveClass(target) {
+function addActiveClass( target ) {
   currentCategoty.classList.remove( 'home__categories-item-active' );
   target.classList.add( 'home__categories-item-active' );
   currentCategoty = target;
+}
+
+function topBooksSeeMore( event ) {
+  if ( event.target.type === "button" ) {
+    let categotyName = event.currentTarget.children[0].textContent;
+    getSelectedCategory( categotyName );
+    const categoriesArray = [...categoriesListWrapper.children];
+    const target = categoriesArray.find( element => element.textContent === categotyName );
+    addActiveClass( target );
+   } else {
+    return;
+  }  
 }
 
 
