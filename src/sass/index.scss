@@ -4,6 +4,11 @@
 @import './ligth_theme';
 @import './partials_style/partial_styles';
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
