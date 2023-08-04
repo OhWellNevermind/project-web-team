@@ -38,13 +38,13 @@ a {
 }
 
 .burger-menu-container {
-    width: 100%;
-    height: 100%;
+    width: 375px;
+    height: 812px;
     z-index: 20;
     // opacity: 0;
     // visibility: hidden;
     // pointer-events: none;
-    transition: opacity var(--animation), transform var(--animation);
+    transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), 250ms cubic-bezier(.4, 0, .2, 1);
     background: linear-gradient(#4f2ee8 0%, #fff 130%);
     position: fixed;
     top: 0;
@@ -52,27 +52,39 @@ a {
     // transform: translateY(-100%);
 }
 
-.is-hidden {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-}
+// .is-hidden {
+//     opacity: 1;
+//     visibility: visible;
+//     pointer-events: auto;
+//     transform: translateY(0);
+// }
 
 .burger-menu-nav {
+    display: flex;
     justify-content: center;
     margin-top: 126px;
-    display: flex;
 }
 
-.burger-menu-nav-item-home {
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.burger-menu-nav-ul {
+
+}
+
+//код для зміненого стилю  кнопки home і shopping list///
+.burger-menu-nav-item-changed {
     background-color: #eac645;
     border-radius: 36px;
     padding: 8px 16px;
     margin-bottom: 15px;
 }
 
-.burger-menu-nav-link-home {
+//код для зміненого стилю кнопки home і shopping list//
+.burger-menu-nav-link-changed {
     letter-spacing: -.04em;
     text-transform: uppercase;
     color: #111;
@@ -98,4 +110,31 @@ a {
     font-weight: 700;
     line-height: 1.28;
     display: flex;
+}
+
+.burger-menu-btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    margin-top: 447px;
+    position: relative;
+    top: -20px;
+    z-index: 1;
+    margin-left: 20px;
+    background-color: #ffffff;
+    border: 1.5px solid #111111;
+    border-radius: 18px;
+    cursor: pointer;
+}
+
+.burger-menu-btn-logout-text {
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.04em;
+
+    color: #111111;
 }
