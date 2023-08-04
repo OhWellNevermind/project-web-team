@@ -1,48 +1,59 @@
-<header class="header">
-      <div class="header-nav">
-        <nav class="container header-container">
-          <a class="header-logo" href="./index.html">
-         <span>
+<header class="container header">
+  <div class="header-nav">
+    <div class="header-container">
+      <a class="header-logo" href="./index.html">
         <svg
           class="page-logo-first"
-            lang=""
+          lang=""
           aria-label="Logo"
-           width="24"
-          height="24">
-          <use href="./images/sprite.svg#logo"></use></svg>
+          width="24"
+          height="24"
+        >
+          <use href="/src/images/sprite.svg#logo"></use>
+        </svg>
+        <svg
+          class="page-logo-last"
+          lang=""
+          aria-label="Logo text 'Book'"
+          width="78"
+          height="14"
+        >
+          <use href="./images/sprite.svg#logo-text"></use>
+        </svg>
       </a>
-      <svg class="page-logo-last"
-      lang=""
-      aria-label="Logo text 'Book'"
-      width="78"
-      height="14">
-        <use href="./images/sprite.svg#logo-text"></use></svg>
-      </span>
-      <div class="header-nav-list">
-          <a class="header-nav-link link" href="./index.html">Home</a>
-          <a class="header-nav-link link" href="">Shopping list 
-        <svg class="header-nav-link-icon" 
-        lang=""
-        aria-label="Suitcase icon"
-        width="20"
-      height="20"><use href="./images/sprite.svg#shopping-list-icon"></use></svg>
-    </a>
-       </nav>
-      <nav class="theme-sign-up">
-        <input
-          type="checkbox"
-          id="themeSwitch"
-          name="theme-switch"
-          class="theme-switch__input"
-        />
-        <label for="themeSwitch" class="theme-switch__label">
-    <span></span>
-  </label>
+      <nav class="header-nav-wrapper">
+        <ul class="page-nav-list list">
+          <li class="page-nav-item">
+            <a class="header-nav-link link" href="./index.html">Home</a>
+          </li>
+          <li class="page-nav-item">
+            <a class="header-nav-link link" href=""
+              >Shopping list
+              <svg
+                class="header-nav-link-icon"
+                lang=""
+                aria-label="Suitcase icon"
+                width="20"
+                height="20"
+              >
+                <use href="./images/sprite.svg#shopping-list-icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
       </nav>
-    <button>Sign up</button>
     </div>
-</div>
-</div>
+    <div class="right-header-part">
+      <input
+        type="checkbox"
+        id="themeSwitch"
+        name="theme-switch"
+        class="theme-switch__input"
+      />
+      <label class="theme-switch__label">
+        <span class="switcher"></span>
+      </label>
+      <button type="button">Sign up</button>
+    </div>
+  </div>
 </header>
-  </body>
-</html>
