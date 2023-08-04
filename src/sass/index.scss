@@ -4,6 +4,15 @@
 @import './ligth_theme';
 @import './partials_style/partial_styles';
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
 body {
   font-family: 'DMSans';
   color: var(--text-color);
@@ -14,6 +23,8 @@ body {
   width: 335px;
   padding-right: 20px;
   padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media screen and (min-width: 767px) {
