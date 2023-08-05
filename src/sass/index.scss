@@ -20,6 +20,10 @@ body {
   background-color: var(--page-bg);
 }
 
+img {
+  display: block;
+}
+
 .container {
   width: 375px;
   padding-right: 20px;
