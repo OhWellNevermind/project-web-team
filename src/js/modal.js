@@ -3,6 +3,7 @@
     openModalBtn: document.querySelector('[data-modal-open]'),
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
+    body: document.querySelector('body'),
   };
 
   refs.openModalBtn.addEventListener('click', toggleModal);
@@ -10,16 +11,11 @@
 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+    if (!refs.modal.classList.contains('is-hidden')) {
+      // Disable scroll
+      refs.body.style.overflow = 'hidden';
+    } else {
+      refs.body.style.overflow = 'auto';
+    }
   }
 })();
-
-/*const buttonElem = document.querySelector('.section_button');
-const modalElem = document.querySelector('.modal');
-
-modalElem.style.cssText = '
-display: flex;
-visibility: hidden;
-opacity: 0;
-transition: opacity 300ms ease-in-out;
-';
-*/

@@ -1,0 +1,116 @@
+.backdrop {
+  //   position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  background-color: #4f2ee8;
+  display: flex;
+  padding: 30px;
+}
+
+.modal {
+  position: absolute;
+  max-width: 579px;
+  width: 100%;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  border-radius: 18px;
+  border: 2px solid var(--sign-up-border-color);
+  background: var(--sign-up-bg);
+  height: 516px;
+  padding: 80px 40px 40px 40px;
+  cursor: default;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 24px;
+  right: 24px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.modal-input {
+  display: flex;
+  width: 100%;
+  padding: 20px 0 20px 40px;
+  align-items: center;
+  border-radius: 40px;
+  border: 2px solid #111;
+  background-color: transparent;
+}
+
+.modal-input::placeholder {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33; /* 133.333% */
+  letter-spacing: -0.18px;
+}
+
+.modal-form__submit {
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 40px;
+  background: #111;
+  color: var(--sign-up-btn-text-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33; /* 133.333% */
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;
+}
+
+.modal-toggle__el {
+  color: #4f2ee8;
+  font-size: 18px;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  transition: color 250ms ease-in-out;
+}
+.modal-toggle__el:hover {
+  color: #4f2ee8;
+}
+
+.modal-toggle__el--current {
+  text-decoration: underline;
+  color: #4f2ee8;
+}
+
+.modal-toggle--signIn {
+  display: none;
+}
+
+.modal-form__label {
+  position: relative;
+}
+
+.modal-form__icon {
+  position: absolute;
+  top: 18px;
+  right: 32px;
+  transform: translate(-50%, 0%);
+  fill: var(--sign-up-icon-color);
+  width: 28px;
+  height: 28px;
+}
