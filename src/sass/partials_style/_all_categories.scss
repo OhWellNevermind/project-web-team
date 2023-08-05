@@ -5,6 +5,23 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  height: 470px;
+  width: 356px;
+  overflow-y: scroll;
+}
+
+.home__categories-list::-webkit-scrollbar {
+  width: 8px;
+  height: 167px;
+}
+
+.home__categories-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.home__categories-list::-webkit-scrollbar-thumb {
+  background-color: var(--all-categories-scroll-color);
+  border-radius: 15px;
 }
 
 .home__categories-item {
@@ -12,7 +29,12 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 1.33;
-  letter-spacing: -0.36px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.home__categories-item:hover {
+  color: var(--all-categories-active);
 }
 
 .home__categories-item-active {
