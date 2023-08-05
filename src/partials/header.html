@@ -34,34 +34,40 @@
                 lang=""
                 aria-label="Suitcase icon"
                 width="20"
-                height="20"
-              >
+                height="20">
                 <use href="./images/sprite.svg#shopping-list-icon"></use>
               </svg>
             </a>
           </li>
         </ul>
       </nav>
-    </div>
-    <div class="right-header-part">
+     </div>
+     <div class="right-header-part">
       <input
         type="checkbox"
         id="themeSwitch"
         name="theme-switch"
-        class="theme-switch__input"
-      />
-      <label class="theme-switch__label">
+        class="theme-switch__input"/>
+       <label class="theme-switch__label">
         <span class="switcher"></span>
-      </label>
-      <button type="button" class="userbar-btn" id="signUp-open-btn">
+       </label>
+       <button class="btn-outline-success" data-modal-open>
         Sign up
         <svg class="userbar-btn__icon" width="20" height="20">
           <use href="./images/sprite.svg#arrow-right-login"></use>
         </svg>
-      </button>
-         </div>
-        </div>
-      </div>
+       </button>
+     </div>
     </div>
   </div>
 </header>
+<!--Modal-->
+  <div class="backdrop" data-modal>
+    <div class="modal">
+      <button class="modal-close" data-modal-close type="button"><svg class="userbar-btn__icon-close" width="28" height="28">
+        <use href="./images/sprite.svg#close-icon"></use>
+      </svg>
+    </button>
+    </div>
+  </div>
+  </div>
