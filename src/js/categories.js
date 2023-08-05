@@ -6,8 +6,9 @@ const booksWrapperEl = document.querySelector( '.js-books-wrapper' );
 const booksTitleEl = document.querySelector( '.js-books-title' );
 
 allCategoriesItem.addEventListener( 'click', getTopBooks );
+categoriesListWrapper.addEventListener('click', handleCategoryClick);
 
-let currentCategoty = allCategoriesItem;
+let currentCategory = allCategoriesItem;
 
 getAllCategories();
 getTopBooks();
@@ -20,10 +21,21 @@ async function getAllCategories() {
       }
     const countries = await response.json();
     categoriesListWrapper.insertAdjacentHTML( 'beforeend', createAllCategoriesListMarkup( countries ) );
-    categoriesListWrapper.addEventListener( 'click', changeCategory );
   } catch ( err ) {
     console.log(err);
   } 
+}
+
+function handleCategoryClick( event ) {
+  if (event.target.nodeName != 'LI') {
+    return;
+  }
+  const category = event.target.innerHTML;
+  if (category === 'All categories') {
+    getTopBooks();
+  }
+  addActiveClass(event.target);
+  getSelectedCategory(category);
 }
 
 async function getTopBooks() {
@@ -39,7 +51,6 @@ async function getTopBooks() {
     topBooksBtn.forEach(item => {
       item.addEventListener( 'click', topBooksSeeMore );
     });
-    
   } catch ( err ) {
     console.log(err);
   } 
@@ -53,7 +64,7 @@ function createAllCategoriesListMarkup( array ) {
 function createAllBooksMarkup( array ) {
   return array.map( category => 
     `<li class="home__books-all-wrapper">
-      <p class="home__books-all-categoty">${category.list_name}</p>
+      <p class="home__books-all-category">${category.list_name}</p>
       <ul class="home__books-all-items">
         ${createSelectCategoryMarkup(category.books)}
       </ul>
@@ -72,12 +83,6 @@ function createSelectCategoryMarkup( array ) {
     </li>`).join( '' );
 }
 
-async function changeCategory( event ) {
-  let selectedCategory = event.target.textContent;
-  addActiveClass( event.target );
-  getSelectedCategory( selectedCategory ); 
-}
-
 async function getSelectedCategory( category ) {
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
@@ -94,25 +99,18 @@ async function getSelectedCategory( category ) {
 }
 
 function addActiveClass( target ) {
-  currentCategoty.classList.remove( 'home__categories-item-active' );
+  currentCategory.classList.remove( 'home__categories-item-active' );
   target.classList.add( 'home__categories-item-active' );
-  currentCategoty = target;
+  currentCategory = target;
 }
 
 function topBooksSeeMore( event ) {
-  if ( event.target.type === "button" ) {
-    let categotyName = event.currentTarget.children[0].textContent;
-    getSelectedCategory( categotyName );
-    const categoriesArray = [...categoriesListWrapper.children];
-    const target = categoriesArray.find( element => element.textContent === categotyName );
-    addActiveClass( target );
-   } else {
+  if ( event.target.type != "button" ) {
     return;
-  }  
+  }
+    let categoryName = event.currentTarget.children[0].textContent;
+    getSelectedCategory( categoryName );
+    const categoriesArray = [...categoriesListWrapper.children];
+    const target = categoriesArray.find( element => element.textContent === categoryName );
+    addActiveClass( target );
 }
-
-
-
-
-
-
