@@ -1,15 +1,22 @@
 li {
-    list-style: none; 
+    list-style: none;
 }
 
 a {
     text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 .stephen {
     // height: 50px;
     // display: none;
 }
+=======
+// .stephen {
+//     height: 50px;
+//     display: none;
+// }
+>>>>>>> Stashed changes
 
 .burger-menu-nav-item-home {
     margin-bottom: 15px;
@@ -58,7 +65,11 @@ a {
 
 .burger-menu-nav-backgimage-container {
     background-image: url(/src/images/burger-menu-image.png);
+<<<<<<< Updated upstream
     background-position: bottom 248px right 0px;   
+=======
+    background-position: bottom 248px right 0px;
+>>>>>>> Stashed changes
     background-repeat: no-repeat;
     padding: 0;
     background-size: contain;
@@ -87,10 +98,12 @@ ul {
     list-style: none;
 }
 
-.burger-menu-nav-ul {
 
+<<<<<<< Updated upstream
 }
 
+=======
+>>>>>>> Stashed changes
 //код для зміненого стилю  кнопки home і shopping list///
 .burger-menu-nav-item-changed {
     background-color: #eac645;
@@ -119,7 +132,7 @@ ul {
 .burger-menu-nav-link-sl {
     letter-spacing: -.04em;
     text-transform: uppercase;
-    color: #FFFFFF; 
+    color: #FFFFFF;
     align-items: center;
     font-family: inherit;
     font-size: 14px;
@@ -129,7 +142,11 @@ ul {
 }
 
 .burger-menu-nav-svg-sl {
+<<<<<<< Updated upstream
     fill: #FFFFFF; 
+=======
+    fill: #FFFFFF;
+>>>>>>> Stashed changes
     margin-left: 4px;
 }
 
