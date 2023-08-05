@@ -1,0 +1,143 @@
+.backdrop-pop {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%; 
+height: 100%; 
+z-index: 100;  
+background-color: rgba(17, 17, 17, 0.40);
+transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-pop-up {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 335px;
+border-radius: 18px;
+border: 2px solid var(--pop-up-border-color);
+background-color: var(--pop-up-bg-color);
+padding-top: 40px;
+padding-left: 24px;
+padding-right: 24px;
+padding-bottom: 40px;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+gap: 14px;
+overflow-y: auto;
+
+}
+.img-book {
+border-radius: 8px;
+width: 287px;
+height: 408px;
+}
+
+.title-book-pop-up {
+font-size: 16px;
+font-weight: 700;
+line-height: 1.125;
+letter-spacing: -0.64px;
+margin-top: 14px;
+}
+
+.author {
+    margin-top: 4px;
+    color: var(--pop-up-text-second-color);
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.16667;
+    letter-spacing: -0.48px;
+}
+.discrition-book {
+    margin-top: 18px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.28571;
+    letter-spacing: -0.56px;
+}
+
+.resource-shoping {
+display: flex;
+gap: 20px;
+align-items: center;
+align-self: flex-start;
+}
+
+.btn-add-shop-list {
+padding-top: 40px;
+border-radius: 40px;
+border: 2px solid var(--pop-up-btn-border-color);
+padding: 14px 28px;
+color: var(--pop-up-text-color);
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 1.28571;
+letter-spacing: -0.14px;
+text-transform: uppercase;
+width: 211px;
+background-color: transparent;
+margin-top: 40px;
+cursor: pointer;
+}
+
+
+.wraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-shop-icon {
+filter: grayscale(100%);
+}
+.amazon-icon {
+ width: 62px;
+ height: 19px;
+ fill:var(--pop-up-amazon-icon-color);
+}
+
+.bth-remove {
+width: 279px;
+padding: 14px 23px;
+margin-top: 40px;
+display: none;
+}
+
+.msg-add-shoplist {
+color: var(--pop-up-msg-color);
+text-align: center;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: 1.2;
+letter-spacing: -0.4px;
+width: 242px;
+margin-top: 8px;
+display: none;
+}
+
+.close-btn-modal {
+position: absolute;
+top: 12px;
+right: 12px;
+width: 24px;
+height: 24px;
+padding: 0;
+border: none;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: transparent;
+}
+
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
