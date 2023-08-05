@@ -217,7 +217,50 @@ span::after {
   }
 }
 
-.modal {
+.backdrop {
   position: fixed;
   inset: 0;
+  background-color: #4f2ee8;
+  display: flex;
+  cursor: pointer;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.modal {
+  position: relative;
+  border-radius: 18px;
+  border: 2px solid #111;
+  background: #f6f6f6;
+  width: 579px;
+  height: 516px;
+  padding: 30px;
+  cursor: default;
+}
+
+.modal-close {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  cursor: pointer;
+  top: 24px;
+  right: 24px;
+}
+
+.modal-input {
+  display: flex;
+  width: 499px;
+  padding: 20px 173px 20px 40px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 40px;
+  border: 2px solid #111;
+  color: #111;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
 }
