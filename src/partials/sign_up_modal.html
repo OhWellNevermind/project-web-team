@@ -1,0 +1,57 @@
+<div class="is-hidden backdrop" data-modal>
+  <div class="modal">
+    <button class="modal-close" data-modal-close type="button">
+      <svg class="userbar-btn__icon-close" width="28" height="28">
+        <use href="./images/sprite.svg#close-icon"></use>
+      </svg>
+    </button>
+    <form class="modal-form">
+      <input
+        class="modal-input"
+        type="text"
+        placeholder="NAME"
+        name="user_name"
+      />
+      <label class="modal-form__label">
+        <input
+          class="modal-input"
+          type="email"
+          placeholder="EMAIL"
+          name="user_eMAIL"
+        />
+        <svg class="modal-form__icon">
+          <use href="./images/sprite.svg#mail-icon"></use>
+        </svg>
+      </label>
+      <label class="modal-form__label">
+        <input
+          class="modal-input"
+          type="password"
+          placeholder="PASSWORD"
+          name="user_password"
+        />
+        <svg class="modal-form__icon">
+          <use href="./images/sprite.svg#lock-icon"></use>
+        </svg>
+      </label>
+      <button type="submit" class="modal-form__submit js-btn-sign-up">
+        Sign up
+      </button>
+      <button
+        style="display: none"
+        type="submit"
+        class="modal-form__submit js-btn-sign-in"
+      >
+        Sign in
+      </button>
+    </form>
+    <div class="modal-toggle">
+      <button type="button" class="modal-toggle__el modal-toggle__el--current">
+        Sign up
+      </button>
+      <button type="button" class="modal-toggle__el" id="signIn-open-btn">
+        Sign in
+      </button>
+    </div>
+  </div>
+</div>

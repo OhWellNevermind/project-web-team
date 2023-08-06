@@ -1,49 +1,38 @@
-:root[data-theme='light'] { 
-    // Global
-    --page-bg: #F6F6F6;
-    --logo-bg: #fff;
-    --text-color: #111;
-    --icons-color: #111111;
+:root[data-theme='light'] {
+  // Global
+  --page-bg: #f6f6f6;
+  --logo-bg: #fff;
+  --text-color: #111;
+  --icons-color: #111111;
 
-    // Main
-    // Header
-    --header-bg: #fff;
-    --header-border-color: #111;
-    --header-highlight: #EAC645;
-    
-    // All categories
-    --all-categories-active: #4F2EE8;
-    --all-categories-text-color: rgba(17, 17, 17, 0.60);
-    --all-categories-scroll-color: #E0E0E0;
-    
-    // Shopping list
-    --empty-message-text-color: rgba(0, 0, 0, 0.60);
-    --bg-color: #fff;
-    
-    // Pagination section
-    --pagination-bg: #111111;
-    --pagination-left-bg: #111;
-    --pagination-left-arrow: #fff;
-    --pagination-rigth-bg: #EAC645;
-    --pagination-rigth-arrow: #000;
+  // Main
+  // Header
+  --header-bg: #fff;
+  --header-border-color: #111;
+  --header-highlight: #eac645;
 
-    // Sign up modal window
-    --sign-up-btn-bg: #111;
-    --sign-up-icon-color: #111;
-    --sign-up-active-text-color: #4F2EE8;
-    --sign-up-text-color: rgba(17, 17, 17, 0.50);
-    --sign-up-border-color: #111111;
+  // All categories
+  --all-categories-active: #4f2ee8;
+  --all-categories-text-color: rgba(17, 17, 17, 0.6);
+  --all-categories-scroll-color: #e0e0e0;
 
-    // Pop-up
-    --pop-up-border-color: #111;
-    --pop-up-bg-color: #FFF;
-    --pop-up-text-second-color: #B4AFAF;
-    --pop-up-btn-border-color: #4F2EE8;
-    --pop-up-text-color:#111;
-    --pop-up-msg-color:rgba(17, 17, 17, 0.50);
-    --pop-up-amazon-icon-color: #111;
-    --pop-up-close-btn-color: #111111;
-    --pop-up-hover-color:rgba(0, 0, 0, 0.15);
+  // Sign up modal window
+  --sign-up-btn-bg: #111;
+  --sign-up-icon-color: #111;
+  --sign-up-active-text-color: #4f2ee8;
+  --sign-up-text-color: rgba(17, 17, 17, 0.5);
+  --sign-up-border-color: #111111;
+  --sign-up-btn-text-color: #f3f3f3;
+  --sign-up-bg: #f6f6f6;
+
+  // Pop-up
+  --pop-up-border-color: #111;
+  --pop-up-bg-color: #fff;
+  --pop-up-text-second-color: #b4afaf;
+  --pop-up-btn-border-color: #4f2ee8;
+  --pop-up-text-color: #111;
+  --pop-up-msg-color: rgba(17, 17, 17, 0.5);
+  --pop-up-amazon-icon-color: #111;
+  --pop-up-close-btn-color: #111111;
+  --pop-up-hover-color: rgba(0, 0, 0, 0.15);
 }
-
-

@@ -1,47 +1,49 @@
 :root[data-theme='dark'] {
-    // Page
-    --page-bg: #202024;
-    --logo-bg: #111111;
-    --text-color: #fff;
-    --icons-color: #fff;
+  // Page
+  --page-bg: #202024;
+  --logo-bg: #111111;
+  --text-color: #fff;
+  --icons-color: #fff;
 
-    // Main
-    // Header
-    --header-bg: #111;
-    --header-border-color: #FFF;
-    --header-highlight: #EAC645;
+  // Main
+  // Header
+  --header-bg: #111;
+  --header-border-color: #fff;
+  --header-highlight: #eac645;
 
-    // All categories
-    --all-categories-active: #EAC645;
-    --all-categories-text-color: rgba(255, 255, 255, 0.60);
-    --all-categories-scroll-color: rgba(17, 17, 17, 0.60);
+  // All categories
+  --all-categories-active: #eac645;
+  --all-categories-text-color: rgba(255, 255, 255, 0.6);
+  --all-categories-scroll-color: rgba(17, 17, 17, 0.6);
 
-    // Shopping list
-    --empty-message-text-color: rgba(255, 255, 255, 0.60);
-    --bg-color: #111;
+  // Shopping list
+  --empty-message-text-color: rgba(255, 255, 255, 0.6);
+  --bg-color: #111;
 
-    // Pagination section
-    --pagination-bg: #FFFFFF;
-    --pagination-left-bg: #111;
-    --pagination-left-arrow: #fff;
-    --pagination-rigth-bg: #EAC645;
-    --pagination-rigth-arrow: #000;
+  // Pagination section
+  --pagination-bg: #ffffff;
+  --pagination-left-bg: #111;
+  --pagination-left-arrow: #fff;
+  --pagination-rigth-bg: #eac645;
+  --pagination-rigth-arrow: #000;
 
-    // Modal sign up window
-    --sign-up-btn-bg: #F6F6F6;
-    --sign-up-icon-color: #F6F6F6;
-    --sign-up-active-text: #4F2EE8;
-    --sign-up-text-color: rgba(246, 246, 246, 0.50);
-    --sign-up-border-color: #F6F6F6;
+  // Modal sign up window
+  --sign-up-btn-bg: #f6f6f6;
+  --sign-up-icon-color: #f6f6f6;
+  --sign-up-active-text: #4f2ee8;
+  --sign-up-text-color: rgba(246, 246, 246, 0.5);
+  --sign-up-border-color: #f6f6f6;
+  --sign-up-btn-text-color: #202024;
+  --sign-up-bg: #202024;
 
-    // Pop-up
-        --pop-up-border-color: #FFF;
-        --pop-up-bg-color: #202024;
-        --pop-up-text-second-color: #B4AFAF;
-        --pop-up-btn-border-color: #4F2EE8;
-        --pop-up-text-color: #FFF;
-        --pop-up-msg-color: rgba(17, 17, 17, 0.50);
-        --pop-up-amazon-icon-color: #FFF;
-        --pop-up-close-btn-color: #FFF;
-        --pop-up-hover-color:rgba(255, 255, 255, 0.15)
+  // Pop-up
+  --pop-up-border-color: #fff;
+  --pop-up-bg-color: #202024;
+  --pop-up-text-second-color: #b4afaf;
+  --pop-up-btn-border-color: #4f2ee8;
+  --pop-up-text-color: #fff;
+  --pop-up-msg-color: rgba(17, 17, 17, 0.5);
+  --pop-up-amazon-icon-color: #fff;
+  --pop-up-close-btn-color: #fff;
+  --pop-up-hover-color: rgba(255, 255, 255, 0.15);
 }
