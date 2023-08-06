@@ -1,0 +1,125 @@
+.support-ukraine-container {
+  display: flex;
+  flex-direction: column;
+   width: 335px;
+   height: 352px;
+  padding: 24px 40px 20px;
+  background-color: #4f2ee8;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 46, 232, 1) 0%,
+    rgba(255, 255, 255, 1) 130% );
+  color: white;
+  border-radius: 16px;
+}
+
+.support-ukraine-div {
+  display: flex;
+  margin-bottom: 42px;
+  flex-direction: row;
+  gap: 12px;
+}
+
+
+.support-ukraine-titel {
+font-weight: 700;
+font-size: 22px;
+line-height: 32px;
+letter-spacing: -.04em;
+}
+
+.support-ukraine-icon {
+  height: 32px;
+}
+
+.support-ukraine-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 292px;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.support-ukraine-united-img {
+  width: 149px;
+}
+
+// .support-ukraine-item {
+//   display: flex;
+//   flex-direction: row;
+//   gap: 16px;
+//   text-align: center;
+//   filter: brightness(0) invert(1)
+// }
+
+// :hover.support-ukraine-item {
+//   -webkit-filter: hue-rotate(360deg);
+//   filter: hue-rotate(360deg);
+// }
+
+.support-ukraine-icons {
+  filter: brightness(0) invert(1)
+}
+
+:hover.support-ukraine-icons {
+  -webkit-filter: hue-rotate(360deg);
+  filter: hue-rotate(360deg);
+}
+
+// .support-counter {
+//   display: flex;
+//   align-items: center;
+// }
+
+.ukraine-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 0 #fff;
+  border-radius: 50%;
+   
+}
+:hover.ukraine-button{
+  fill: white;
+  background-color: #4f2ee8;
+}
+
+
+.section-button-support-ukraine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.support-ukraine-img {
+  max-width: 131px;
+  height: 32px;
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button-icon-support-ukraine {
+  transform: rotate(180deg);
+  fill: #4f2ee8;
+  width: 20px;
+  height: 20px;
+  //  background-color: white;
+  border: 0 none white;
+}
+
+@media screen and (min-width: 768px) {
+  .section-button-support-ukraine {
+    margin-top: 32px;
+  }
+}
