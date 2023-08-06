@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 
 const categoriesListWrapper = document.querySelector( '.js-categories-list' );
@@ -15,12 +17,14 @@ getTopBooks();
 async function getAllCategories() {
   try {
     const response = await fetch(`${BASIC_URL}category-list`);
-    if (!response.ok) {
+    if ( !response.ok ) {
       throw new Error(response.statusText);
     }
     const countries = await response.json();
     categoriesListWrapper.insertAdjacentHTML( 'beforeend', createAllCategoriesListMarkup( countries ) );
   } catch ( err ) {
+    console.log('error');
+    categoriesListWrapper.innerHTML = `<li class="home__categories-item">No categories</li>`
     console.log(err);
   }
 }
@@ -41,6 +45,7 @@ function handleCategoryClick( event ) {
 }
 
 async function getTopBooks() {
+  Notiflix.Loading.pulse();
   try {
     booksWrapperEl.innerHTML = '';
     booksTitleEl.textContent = 'Best sellers book';
@@ -53,8 +58,11 @@ async function getTopBooks() {
     const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
     topBooksBtn.forEach(item => {
       item.addEventListener('click', topBooksSeeMore);
-    });
+    } );
+    Notiflix.Loading.remove();
   } catch ( err ) {
+    Notiflix.Loading.remove();
+    Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
     console.log(err);
   }
 }
@@ -85,8 +93,8 @@ function createAllBooksMarkup( array ) {
 function createSelectCategoryMarkup(array) {
   return array
     .map(
-      ({ book_image, title, author }) =>
-        `<li class="home__books-item">
+      ({ book_image = 'images/no-img.jpg', title = 'No info', author = 'No info' }) =>
+      `<li class="home__books-item">
       <img class="home__books-img" src="${book_image}" alt="${title}" />
       <h3 class="home__books-title">${title}</h3>
       <p class="home__books-author">${author}</p>
@@ -96,6 +104,7 @@ function createSelectCategoryMarkup(array) {
 }
 
 async function getSelectedCategory( category ) {
+  Notiflix.Loading.pulse();
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
   try {
@@ -107,7 +116,10 @@ async function getSelectedCategory( category ) {
     booksWrapperEl.innerHTML = createSelectCategoryMarkup(
       booksOfSelectegCategory
     );
-  } catch (err) {
+    Notiflix.Loading.remove();
+  } catch ( err ) {
+    Notiflix.Loading.remove();
+    Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
     console.log(err);
   }
 }
