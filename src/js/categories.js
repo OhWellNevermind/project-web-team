@@ -75,6 +75,11 @@ async function getTopBooks() {
     }
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
+    const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
+
+    topBooksBtn.forEach(item => {
+      item.addEventListener('click', topBooksSeeMore);
+    });
     Notiflix.Loading.remove();
   } catch (err) {
     Notiflix.Loading.remove();
@@ -111,7 +116,7 @@ function createAllBooksMarkup(array) {
 function createSelectCategoryMarkup(array) {
   return array
     .map(
-      ({ book_image, title, author, _id }) =>
+      ({ book_image, title, author }) =>
         `<li class="home__books-item">
       <img class="home__books-img" src="${book_image || defoultImg}" alt="${
           title || deafultInfo
