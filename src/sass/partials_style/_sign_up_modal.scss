@@ -1,18 +1,28 @@
 .backdrop {
   //   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    189.32% 190.93% at 59.76% -23.42%,
-    #4f2ee8 18.03%,
-    #fff 100%
-  );
+  background: linear-gradient(-45deg, #ffeb3b, #74efff, #9c27b0);
+  background-size: 400% 400%;
+  animation: gradient-bg 15gs ease infinite;
   display: flex;
   padding: 30px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .modal {
