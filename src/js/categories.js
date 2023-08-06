@@ -111,7 +111,7 @@ function createAllBooksMarkup(array) {
 function createSelectCategoryMarkup(array) {
   return array
     .map(
-      ({ book_image, title, author }) =>
+      ({ book_image, title, author, _id }) =>
         `<li class="home__books-item">
       <img class="home__books-img" src="${book_image || defoultImg}" alt="${
           title || deafultInfo
@@ -182,7 +182,8 @@ async function getBookById(id) {
 
 function popUpMarkUp(book) {
   const { author, buy_links, description, book_image, title } = book;
-  const defaultInfo = 'coming soon';
+  const defaultInfo =
+    'Currently there is no description! Please come and check later;)';
   const amazonUrl = buy_links[0].url;
   const appleUrl = buy_links[1].url;
   const bookShopUrl = buy_links[2].url;
