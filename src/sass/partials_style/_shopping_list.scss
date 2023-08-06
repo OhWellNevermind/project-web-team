@@ -6,14 +6,14 @@
     margin-top: 40px;
 }
 
+svg {
+  pointer-events: none;
+}
+
 .container {
     margin-left: 0px;
 }
 
-.sl-container {
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .sl-title-color {
     color: #4F2EE8;
@@ -104,7 +104,7 @@
 .sl-list-item-container-shops-amazon-icon{
     width: 48px;
     height: 15px;
-    filter: grayscale(100%);
+    fill: var(--icons-color)
 }
 
 .sl-list-item-description {
@@ -128,7 +128,19 @@
 }
 
 .sl-list-item-container-shops {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
+}
+
+.shopping-list-container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .sl-list-item-container-shops-icon {
@@ -159,6 +171,11 @@
 // 375px
 
 @media screen and (max-width: 767px) {
+    .container {
+        width: 100vw;
+    }
+
+
     .sl-title {
         font-size: 32px;
         font-weight: 700;
@@ -166,9 +183,6 @@
         letter-spacing: -1.28px;
     }
 
-    .sl-list {
-        width: 335px;
-    }
 
     .sl-list-item-info-book {
         width: 100%;
@@ -176,7 +190,7 @@
 
     .sl-list-item {
         padding: 14px;
-        max-width: 100%;
+        width: 100%;
     }
 
     .ls-list-item-img {
@@ -204,6 +218,10 @@
         right: 14px;
     }
 
+    .support-ukraine {
+        display: none;
+    }
+
     .sl-list-item-description {
         width: 193px;
         font-size: 14px;
@@ -219,6 +237,7 @@
     }
 
     .sl-list-item-container-shops-amazon-icon{
+        fill: var(--icons-color);
         width: 32px;
         height: 11px;
     }
