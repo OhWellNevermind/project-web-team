@@ -1,4 +1,9 @@
 import Notiflix from 'notiflix';
+import defoultImg from '../images/deafult-img.jpg';
+
+Notiflix.Loading.pulse( {
+  svgColor: 'var(--all-categories-active)',
+});
 
 const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 
@@ -10,23 +15,20 @@ const booksTitleEl = document.querySelector( '.js-books-title' );
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 
 let currentCategory = allCategoriesItem;
+const deafultInfo = 'Coming soon';
 
 getAllCategories();
 getTopBooks();
 
 async function getAllCategories() {
-  Notiflix.Block.pulse('.js-categories-list');
   try {
     const response = await fetch(`${BASIC_URL}category-list`);
     if ( !response.ok ) {
-      Notiflix.Block.remove('.js-categories-list');
       throw new Error( response.statusText );
     }
     const countries = await response.json();
     categoriesListWrapper.insertAdjacentHTML( 'beforeend', createAllCategoriesListMarkup( countries ) );
-    Notiflix.Block.remove('.js-categories-list');
   } catch ( err ) {
-    Notiflix.Block.remove('.js-categories-list');
     categoriesListWrapper.innerHTML = `<h2 class="home__books-all-category">Sorry, but there is no categories</h2>`
     console.log(err);
   }
@@ -40,19 +42,20 @@ function handleCategoryClick( event ) {
   addActiveClass(event.target);
   if (category === 'All categories') {
     getTopBooks();
-    console.log(category);
   } else {
     getSelectedCategory(category);
   }
 }
 
 async function getTopBooks() {
-  Notiflix.Loading.pulse();
+  Notiflix.Loading.pulse( {
+    svgColor: 'var(--all-categories-active)',
+  });
   try {
     booksWrapperEl.innerHTML = '';
     booksTitleEl.textContent = 'Best sellers book';
     const response = await fetch(`${BASIC_URL}top-books `);
-    if (!response.ok) {
+    if ( !response.ok ) {
       throw new Error(response.statusText);
     }
     const topBooks = await response.json();
@@ -95,18 +98,20 @@ function createAllBooksMarkup( array ) {
 function createSelectCategoryMarkup(array) {
   return array
     .map(
-      ({ book_image = 'images/no-img.jpg', title = 'No info', author = 'No info' }) =>
+      ({ book_image, title, author }) =>
       `<li class="home__books-item">
-      <img class="home__books-img" src="${book_image}" alt="${title}" />
-      <h3 class="home__books-title">${title}</h3>
-      <p class="home__books-author">${author}</p>
+      <img class="home__books-img" src="${book_image || defoultImg}" alt="${title || deafultInfo}" />
+      <h3 class="home__books-title">${title || deafultInfo}</h3>
+      <p class="home__books-author">${author || deafultInfo}</p>
     </li>`
     )
     .join('');
 }
 
 async function getSelectedCategory( category ) {
-  Notiflix.Loading.pulse();
+  Notiflix.Loading.pulse( {
+    svgColor: 'var(--all-categories-active)',
+  });
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
   try {
