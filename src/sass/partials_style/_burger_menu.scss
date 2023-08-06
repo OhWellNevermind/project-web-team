@@ -6,11 +6,6 @@ a {
   text-decoration: none;
 }
 
-// .stephen {
-//     height: 50px;
-//     display: none;
-// }
-
 .burger-menu-nav-item-home {
   margin-bottom: 15px;
 }
@@ -39,21 +34,17 @@ a {
 }
 
 .burger-menu-container {
-  width: 375px;
-  height: 812px;
-  z-index: 1;
-  // opacity: 0;
-  // visibility: hidden;
-  // pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(#4f2ee8 0%, #fff 130%);
   position: fixed;
-  top: 0;
+  top: 1;
   left: 0;
-  position: relative;
   padding-top: 40px;
-  // transform: translateY(-100%);
+  transform: translateX(0vw);
 }
 
 .burger-menu-nav-backgimage-container {
@@ -85,27 +76,6 @@ ul {
   list-style: none;
 }
 
-//код для зміненого стилю  кнопки home і shopping list///
-.burger-menu-nav-item-changed {
-  background-color: #eac645;
-  border-radius: 36px;
-  padding: 8px 16px;
-  margin-bottom: 15px;
-}
-
-//код для зміненого стилю кнопки home і shopping list//
-.burger-menu-nav-link-changed {
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: #111;
-  align-items: center;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.28;
-  display: flex;
-}
-
 .burger-menu-nav-item {
   padding: 8px 16px;
 }
@@ -125,6 +95,27 @@ ul {
 .burger-menu-nav-svg-sl {
   fill: #ffffff;
   margin-left: 4px;
+}
+
+//код для зміненого стилю  кнопки home і shopping list///
+.burger-menu-nav-item-changed {
+  background-color: #eac645;
+  color: #111;
+  border-radius: 36px;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+}
+
+//код для зміненого стилю кнопки home і shopping list//
+.burger-menu-nav-link-changed {
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
 }
 
 .burger-menu-btn-logout {

@@ -109,6 +109,7 @@
 
 .header-wrapper {
   position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100vw;
@@ -163,11 +164,11 @@
   gap: 8px;
 }
 
-.header-nav-wrapper {
+.btn-outline-success {
   display: none;
 }
 
-.btn-outline-success {
+.header-nav-wrapper {
   display: none;
 }
 
@@ -183,6 +184,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .burger-menu-container {
+    display: none;
+  }
   .header-nav-link {
     display: flex;
     justify-content: center;
@@ -301,7 +305,6 @@
     align-items: center;
     justify-content: space-between;
     width: 184px;
-    display: none;
   }
 
   .header-nav-link-icon {
@@ -331,6 +334,10 @@
   .header-nav-wrapper {
     display: block;
   }
+
+  .logged-user-hidden {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -345,5 +352,9 @@
 
   .page-nav-list {
     gap: 24px;
+  }
+
+  .logged-user-hidden {
+    display: none;
   }
 }
