@@ -1,7 +1,7 @@
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
-Notiflix.Loading.pulse( {
+Notiflix.Loading.pulse({
   svgColor: 'var(--all-categories-active)',
 });
 
@@ -24,13 +24,16 @@ getTopBooks();
 async function getAllCategories() {
   try {
     const response = await fetch(`${BASIC_URL}category-list`);
-    if ( !response.ok ) {
-      throw new Error( response.statusText );
+    if (!response.ok) {
+      throw new Error(response.statusText);
     }
     const countries = await response.json();
-    categoriesListWrapper.insertAdjacentHTML( 'beforeend', createAllCategoriesListMarkup( countries ) );
-  } catch ( err ) {
-    categoriesListWrapper.innerHTML = `<h2 class="home__books-all-category">Sorry, but there is no categories</h2>`
+    categoriesListWrapper.insertAdjacentHTML(
+      'beforeend',
+      createAllCategoriesListMarkup(countries)
+    );
+  } catch (err) {
+    categoriesListWrapper.innerHTML = `<h2 class="home__books-all-category">Sorry, but there is no categories</h2>`;
     console.log(err);
   }
 }
@@ -49,25 +52,21 @@ function handleCategoryClick(event) {
 }
 
 async function getTopBooks() {
-  Notiflix.Loading.pulse( {
+  Notiflix.Loading.pulse({
     svgColor: 'var(--all-categories-active)',
   });
   try {
     booksWrapperEl.innerHTML = '';
     booksTitleEl.textContent = 'Best sellers book';
     const response = await fetch(`${BASIC_URL}top-books `);
-    if ( !response.ok ) {
+    if (!response.ok) {
       throw new Error(response.statusText);
     }
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
     const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
-    
-    topBooksBtn.forEach(item => {
-      item.addEventListener('click', topBooksSeeMore);
-    } );
     Notiflix.Loading.remove();
-  } catch ( err ) {
+  } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
     console.log(err);
@@ -103,8 +102,10 @@ function createSelectCategoryMarkup(array) {
   return array
     .map(
       ({ book_image, title, author }) =>
-      `<li class="home__books-item">
-      <img class="home__books-img" src="${book_image || defoultImg}" alt="${title || deafultInfo}" />
+        `<li class="home__books-item">
+      <img class="home__books-img" src="${book_image || defoultImg}" alt="${
+          title || deafultInfo
+        }" />
       <h3 class="home__books-title">${title || deafultInfo}</h3>
       <p class="home__books-author">${author || deafultInfo}</p>
     </li>`
@@ -112,11 +113,11 @@ function createSelectCategoryMarkup(array) {
     .join('');
 }
 
-async function getSelectedCategory( category ) {
-  Notiflix.Loading.pulse( {
+async function getSelectedCategory(category) {
+  Notiflix.Loading.pulse({
     svgColor: 'var(--all-categories-active)',
   });
-  
+
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
   try {
@@ -129,7 +130,7 @@ async function getSelectedCategory( category ) {
       booksOfSelectegCategory
     );
     Notiflix.Loading.remove();
-  } catch ( err ) {
+  } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
     console.log(err);
