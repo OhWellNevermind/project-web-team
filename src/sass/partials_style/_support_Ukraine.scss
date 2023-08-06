@@ -14,7 +14,8 @@
   background: linear-gradient(
     180deg,
     rgba(79, 46, 232, 1) 0%,
-    rgba(255, 255, 255, 1) 130% );
+    rgba(255, 255, 255, 1) 130%
+  );
   color: white;
   border-radius: 16px;
 }
@@ -26,7 +27,6 @@
   align-items: center;
   gap: 12px;
 }
-
 
 .support-ukraine-titel {
   font-size: 22px;
@@ -51,19 +51,6 @@
 .support-ukraine-united-img {
   width: 149px;
 }
-
-// .support-ukraine-item {
-//   display: flex;
-//   flex-direction: row;
-//   gap: 16px;
-//   text-align: center;
-//   filter: brightness(0) invert(1)
-// }
-
-// :hover.support-ukraine-item {
-//   -webkit-filter: hue-rotate(360deg);
-//   filter: hue-rotate(360deg);
-// }
 
 .support-ukraine-icons {
   filter: brightness(0) invert(1);
@@ -93,15 +80,13 @@
   background-color: #fff;
   border: 0 #fff;
   border-radius: 50%;
-   
 }
-:hover.ukraine-button{
+:hover.ukraine-button {
   svg {
     fill: #fff;
   }
   background-color: #4f2ee8;
 }
-
 
 .section-button-support-ukraine {
   display: flex;
@@ -115,8 +100,6 @@
   height: 32px;
 }
 
-
-
 img {
   max-width: 100%;
   height: auto;
@@ -128,7 +111,6 @@ img {
   fill: #4f2ee8;
   width: 20px;
   height: 20px;
-  //  background-color: white;
   border: 0 none white;
 }
 
@@ -143,13 +125,11 @@ img {
   }
 
   .support-ukraine-list {
-    // width: 335px;
     height: 474px;
   }
 }
-  @media screen and (min-width: 1440px) {
-    .support-ukraine-container {
-    // width: 356px;
+@media screen and (min-width: 1440px) {
+  .support-ukraine-container {
     height: 474px;
-    }
   }
+}
