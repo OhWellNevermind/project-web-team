@@ -1,8 +1,14 @@
+.continer-ukraine {
+  width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .support-ukraine-container {
   display: flex;
   flex-direction: column;
-   width: 335px;
-   height: 352px;
+  width: 335px;
+  height: 352px;
   padding: 24px 40px 20px;
   background-color: #4f2ee8;
   background: linear-gradient(
@@ -15,17 +21,18 @@
 
 .support-ukraine-div {
   display: flex;
-  margin-bottom: 42px;
+  margin-bottom: 40px;
   flex-direction: row;
+  align-items: center;
   gap: 12px;
 }
 
 
 .support-ukraine-titel {
-font-weight: 700;
-font-size: 22px;
-line-height: 32px;
-letter-spacing: -.04em;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.09; /* 109.091% */
+  letter-spacing: -0.88px;
 }
 
 .support-ukraine-icon {
@@ -36,7 +43,7 @@ letter-spacing: -.04em;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
-  height: 292px;
+  height: 186px;
   margin-bottom: 24px;
   gap: 20px;
 }
@@ -59,7 +66,11 @@ letter-spacing: -.04em;
 // }
 
 .support-ukraine-icons {
-  filter: brightness(0) invert(1)
+  filter: brightness(0) invert(1);
+  display: flex;
+  align-items: center;
+  max-width: 132px;
+  height: 32px;
 }
 
 :hover.support-ukraine-icons {
@@ -67,10 +78,11 @@ letter-spacing: -.04em;
   filter: hue-rotate(360deg);
 }
 
-// .support-counter {
-//   display: flex;
-//   align-items: center;
-// }
+.support-counter {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
 
 .ukraine-button {
   width: 32px;
@@ -84,7 +96,9 @@ letter-spacing: -.04em;
    
 }
 :hover.ukraine-button{
-  fill: white;
+  svg {
+    fill: #fff;
+  }
   background-color: #4f2ee8;
 }
 
@@ -122,4 +136,20 @@ img {
   .section-button-support-ukraine {
     margin-top: 32px;
   }
+
+  .support-ukraine-container {
+    width: 335px;
+    height: 474px;
+  }
+
+  .support-ukraine-list {
+    // width: 335px;
+    height: 474px;
+  }
 }
+  @media screen and (min-width: 1440px) {
+    .support-ukraine-container {
+    // width: 356px;
+    height: 474px;
+    }
+  }
