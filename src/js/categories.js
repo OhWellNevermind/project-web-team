@@ -19,6 +19,8 @@ categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
 let currentCategory = allCategoriesItem;
 let btnCloseModal = null;
+let btnAddShopingList = null;
+let btnRemoveShopingList = null;
 
 getAllCategories();
 getTopBooks();
@@ -164,12 +166,27 @@ function onCloseModalPop(event) {
   backdropPop.classList.add('is-hidden');
   btnCloseModal.removeEventListener('click', onCloseModalPop);
   backdropPop.removeEventListener('click', onCloseModalPop);
+  btnAddShopingList.removeEventListener('click', onAddShopingList);
+  btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
 };
 function onCloseModalPopEsc(event) {
   backdropPop.classList.add('is-hidden');
   window.removeEventListener('keydown', onCloseModalPop);
+  btnAddShopingList.removeEventListener('click', onAddShopingList);
+  btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
 };
 
+function onAddShopingList(event) {
+btnAddShopingList.classList.add('is-hidden')
+btnRemoveShopingList.classList.remove('is-hidden'); 
+
+};
+
+function onRemoveShopingList(event) {
+  btnRemoveShopingList.classList.add('is-hidden');
+  btnAddShopingList.classList.remove('is-hidden')
+  
+}
 async function getBookById(id) {
   try {
     const response = await fetch(`${BASIC_URL}${id}`);
@@ -238,19 +255,29 @@ function popUpMarkUp(book) {
       <button class="btn-add-shop-list js-add" type="button">
         add to shopping
       </button>
-      <div class="js-remove-wraper">
-      <button class="btn-add-shop-list bth-remove js-remove" type="button">
+
+      <div class="wraper-remove js-wraper-remove is-hidden">
+      <button class="btn-add-shop-list btn-remove js-remove  " type="button">
         remove from the shopping list
       </button>
-      <p class="msg-add-shoplist">
+
+      <p class="msg-add-shoplist js-remove " >
         Сongratulations! You have added the book to the shopping list. To
         delete, press the button “Remove from the shopping list”.
       </p>
+      </div>
       </div>
     </div>`;
   popUpEl.innerHTML = markUp;
   btnCloseModal = document.querySelector('.js-btn-close-modal');
   btnCloseModal.addEventListener('click', onCloseModalPop);
   window.addEventListener('keydown', onCloseModalPopEsc);
-  backdropPop.addEventListener('click', onCloseModalPop);
+  // backdropPop.addEventListener('click', onCloseModalPop);
+  btnAddShopingList = document.querySelector('.js-add');
+  btnAddShopingList.addEventListener('click', onAddShopingList);
+  console.log(btnAddShopingList);
+  btnRemoveShopingList = document.querySelector('.js-wraper-remove');
+  console.log(btnRemoveShopingList);
+  btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
+  
 }
