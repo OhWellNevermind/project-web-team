@@ -72,14 +72,14 @@
   transform: translate3d(0, -50%, 0);
 }
 
-span {
+.switcher {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 0;
   width: 100%;
 }
 
-span::after {
+.switcher::after {
   content: '';
   position: absolute;
   top: calc(100% + 11px);
@@ -103,16 +103,18 @@ span::after {
   color: turquoise;
 }
 
-.theme-switch__input:checked ~ .theme-switch__label span::after {
+.theme-switch__input:checked ~ .theme-switch__label .switcher::after {
   transform: translate(20px, 0);
 }
 
 .header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
 }
 
 .header {
-  //position: fixed;
   display: flex;
   align-items: center;
   // justify-content: space-between;
@@ -169,6 +171,17 @@ span::after {
   display: none;
 }
 
+.btn-burger {
+  border: none;
+  background-color: transparent;
+}
+
+// Logged in user
+
+.logged-user {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .header-nav-link {
     display: flex;
@@ -181,6 +194,77 @@ span::after {
     line-height: 18px; /* 128.571% */
     letter-spacing: -0.56px;
     text-transform: uppercase;
+  }
+
+  .current {
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--header-highlight);
+  }
+
+  .logged-user-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .logged-user-wrapper {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 9px;
+  }
+
+  .logged-user-arrow-down {
+    width: 23px;
+    height: 26px;
+    fill: #fff;
+  }
+
+  .logged-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 184px;
+    height: 45px;
+    background-color: #4f2ee8;
+    border-radius: 36px;
+    position: relative;
+  }
+
+  .user-name {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.44px;
+    color: #fff;
+    margin-right: 4px;
+  }
+
+  .log-out-window {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 100%;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: #fff;
+    padding: 15px 14px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .log-out-arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  .log-out-hidden {
+    display: none;
   }
 
   .header {
@@ -217,6 +301,7 @@ span::after {
     align-items: center;
     justify-content: space-between;
     width: 184px;
+    display: none;
   }
 
   .header-nav-link-icon {

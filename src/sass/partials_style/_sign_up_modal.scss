@@ -82,12 +82,16 @@
 .modal-toggle__el {
   color: #4f2ee8;
   font-size: 18px;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.33; /* 133.333% */
   letter-spacing: -0.18px;
-  text-decoration-line: underline;
+  text-decoration-line: none;
+  background-color: transparent;
+  border: none;
   text-transform: uppercase;
   transition: color 250ms ease-in-out;
+  color: rgba(17, 17, 17, 0.5);
 }
+
 .modal-toggle__el:hover {
   color: #4f2ee8;
 }
