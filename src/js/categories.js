@@ -15,22 +15,24 @@ getAllCategories();
 getTopBooks();
 
 async function getAllCategories() {
+  Notiflix.Block.pulse('.js-categories-list');
   try {
     const response = await fetch(`${BASIC_URL}category-list`);
     if ( !response.ok ) {
-      throw new Error(response.statusText);
+      Notiflix.Block.remove('.js-categories-list');
+      throw new Error( response.statusText );
     }
     const countries = await response.json();
     categoriesListWrapper.insertAdjacentHTML( 'beforeend', createAllCategoriesListMarkup( countries ) );
+    Notiflix.Block.remove('.js-categories-list');
   } catch ( err ) {
-    console.log('error');
-    categoriesListWrapper.innerHTML = `<li class="home__categories-item">No categories</li>`
+    Notiflix.Block.remove('.js-categories-list');
+    categoriesListWrapper.innerHTML = `<h2 class="home__books-all-category">Sorry, but there is no categories</h2>`
     console.log(err);
   }
 }
 
 function handleCategoryClick( event ) {
-  console.log( event );
   if (event.target.nodeName != 'LI') {
     return;
   }
