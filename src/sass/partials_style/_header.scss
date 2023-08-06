@@ -1,0 +1,360 @@
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  height: 15px;
+  width: 5px;
+  border: 1px solid #d5d5d5;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--all-categories-scroll-color);
+  border-radius: 15px;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.theme-switch__input:checked ~ main,
+.theme-switch__input:checked ~ label {
+  --text: white;
+}
+
+.theme-switch__input:checked ~ main {
+  --gradDark: hsl(198, 44%, 11%);
+  --gradLight: hsl(198, 39%, 29%);
+}
+
+.burger-menu-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Toggle switch */
+.theme-switch__input {
+  opacity: 0;
+}
+
+.theme-switch__label {
+  position: relative;
+  display: block;
+}
+
+.theme-switch__input {
+  width: 40px;
+  position: absolute;
+  z-index: 10;
+}
+
+.theme-switch__label {
+  width: 40px;
+  height: 20px;
+  border-radius: 50px;
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 200ms ease-in-out;
+}
+
+.theme-switch__label::before,
+.theme-switch__label::after {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  transform: translate3d(0, -50%, 0);
+}
+
+.switcher {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+}
+
+.switcher::after {
+  content: '';
+  position: absolute;
+  top: calc(100% + 11px);
+  left: 1px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+    1px 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(0px);
+  transition: transform 200ms, background-color 200ms;
+}
+
+/* Checked label styles */
+.theme-switch__input:checked ~ .theme-switch__label {
+  background-color: lightSlateGray;
+}
+
+.theme-switch__input:checked ~ .theme-switch__label::after {
+  color: turquoise;
+}
+
+.theme-switch__input:checked ~ .theme-switch__label .switcher::after {
+  transform: translate(20px, 0);
+}
+
+.header-wrapper {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  border: 1.5px solid var(--header-border-color);
+  border-radius: 0 0 8px 8px;
+  background-color: var(--header-bg);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s, border 0.2s;
+  padding: 24px;
+}
+
+.theme-sign-up {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.header-nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.list {
+  list-style: none;
+}
+
+.right-header-part {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+}
+
+.header-logo {
+  fill: var(--text-color);
+  height: 28px;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline-success {
+  display: none;
+}
+
+.header-nav-wrapper {
+  display: none;
+}
+
+.btn-burger {
+  border: none;
+  background-color: transparent;
+}
+
+// Logged in user
+
+.logged-user {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .burger-menu-container {
+    display: none;
+  }
+  .header-nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px; /* 128.571% */
+    letter-spacing: -0.56px;
+    text-transform: uppercase;
+  }
+
+  .current {
+    padding: 8px 16px;
+    border-radius: 36px;
+    background-color: var(--header-highlight);
+  }
+
+  .logged-user-icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .logged-user-wrapper {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 9px;
+  }
+
+  .logged-user-arrow-down {
+    width: 23px;
+    height: 26px;
+    fill: #fff;
+  }
+
+  .logged-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 184px;
+    height: 45px;
+    background-color: #4f2ee8;
+    border-radius: 36px;
+    position: relative;
+  }
+
+  .user-name {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.44px;
+    color: #fff;
+    margin-right: 4px;
+  }
+
+  .log-out-window {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 100%;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: #fff;
+    padding: 15px 14px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .log-out-arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  .log-out-hidden {
+    display: none;
+  }
+
+  .header {
+    width: 100vw;
+    padding: 22px 32px;
+    height: 72px;
+  }
+
+  .container {
+    width: 100vw;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .burger-menu-icon {
+    display: none;
+  }
+
+  .btn-outline-success {
+    display: block;
+    border-radius: 18px;
+    border: 1.5px solid #111;
+    background: #4f2ee8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.28; /* 128.571% */
+    letter-spacing: -0.56px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 184px;
+  }
+
+  .header-nav-link-icon {
+    fill: var(--icons-color);
+  }
+
+  .page-nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .page-nav-item {
+    display: flex;
+    align-items: center;
+    height: 20px;
+  }
+
+  .right-header-part {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .header-nav-wrapper {
+    display: block;
+  }
+
+  .logged-user-hidden {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    width: 1440px;
+    padding: 22px 24px;
+  }
+
+  .header-logo {
+    margin-right: 76px;
+  }
+
+  .page-nav-list {
+    gap: 24px;
+  }
+
+  .logged-user-hidden {
+    display: none;
+  }
+}

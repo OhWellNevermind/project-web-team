@@ -7,12 +7,13 @@ Notiflix.Loading.pulse( {
 
 const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 
-const categoriesListWrapper = document.querySelector( '.js-categories-list' );
-const allCategoriesItem = document.querySelector('.js-all-categories') 
-const booksWrapperEl = document.querySelector( '.js-books-wrapper' );
-const booksTitleEl = document.querySelector( '.js-books-title' );
+const categoriesListWrapper = document.querySelector('.js-categories-list');
+const allCategoriesItem = document.querySelector('.js-all-categories');
+const booksWrapperEl = document.querySelector('.js-books-wrapper');
+const booksTitleEl = document.querySelector('.js-books-title');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
+booksWrapperEl.addEventListener('click', topBooksSeeMore);
 
 let currentCategory = allCategoriesItem;
 const deafultInfo = 'Coming soon';
@@ -34,7 +35,7 @@ async function getAllCategories() {
   }
 }
 
-function handleCategoryClick( event ) {
+function handleCategoryClick(event) {
   if (event.target.nodeName != 'LI') {
     return;
   }
@@ -61,6 +62,7 @@ async function getTopBooks() {
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
     const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
+    
     topBooksBtn.forEach(item => {
       item.addEventListener('click', topBooksSeeMore);
     } );
@@ -80,9 +82,11 @@ function createAllCategoriesListMarkup(array) {
     .join('');
 }
 
-function createAllBooksMarkup( array ) {
-  return array.map( category => 
-    `<li class="home__books-all-wrapper">
+function createAllBooksMarkup(array) {
+  return array
+    .map(
+      category =>
+        `<li class="home__books-all-wrapper">
       <p class="home__books-all-category">${category.list_name}</p>
       <ul class="home__books-all-items">
         ${createSelectCategoryMarkup(category.books)}
@@ -112,6 +116,7 @@ async function getSelectedCategory( category ) {
   Notiflix.Loading.pulse( {
     svgColor: 'var(--all-categories-active)',
   });
+  
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';
   try {
@@ -131,19 +136,23 @@ async function getSelectedCategory( category ) {
   }
 }
 
-function addActiveClass( target ) {
-  currentCategory.classList.remove( 'home__categories-item-active' );
-  target.classList.add( 'home__categories-item-active' );
+function addActiveClass(target) {
+  currentCategory.classList.remove('home__categories-item-active');
+  target.classList.add('home__categories-item-active');
   currentCategory = target;
 }
 
-function topBooksSeeMore( event ) {
-  if ( event.target.type != "button" ) {
+function topBooksSeeMore(event) {
+  if (event.target.type != 'button') {
     return;
   }
-    let categoryName = event.currentTarget.children[0].textContent;
-    getSelectedCategory( categoryName );
-    const categoriesArray = [...categoriesListWrapper.children];
-    const target = categoriesArray.find( element => element.textContent === categoryName );
-    addActiveClass( target );
+  let categoryName = event.target.parentElement.querySelector(
+    '.home__books-all-category'
+  ).textContent;
+  getSelectedCategory(categoryName);
+  const categoriesArray = [...categoriesListWrapper.children];
+  const target = categoriesArray.find(
+    element => element.textContent === categoryName
+  );
+  addActiveClass(target);
 }
