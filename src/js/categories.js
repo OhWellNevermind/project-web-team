@@ -75,11 +75,6 @@ async function getTopBooks() {
     }
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
-    const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
-
-    topBooksBtn.forEach(item => {
-      item.addEventListener('click', topBooksSeeMore);
-    });
     Notiflix.Loading.remove();
   } catch (err) {
     Notiflix.Loading.remove();
