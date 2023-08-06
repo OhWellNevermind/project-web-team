@@ -5,25 +5,12 @@ const allCategoriesItem = document.querySelector('.js-all-categories')
 const booksWrapperEl = document.querySelector( '.js-books-wrapper' );
 const booksTitleEl = document.querySelector( '.js-books-title' );
 
-allCategoriesItem.addEventListener( 'click', getTopBooks );
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 
 let currentCategory = allCategoriesItem;
 
 getAllCategories();
 getTopBooks();
-
-function handleCategoryClick(event) {
-  if (event.target.nodeName != 'LI') {
-    return;
-  }
-  const category = event.target.innerHTML;
-  if (category === 'All categories') {
-    getTopBooks();
-  }
-  addActiveClass(event.target);
-  getSelectedCategory(category);
-}
 
 async function getAllCategories() {
   try {
@@ -39,25 +26,29 @@ async function getAllCategories() {
 }
 
 function handleCategoryClick( event ) {
+  console.log( event );
   if (event.target.nodeName != 'LI') {
     return;
   }
-  const category = event.target.innerHTML;
+  const category = event.target.textContent.trim();
+  addActiveClass(event.target);
   if (category === 'All categories') {
     getTopBooks();
+    console.log(category);
+  } else {
+    getSelectedCategory(category);
   }
-  addActiveClass(event.target);
-  getSelectedCategory(category);
 }
 
 async function getTopBooks() {
   try {
+    booksWrapperEl.innerHTML = '';
+    booksTitleEl.textContent = 'Best sellers book';
     const response = await fetch(`${BASIC_URL}top-books `);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
     const topBooks = await response.json();
-    booksTitleEl.textContent = 'Best sellers book';
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
     const topBooksBtn = document.querySelectorAll('.home__books-all-wrapper');
     topBooksBtn.forEach(item => {
