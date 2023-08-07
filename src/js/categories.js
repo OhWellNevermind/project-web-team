@@ -19,6 +19,7 @@ const booksTitleEl = document.querySelector('.js-books-title');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 
+
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
 booksWrapperEl.addEventListener('click', topBooksSeeMore);
@@ -28,6 +29,8 @@ const deafultInfo = 'Coming soon';
 let btnCloseModal = null;
 let btnAddShopingList = null;
 let btnRemoveShopingList = null;
+let addBtnShopList = null;
+let removeBtnShopList = null;
 
 getAllCategories();
 getTopBooks();
@@ -206,14 +209,14 @@ function popUpMarkUp(book) {
         </p>
         <ul class="resource-shoping">
           <li>
-            <a href="${amazonUrl}" class="icon-wraper">
+            <a href="${amazonUrl}" class="icon-wraper" target="_blank">
               <svg class="amazon-icon">
                 <use href="${sprite}#amazon-logo"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a href="${appleUrl}" class="icon-wraper">
+            <a href="${appleUrl}" class="icon-wraper" target="_blank">
               <img
                 class="img-shop-icon"
                 src="${appleLogo}"
@@ -222,7 +225,7 @@ function popUpMarkUp(book) {
             </a>
           </li>
           <li>
-            <a href="${bookShopUrl}" class="icon-wraper">
+            <a href="${bookShopUrl}" class="icon-wraper" target="_blank">
               <img
                 class="img-shop-icon"
                 src="${bookShopLogo}"
@@ -253,6 +256,7 @@ function popUpMarkUp(book) {
     </div>`;
   popUpEl.innerHTML = markUp;
   backdropPop.classList.remove('pop-up-is-hidden');
+  backdropPop.addEventListener('click', onCloseModalPop);
   btnCloseModal = document.querySelector('.js-btn-close-modal');
   btnAddShopingList = document.querySelector('.js-add');
   btnRemoveShopingList = document.querySelector('.js-wraper-remove');
@@ -262,12 +266,17 @@ function popUpMarkUp(book) {
   window.addEventListener('keydown', onCloseModalPopEsc, { once: true });
   btnAddShopingList.addEventListener('click', onAddShopingList);
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
+  addBtnShopList = document.querySelector('.js-add');
+  removeBtnShopList = document.querySelector('.js-remove');
+  addBtnShopList.addEventListener('click', onAddShopList);
+  removeBtnShopList.addEventListener('click', onRemoveShopList);
 }
 
 function onOpenPopUp(event) {
   if (event.target.nodeName != 'IMG') {
     return;
   }
+  document.body.style.overflow = 'hidden';
   const parentLi = event.target.parentElement;
   const bookId = parentLi.querySelector('.book-id').textContent;
   getBookById(bookId);
@@ -278,9 +287,12 @@ function onCloseModalPopEsc(event) {
   if (event.key !== 'Escape') {
     return;
   }
+  document.body.style.overflow = '';
   backdropPop.classList.add('pop-up-is-hidden');
   btnAddShopingList.removeEventListener('click', onAddShopingList);
   btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
+  addBtnShopList.removeEventListener('click', onAddShopList);
+  removeBtnShopList.removeEventListener('click', onRemoveShopList);
 }
 
 function onAddShopingList(event) {
@@ -294,10 +306,27 @@ function onRemoveShopingList(event) {
 }
 
 function onCloseModalPop(event) {
-  backdropPop.classList.add('pop-up-is-hidden');
-  window.removeEventListener('keydown', onCloseModalPop, true);
-  btnCloseModal.removeEventListener('click', onCloseModalPop);
-  backdropPop.removeEventListener('click', onCloseModalPop);
-  btnAddShopingList.removeEventListener('click', onAddShopingList);
-  btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
+  console.dir(event.target);
+  
+  if (event.target === backdropPop || event.target.nodeName === "svg" || event.target.nodeName === "use") {
+    document.body.style.overflow = '';
+    backdropPop.classList.add('pop-up-is-hidden');
+    window.removeEventListener('keydown', onCloseModalPop, true);
+    btnCloseModal.removeEventListener('click', onCloseModalPop);
+    backdropPop.removeEventListener('click', onCloseModalPop);
+    btnAddShopingList.removeEventListener('click', onAddShopingList);
+    btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
+    addBtnShopList.removeEventListener('click', onAddShopList);
+    removeBtnShopList.removeEventListener('click', onRemoveShopList);
+  }
+  
+}
+
+
+function onAddShopList(event) {
+ console.log(event); 
+}
+
+function onRemoveShopList(event) {
+
 }
