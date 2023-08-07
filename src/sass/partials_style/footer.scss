@@ -1,0 +1,66 @@
+:root theme-light {
+    --main-text-color: #000000;
+    --second-text-color: #8c8c8c;
+    --dark-text-color: #545454;
+    --white-text-color: #ffffff;
+    --main-bg-color: #ffffff;
+    --second-bg-color: #f7f7f7;
+}
+
+.footer {
+    font-style: normal; 
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    color: var(--dark-text-color);
+    background-color: var(--second-bg-color);
+    height: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 1.18;
+    }
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        display: block;text-align: center;
+    }
+}
+
+.footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer__item {
+    display: flex;
+    
+    @media screen and (min-width: 320px) {
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+    
+    @media screen and (min-width: 768px) {
+        &:not(:last-child) {
+            margin-left: 0px;
+        }
+    }
+}
+
+.footer__link {
+    text-decoration: underline;
+    color: var(--main-text-color);
+}
+
