@@ -33,6 +33,7 @@ const signUpBtn = document.querySelector('.js-btn-sign-up');
 const signInBtn = document.querySelector('.js-btn-sign-in');
 const signOutBtn = document.querySelector('.js-log-out');
 const modalBackdrop = document.querySelector('.backdrop');
+const loggedUserContainer = document.querySelector('.logged-user');
 
 authForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -73,10 +74,15 @@ async function userSignUp() {
 }
 
 async function userSignIn() {
+  const usernameInput = userName.value;
   const signInEmail = userEmail.value;
   const signInPassword = userPassword.value;
   await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-    .then(() => {
+    .then(user => {
+      console.log(getUserName(user.user), usernameInput);
+      if (getUserName(user.user) !== usernameInput) {
+        throw new Error('auth/wrong-username');
+      }
       modalBackdrop.classList.add('is-hidden');
       checkAuthState();
     })
@@ -87,6 +93,8 @@ async function userSignIn() {
         );
       } else if (error.code === 'auth/wrong-password') {
         Notiflix.Notify.failure(`Wrong password. Please try again.`);
+      } else if (error.message === 'auth/wrong-username') {
+        Notiflix.Notify.failure(`Wrong username. Please try again.`);
       } else {
         console.log(error.message);
       }
@@ -94,17 +102,14 @@ async function userSignIn() {
 }
 
 async function checkAuthState() {
-  const loggedUserContainer = document.querySelector('.logged-user');
   const headerNavWrapper = document.querySelector('.header-nav-wrapper');
   const signUpBtnHeader = document.querySelector('.btn-outline-success');
   onAuthStateChanged(auth, user => {
     if (user) {
-      const userRef = ref(database, 'users/' + user.uid);
-      onValue(userRef, snapshot => {
-        const username = snapshot.val().username;
-        loggedUserContainer.querySelector('.user-name').textContent = username;
-      });
+      const username = getUserName(user);
+      console.log(username);
       loggedUserContainer.classList.remove('logged-user-hidden');
+      loggedUserContainer.querySelector('.user-name').textContent = username;
 
       headerNavWrapper.classList.remove('logged-user-hidden');
       signUpBtnHeader.classList.add('logged-user-hidden');
@@ -121,6 +126,15 @@ async function userSignOut() {
   await signOut(auth);
 }
 
+function getUserName(user) {
+  let username;
+  const userRef = ref(database, 'users/' + user.uid);
+  onValue(userRef, snapshot => {
+    username = snapshot.val().username;
+    loggedUserContainer.querySelector('.user-name').textContent = username;
+  });
+  return username;
+}
 // async function getBooksFromDB(userId) {
 //   const dbRef = ref(database);
 //   get(child(dbRef, `${userId}`)).then(snapshot => {
@@ -130,4 +144,4 @@ async function userSignOut() {
 //   });
 // }
 
-checkAuthState();
+setTimeout(checkAuthState, 1000);

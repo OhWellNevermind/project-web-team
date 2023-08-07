@@ -1,9 +1,26 @@
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
-Notiflix.Loading.pulse({
+Notiflix.Loading.init({
+  className: 'notiflix-loading',
+  zindex: 4000,
+  backgroundColor: 'rgba(0,0,0,1)',
+  rtl: false,
+  fontFamily: 'Quicksand',
+  cssAnimation: true,
+  cssAnimationDuration: 400,
+  clickToClose: false,
+  customSvgUrl: null,
+  customSvgCode: null,
+  svgSize: '80px',
   svgColor: 'var(--all-categories-active)',
+  messageID: 'NotiflixLoadingMessage',
+  messageFontSize: '15px',
+  messageMaxLength: 34,
+  messageColor: '#dcdcdc',
 });
+
+Notiflix.Loading.pulse();
 
 const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 
@@ -52,9 +69,7 @@ function handleCategoryClick(event) {
 }
 
 async function getTopBooks() {
-  Notiflix.Loading.pulse({
-    svgColor: 'var(--all-categories-active)',
-  });
+  Notiflix.Loading.pulse();
   try {
     booksWrapperEl.innerHTML = '';
     booksTitleEl.textContent = 'Best sellers book';
@@ -114,9 +129,7 @@ function createSelectCategoryMarkup(array) {
 }
 
 async function getSelectedCategory(category) {
-  Notiflix.Loading.pulse({
-    svgColor: 'var(--all-categories-active)',
-  });
+  Notiflix.Loading.pulse();
 
   booksTitleEl.textContent = category;
   booksWrapperEl.innerHTML = '';

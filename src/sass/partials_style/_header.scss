@@ -33,6 +33,7 @@
 }
 
 .burger-menu-icon {
+  fill: var(--icons-color);
   width: 28px;
   height: 28px;
 }
@@ -161,6 +162,10 @@
   gap: 8px;
 }
 
+.log-out-text {
+  color: #111;
+}
+
 .btn-outline-success {
   display: none;
 }
@@ -284,6 +289,7 @@
   }
 
   .burger-menu-icon {
+    fill: var(--icons-color);
     display: none;
   }
 
