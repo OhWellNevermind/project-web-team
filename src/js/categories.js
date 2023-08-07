@@ -32,6 +32,7 @@ let btnRemoveShopingList = null;
 let addBtnShopList = null;
 let removeBtnShopList = null;
 let book = {};
+let bookStorage = [];
 
 getAllCategories();
 getTopBooks();
@@ -185,7 +186,7 @@ async function getBookById(id) {
 }
 
 function popUpMarkUp(book) {
-  const { author, buy_links, description, book_image, title } = book;
+  const { author, buy_links, description, book_image, title, _id } = book;
   const defaultInfo =
     'Currently there is no description! Please come and check later;)';
   const amazonUrl = buy_links[0].url;
@@ -269,9 +270,8 @@ function popUpMarkUp(book) {
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
   addBtnShopList = document.querySelector('.js-add');
   removeBtnShopList = document.querySelector('.js-remove');
-  addBtnShopList.addEventListener('click', onAddShopList);
-  removeBtnShopList.addEventListener('click', onRemoveShopList);
-
+  
+  checkLocalStorage(_id);
  
 }
 
@@ -301,16 +301,16 @@ function onCloseModalPopEsc(event) {
 function onAddShopingList(event) {
   btnAddShopingList.classList.add('pop-up-is-hidden');
   btnRemoveShopingList.classList.remove('pop-up-is-hidden');
+  addBookStorage();
 }
 
 function onRemoveShopingList(event) {
   btnRemoveShopingList.classList.add('pop-up-is-hidden');
   btnAddShopingList.classList.remove('pop-up-is-hidden');
+  removeBookStorage();
 }
 
 function onCloseModalPop(event) {
-  console.dir(event.target);
-  
   if (event.target === backdropPop || event.target.nodeName === "svg" || event.target.nodeName === "use") {
     document.body.style.overflow = '';
     backdropPop.classList.add('pop-up-is-hidden');
@@ -319,18 +319,35 @@ function onCloseModalPop(event) {
     backdropPop.removeEventListener('click', onCloseModalPop);
     btnAddShopingList.removeEventListener('click', onAddShopingList);
     btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
-    addBtnShopList.removeEventListener('click', onAddShopList);
-    removeBtnShopList.removeEventListener('click', onRemoveShopList);
+    
   }
   
 }
 
-
-function onAddShopList(event) {
-  localStorage.setItem('book-anotation', JSON.stringify(book));
+function checkLocalStorage(id) {
+  const books = localStorage.getItem('book-anotation')
+  JSON.parse(books).forEach(element => {
+    if (element._id === id) {
+      btnAddShopingList.classList.add('pop-up-is-hidden');
+      btnRemoveShopingList.classList.remove('pop-up-is-hidden');
+    }
+  }); 
+  }
   
+function addBookStorage() {
+  console.log(bookStorage);
+  bookStorage.push(book);
+  console.log(bookStorage);
+  localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
+ 
 }
-
-function onRemoveShopList(event) {
-localStorage.remove('book-anotation', JSON.stringify(book));
-}
+ 
+function removeBookStorage() {
+  const books = JSON.parse(localStorage.getItem('book-anotation'));
+  books.forEach((element, idx) => {
+    if (element._id === book._id) {
+      bookStorage.splice(idx, 1)
+      localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
+    }
+  }); 
+  }
