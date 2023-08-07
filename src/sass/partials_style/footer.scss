@@ -5,7 +5,7 @@
     --white-text-color: #ffffff;
     --main-bg-color: #ffffff;
     --second-bg-color: #f7f7f7;
-    --it-color: #fefefe 
+    --color-it: #d85f0f;
 }
 
 .footer {
@@ -56,7 +56,28 @@
     color: var(--main-text-color);
 }
 
+.footer_go:hover,
+.footer_go:focus {
+    text-transform: uppercase;
+}
+
 .footer_it {
+    color:#d85f0f;
     font-weight: 700;
-    color: ;
+}
+
+.footer_link {
+    text-decoration: underline;
+    color: var(--dark-text-color)
+}
+
+.footer_active {
+    font-weight: 700;
+
+}
+
+
+.footer_active:hover,
+.footer_active:focus {
+    text-transform: uppercase;
 }
