@@ -67,6 +67,8 @@ async function userSignUp() {
     .catch(error => {
       if (error.code === 'auth/email-already-exists') {
         Notiflix.Notify.failure(`Email address ${signUpEmail} already in use.`);
+      } else if (error.code === 'auth/email-already-in-use') {
+        Notiflix.Notify.failure(`Email address ${signUpEmail} already in use.`);
       } else {
         console.log(error.message);
       }
