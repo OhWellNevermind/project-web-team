@@ -31,6 +31,7 @@ let btnAddShopingList = null;
 let btnRemoveShopingList = null;
 let addBtnShopList = null;
 let removeBtnShopList = null;
+let book = {};
 
 getAllCategories();
 getTopBooks();
@@ -178,7 +179,7 @@ async function getBookById(id) {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    const book = await response.json();
+    book = await response.json();
     popUpMarkUp(book);
   } catch (error) {}
 }
@@ -270,6 +271,8 @@ function popUpMarkUp(book) {
   removeBtnShopList = document.querySelector('.js-remove');
   addBtnShopList.addEventListener('click', onAddShopList);
   removeBtnShopList.addEventListener('click', onRemoveShopList);
+
+ 
 }
 
 function onOpenPopUp(event) {
@@ -324,9 +327,10 @@ function onCloseModalPop(event) {
 
 
 function onAddShopList(event) {
- console.log(event); 
+  localStorage.setItem('book-anotation', JSON.stringify(book));
+  
 }
 
 function onRemoveShopList(event) {
-
+localStorage.remove('book-anotation', JSON.stringify(book));
 }
