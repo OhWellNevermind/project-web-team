@@ -75,8 +75,8 @@ function listSupport(arr) {
  <p class="support-counter">${p}</p>
        <a
           href="${url}"   
-          title="${title}">
-          target="_blank"
+          title="${title}"
+          target="_blank">
           <img
           srcset="${img}, ${img2}"
           src="${img}"

@@ -9,7 +9,7 @@ import defoultImg from '../images/deafult-img.jpg';
 Notiflix.Loading.init({
   className: 'notiflix-loading',
   zindex: 4000,
-  backgroundColor: 'rgba(0,0,0,1)',
+  backgroundColor: 'rgba(0,0,0,0.8)',
   rtl: false,
   fontFamily: 'Quicksand',
   cssAnimation: true,
@@ -35,7 +35,6 @@ const booksWrapperEl = document.querySelector('.js-books-wrapper');
 const booksTitleEl = document.querySelector('.js-books-title');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
-
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -283,9 +282,8 @@ function popUpMarkUp(book) {
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
   addBtnShopList = document.querySelector('.js-add');
   removeBtnShopList = document.querySelector('.js-remove');
-  
+
   checkLocalStorage(_id);
- 
 }
 
 function onOpenPopUp(event) {
@@ -307,8 +305,8 @@ function onCloseModalPopEsc(event) {
   backdropPop.classList.add('pop-up-is-hidden');
   btnAddShopingList.removeEventListener('click', onAddShopingList);
   btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
-  addBtnShopList.removeEventListener('click', onAddShopList);
-  removeBtnShopList.removeEventListener('click', onRemoveShopList);
+  addBtnShopList.removeEventListener('click', onAddShopingList);
+  removeBtnShopList.removeEventListener('click', onRemoveShopingList);
 }
 
 function onAddShopingList(event) {
@@ -324,7 +322,11 @@ function onRemoveShopingList(event) {
 }
 
 function onCloseModalPop(event) {
-  if (event.target === backdropPop || event.target.nodeName === "svg" || event.target.nodeName === "use") {
+  if (
+    event.target === backdropPop ||
+    event.target.nodeName === 'svg' ||
+    event.target.nodeName === 'use'
+  ) {
     document.body.style.overflow = '';
     backdropPop.classList.add('pop-up-is-hidden');
     window.removeEventListener('keydown', onCloseModalPop, true);
@@ -332,35 +334,32 @@ function onCloseModalPop(event) {
     backdropPop.removeEventListener('click', onCloseModalPop);
     btnAddShopingList.removeEventListener('click', onAddShopingList);
     btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
-    
   }
-  
 }
 
 function checkLocalStorage(id) {
-  const books = localStorage.getItem('book-anotation')
+  const books = localStorage.getItem('book-anotation');
   JSON.parse(books).forEach(element => {
     if (element._id === id) {
       btnAddShopingList.classList.add('pop-up-is-hidden');
       btnRemoveShopingList.classList.remove('pop-up-is-hidden');
     }
-  }); 
-  }
-  
+  });
+}
+
 function addBookStorage() {
   console.log(bookStorage);
   bookStorage.push(book);
   console.log(bookStorage);
   localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
- 
 }
- 
+
 function removeBookStorage() {
   const books = JSON.parse(localStorage.getItem('book-anotation'));
   books.forEach((element, idx) => {
     if (element._id === book._id) {
-      bookStorage.splice(idx, 1)
+      bookStorage.splice(idx, 1);
       localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
     }
-  }); 
-  }
+  });
+}

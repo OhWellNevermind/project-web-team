@@ -106,7 +106,7 @@ async function userSignIn() {
 async function checkAuthState() {
   const headerNavWrapper = document.querySelector('.header-nav-wrapper');
   const signUpBtnHeader = document.querySelector('.btn-outline-success');
-  onAuthStateChanged(auth, user => {
+  await onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
       console.log(username);
