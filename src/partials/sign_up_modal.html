@@ -5,16 +5,16 @@
         <use href="./images/sprite.svg#close-icon"></use>
       </svg>
     </button>
-    <form class="modal-form">
+    <form class="modal-form js-modal-form">
       <input
-        class="modal-input"
+        class="modal-input js-modal-username"
         type="text"
         placeholder="NAME"
         name="user_name"
       />
       <label class="modal-form__label">
         <input
-          class="modal-input"
+          class="modal-input js-modal-email"
           type="email"
           placeholder="EMAIL"
           name="user_eMAIL"
@@ -25,7 +25,7 @@
       </label>
       <label class="modal-form__label">
         <input
-          class="modal-input"
+          class="modal-input js-modal-password"
           type="password"
           placeholder="PASSWORD"
           name="user_password"
@@ -38,9 +38,8 @@
         Sign up
       </button>
       <button
-        style="display: none"
         type="submit"
-        class="modal-form__submit js-btn-sign-in"
+        class="modal-form__submit js-btn-sign-in hidden-submit"
       >
         Sign in
       </button>
@@ -49,9 +48,7 @@
       <button type="button" class="modal-toggle__el modal-toggle__el--current">
         Sign up
       </button>
-      <button type="button" class="modal-toggle__el" id="signIn-open-btn">
-        Sign in
-      </button>
+      <button type="button" class="modal-toggle__el">Sign in</button>
     </div>
   </div>
 </div>
