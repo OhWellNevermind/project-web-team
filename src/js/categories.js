@@ -38,6 +38,7 @@ const booksTitleEl = document.querySelector('.js-books-title');
 const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
+const btnSignIn = document.querySelector('.btn-outline-success');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -292,6 +293,9 @@ function popUpMarkUp(book) {
         delete, press the button “Remove from the shopping list”.
       </p>
       </div>
+       <button class=" btn-add-shop-list pop-up-is-hidden  js-btn-signup  " type="button">
+        Sign up
+      </button>
       </div>
     </div>`;
   popUpEl.innerHTML = markUp;
@@ -308,7 +312,8 @@ function popUpMarkUp(book) {
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
   addBtnShopList = document.querySelector('.js-add');
   removeBtnShopList = document.querySelector('.js-remove');
-
+  btnSignUp = document.querySelector('.js-btn-signup');
+  
   checkLocalStorage(_id);
 }
 
@@ -387,4 +392,11 @@ function removeBookStorage() {
       localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
     }
   });
+}
+
+function notLogOut() {
+  if (btnSignIn.textContent === "Sign up") {
+    btnAddShopingList.classList.add('pop-up-is-hidden');
+    btnSignUp.classList.remove('pop-up-is-hidden');
+  }
 }
