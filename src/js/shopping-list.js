@@ -1,6 +1,6 @@
 import sprite from '../images/sprite.svg';
 import appleLogo from '../images/apple-read-logo.png';
-import appleLogoSize from '../images/amazon-logo@2x.png';
+import appleLogoSize from '../images/apple-read-logo@2x-1.png';
 import bookShopLogo from '../images/book-shop-logo.png';
 import bookShopLogoSize from '../images/book-shop-logo@2x.png';
 import emptyPage from '../images/shopping-list-empty.png';
@@ -12,15 +12,16 @@ import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
 
 const slList = document.querySelector('.sl-list');
-document.querySelector('.sl-link').classList.add('active');
-document.querySelector('.home-link').classList.remove('active');
-slList.addEventListener('click', handleDeleteClick);
+document.querySelector('.sl-link').classList.add('current');
+document.querySelector('.home-link').classList.remove('current');
+const defaultMessage = 'Currently there is no description';
 
-const books = JSON.parse(localStorage.getItem('books'));
+const books = JSON.parse(localStorage.getItem('book-anotation'));
 renderCards();
 function renderCards() {
-  if (!books.length || !books[0]) {
-    console.log('asdasdasdas');
+  console.log(books);
+  if (!books) {
+    console.log('here');
     slList.innerHTML = `
         <div class="sl-empty-container">
             <h1 class="sl-empty-title">This page is empty, add some books and proceed to order.</h1>
@@ -32,27 +33,26 @@ function renderCards() {
   } else {
     const booksMarkUp = createShopListMarkUp(books);
     slList.innerHTML = booksMarkUp;
+    slList.addEventListener('click', handleDeleteClick);
   }
 }
 
 function handleDeleteClick(event) {
-  console.log(
-    event.target.classList.contains('sl-list-item-icon-button'),
-    event.target.classList.contains('sl-list-delete-icon')
-  );
   if (event.target.nodeName != 'BUTTON') {
     return;
   }
 
   const bookId = event.target.value;
   const parentLi = event.target.closest('.sl-list-item');
-  const newBooks = books
+  console.log(books);
+  books
     .filter(book => book._id === bookId)
     .map(book => {
+      console.log(book);
       books.splice(books.indexOf(book), 1);
     });
-  console.log(newBooks);
-  localStorage.setItem('books', JSON.stringify(newBooks));
+  console.log(books);
+  localStorage.setItem('book-anotation', JSON.stringify(books));
   renderCards();
   console.log(bookId, parentLi);
 }
@@ -62,7 +62,9 @@ function createShopListMarkUp() {
     .map(({ title, description, book_image, list_name, author, _id }) => {
       return `<li class="sl-list-item">
                     <div class="sl-list-item-info-book">
-                        <img src="${book_image}" class="ls-list-item-img" alt="">
+                        <div class="sl-img-container">
+                          <img src="${book_image}" class="ls-list-item-img" alt="">
+                        </div>
                         <div class="sl-list-item-remove-items-container">
                             <div class="sl-list-text-wrapper">
                                 <h2 class="sl-list-item-title">${title}</h2>
@@ -72,26 +74,32 @@ function createShopListMarkUp() {
                                         <use class="sl-list-delete-icon" href="${sprite}#trash-icon"></use>
                                     </svg>
                                 </button>
-                                <p class="sl-list-item-description">${description}</p>
+                                <p class="sl-list-item-description">${
+                                  description || defaultMessage
+                                }</p>
                             </div>
-                            <ul class="sl-list-item-description-container">
-                                <li class="sl-list-item-description-list-item">
-                                    <h4 class="sl-list-item-container-anthor">${author}</h4>
-                                    <div class="sl-list-item-container-shops">
-                                        <svg class="sl-list-item-container-shops-amazon-icon">
-                                            <use href="${sprite}#amazon-logo"></use>
-                                        </svg>
-                                        <picture>
-                                            <source srcset="${appleLogo} 1x, ${appleLogoSize} 2x">
-                                            <img class="sl-list-item-container-shops-icon sl-list-item-container-shop-responsive" src="${appleLogo}" alt="apple-read-store">
-                                        </picture>
-                                        <picture>
-                                            <source srcset="${bookShopLogo} 1x, ${bookShopLogoSize} 2x">
-                                            <img class="sl-list-item-container-shops-icon sl-list-item-container-shop-responsive" src="${bookShopLogo}" alt="book-store">
-                                        </picture>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="sl-list-item-description-container">
+                              <h4 class="sl-list-item-container-anthor">${author}</h4>
+                                <ul class="sl-list-item-container-shops">
+                                  <li>
+                                    <svg class="sl-list-item-container-shops-amazon-icon">
+                                        <use href="${sprite}#amazon-logo"></use>
+                                    </svg>
+                                  </li>
+                                  <li>
+                                    <picture>
+                                        <source srcset="${appleLogo} 1x, ${appleLogoSize} 2x">
+                                        <img class="sl-list-item-container-shops-icon sl-list-item-container-shop-responsive" src="${appleLogo}" alt="apple-read-store">
+                                    </picture>
+                                  </li>
+                                  <li>
+                                    <picture>
+                                        <source srcset="${bookShopLogo} 1x, ${bookShopLogoSize} 2x">
+                                        <img class="sl-list-item-container-shops-icon sl-list-item-container-shop-responsive" src="${bookShopLogo}" alt="book-store">
+                                    </picture>
+                                  </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </li>`;
