@@ -39,6 +39,7 @@ const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 const btnSignIn = document.querySelector('.btn-outline-success');
+const modalSignUp = document.querySelector('[data-modal]');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -293,11 +294,12 @@ function popUpMarkUp(book) {
         delete, press the button “Remove from the shopping list”.
       </p>
       </div>
-       <button class=" btn-add-shop-list pop-up-is-hidden  js-btn-signup  " type="button">
+      <div class="wrap-btn-sign-up pop-up-is-hidden">
+       <button class=" btn-add-shop-list  " type="button">
         Sign up
       </button>
-      </div>
-    </div>`;
+      </div> 
+      </div>`;
   popUpEl.innerHTML = markUp;
   backdropPop.classList.remove('pop-up-is-hidden');
   backdropPop.addEventListener('click', onCloseModalPop);
@@ -312,9 +314,10 @@ function popUpMarkUp(book) {
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
   addBtnShopList = document.querySelector('.js-add');
   removeBtnShopList = document.querySelector('.js-remove');
-  btnSignUp = document.querySelector('.js-btn-signup');
-  
+  btnSignUp = document.querySelector('.wrap-btn-sign-up');
+  btnSignUp.addEventListener('click', onSignUp);
   checkLocalStorage(_id);
+  notLogOut();
 }
 
 function onOpenPopUp(event) {
@@ -325,6 +328,7 @@ function onOpenPopUp(event) {
   const parentLi = event.target.parentElement;
   const bookId = parentLi.querySelector('.book-id').textContent;
   getBookById(bookId);
+
 }
 
 function onCloseModalPopEsc(event) {
@@ -395,8 +399,16 @@ function removeBookStorage() {
 }
 
 function notLogOut() {
-  if (btnSignIn.textContent === "Sign up") {
-    btnAddShopingList.classList.add('pop-up-is-hidden');
+ 
+  if (btnSignIn.textContent.trim() === "Sign up") {
+    btnAddShopingList.classList.add('logged-user-hidden');
     btnSignUp.classList.remove('pop-up-is-hidden');
+    removeBtnShopList.classList.add('logged-user-hidden');
   }
+}
+function onSignUp(event) {
+  console.log(event);
+  backdropPop.classList.add('pop-up-is-hidden');
+  modalSignUp.classList.remove('is-hidden');
+  btnSignUp.removeEventListener('click', onSignUp);
 }
