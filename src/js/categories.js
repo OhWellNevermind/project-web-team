@@ -57,7 +57,7 @@ async function getTopBooks() {
   });
   try {
     booksWrapperEl.innerHTML = '';
-    booksTitleEl.textContent = 'Best sellers book';
+    booksTitleEl.innerHTML = makeLastWordActive('Best sellers book');
     const response = await fetch(`${BASIC_URL}top-books `);
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -85,7 +85,7 @@ function createAllBooksMarkup(array) {
   return array
     .map(
       category =>
-        `<li class="home__books-all-wrapper">
+      `<li class="home__books-all-wrapper">
       <p class="home__books-all-category">${category.list_name}</p>
       <ul class="home__books-all-items">
         ${createSelectCategoryMarkup(category.books)}
@@ -102,7 +102,7 @@ function createSelectCategoryMarkup(array) {
   return array
     .map(
       ({ book_image, title, author }) =>
-        `<li class="home__books-item">
+      `<li class="home__books-item">
       <img class="home__books-img" src="${book_image || defoultImg}" alt="${
           title || deafultInfo
         }" />
@@ -118,7 +118,7 @@ async function getSelectedCategory(category) {
     svgColor: 'var(--all-categories-active)',
   });
 
-  booksTitleEl.textContent = category;
+  booksTitleEl.innerHTML = makeLastWordActive(category);
   booksWrapperEl.innerHTML = '';
   try {
     const response = await fetch(`${BASIC_URL}category?category=${category}`);
@@ -156,4 +156,13 @@ function topBooksSeeMore(event) {
     element => element.textContent === categoryName
   );
   addActiveClass(target);
+}
+
+function makeLastWordActive( string ) {
+  if ( !string ) {
+    return;
+  }
+  const words = string.split( ' ' );
+  const activeWord = words[words.length - 1];
+  return string.replace( activeWord, `<span class="js-active-word">${activeWord}</span>` );
 }

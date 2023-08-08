@@ -69,3 +69,11 @@
   display: flex;
   gap: 24px;
 }
+
+.home__books-title {
+  text-transform: capitalize;
+}
+
+.js-active-word {
+  color: var(--all-categories-active);
+}
