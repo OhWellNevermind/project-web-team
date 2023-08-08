@@ -5,7 +5,8 @@ import bookShopLogo from '/src/images/book-shop-logo.png';
 import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
-import { throttle } from 'lodash.throttle';
+
+const throttle = require('lodash.throttle');
 
 Notiflix.Loading.init({
   className: 'notiflix-loading',
