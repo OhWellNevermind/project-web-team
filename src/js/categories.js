@@ -38,9 +38,8 @@ const booksTitleEl = document.querySelector('.js-books-title');
 const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
-const btnSignIn = document.querySelector('.btn-outline-success');
+const logUser = document.querySelector('.user-name');
 const modalSignUp = document.querySelector('[data-modal]');
-
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
 booksWrapperEl.addEventListener('click', topBooksSeeMore);
@@ -399,15 +398,13 @@ function removeBookStorage() {
 }
 
 function notLogOut() {
- 
-  if (btnSignIn.textContent.trim() === "Sign up") {
+  if (!logUser.outerText.trim()) {
     btnAddShopingList.classList.add('logged-user-hidden');
     btnSignUp.classList.remove('pop-up-is-hidden');
     removeBtnShopList.classList.add('logged-user-hidden');
   }
 }
 function onSignUp(event) {
-  console.log(event);
   backdropPop.classList.add('pop-up-is-hidden');
   modalSignUp.classList.remove('is-hidden');
   btnSignUp.removeEventListener('click', onSignUp);
