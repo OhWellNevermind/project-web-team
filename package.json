@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://goitacademy.github.io/project-web-team",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/index.html",
     "build": "parcel build src/*.html --public-url /project-web-team/"
   },
   "repository": {
@@ -19,14 +19,17 @@
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1",
+    "firebase": "^10.1.0",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "posthtml-doctype": "^1.1.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4"
+    "posthtml-include": "^1.7.4",
+    "process": "^0.11.10"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }

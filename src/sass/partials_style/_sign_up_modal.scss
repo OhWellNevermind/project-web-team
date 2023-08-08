@@ -25,6 +25,10 @@
   }
 }
 
+.hidden-submit {
+  display: none;
+}
+
 .modal {
   position: absolute;
   max-width: 579px;
@@ -61,7 +65,7 @@
   padding: 20px 0 20px 40px;
   align-items: center;
   border-radius: 40px;
-  border: 2px solid #111;
+  border: 2px solid var(--sign-up-border-color);
   background-color: transparent;
 }
 
@@ -78,7 +82,7 @@
   width: 100%;
   text-align: center;
   border-radius: 40px;
-  background: #111;
+  background: var(--sign-up-btn-bg);
   color: var(--sign-up-btn-text-color);
   font-size: 18px;
   font-weight: 700;
@@ -105,7 +109,11 @@
   border: none;
   text-transform: uppercase;
   transition: color 250ms ease-in-out;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--sign-up-text-color);
+}
+
+.userbar-btn__icon-close {
+  fill: var(--sign-up-icon-color);
 }
 
 .modal-toggle__el:hover {

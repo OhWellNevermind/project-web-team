@@ -10,7 +10,7 @@
             width="24"
             height="24"
           >
-            <use href="/src/images/sprite.svg#logo"></use>
+            <use href="./images/sprite.svg#logo"></use>
           </svg>
           <svg
             class="page-logo-last"
@@ -25,14 +25,16 @@
         <nav class="header-nav-wrapper logged-user-hidden">
           <ul class="page-nav-list list">
             <li class="page-nav-item">
-              <a class="header-nav-link link current" href="./index.html"
+              <a
+                class="header-nav-link link current home-link"
+                href="./index.html"
                 >Home</a
               >
             </li>
             <li class="page-nav-item">
               <a
-                class="header-nav-link link"
-                href="/src/partials/shopping_list.html"
+                class="header-nav-link link sl-link"
+                href="/src/shopping_list.html"
                 >Shopping list
                 <svg
                   class="header-nav-link-icon"
@@ -69,11 +71,11 @@
               <use href="./images/sprite.svg#user-icon"></use>
             </svg>
           </div>
-          <span class="user-name">Stephen</span>
+          <span class="user-name"></span>
           <svg class="logged-user-arrow-down">
             <use href="./images/sprite.svg#caret-down"></use>
           </svg>
-          <div class="log-out-hidden log-out-window">
+          <div class="log-out-hidden log-out-window js-log-out">
             <span class="log-out-text">Log out</span>
             <svg class="log-out-arrow">
               <use href="./images/sprite.svg#arrow-right-login"></use>

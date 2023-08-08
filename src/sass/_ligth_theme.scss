@@ -16,17 +16,6 @@
   --all-categories-text-color: rgba(17, 17, 17, 0.6);
   --all-categories-scroll-color: #e0e0e0;
 
-  // Shopping list
-  --empty-message-text-color: rgba(0, 0, 0, 0.6);
-  --bg-color: #fff;
-
-  // Pagination section
-  --pagination-bg: #111111;
-  --pagination-left-bg: #111;
-  --pagination-left-arrow: #fff;
-  --pagination-rigth-bg: #eac645;
-  --pagination-rigth-arrow: #000;
-
   // Sign up modal window
   --sign-up-btn-bg: #111;
   --sign-up-icon-color: #111;
@@ -35,4 +24,15 @@
   --sign-up-border-color: #111111;
   --sign-up-btn-text-color: #f3f3f3;
   --sign-up-bg: #f6f6f6;
+
+  // Pop-up
+  --pop-up-border-color: #111;
+  --pop-up-bg-color: #fff;
+  --pop-up-text-second-color: #b4afaf;
+  --pop-up-btn-border-color: #4f2ee8;
+  --pop-up-text-color: #111;
+  --pop-up-msg-color: rgba(17, 17, 17, 0.5);
+  --pop-up-amazon-icon-color: #111;
+  --pop-up-close-btn-color: #111111;
+  --pop-up-hover-color: rgba(0, 0, 0, 0.15);
 }
