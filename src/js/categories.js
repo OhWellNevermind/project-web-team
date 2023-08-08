@@ -1,6 +1,8 @@
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
+const throttle = require( 'lodash.throttle' );
+
 Notiflix.Loading.pulse({
   svgColor: 'var(--all-categories-active)',
 });
@@ -10,10 +12,12 @@ const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 const categoriesListWrapper = document.querySelector('.js-categories-list');
 const allCategoriesItem = document.querySelector('.js-all-categories');
 const booksWrapperEl = document.querySelector('.js-books-wrapper');
-const booksTitleEl = document.querySelector('.js-books-title');
+const booksTitleEl = document.querySelector( '.js-books-title' );
+const scrollUpBtn = document.querySelector( '.js-scroll-up' );
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', topBooksSeeMore);
+document.addEventListener('scroll', throttle(scroll, 300));
 
 let currentCategory = allCategoriesItem;
 const deafultInfo = 'Coming soon';
@@ -166,3 +170,16 @@ function makeLastWordActive( string ) {
   const activeWord = words[words.length - 1];
   return string.replace( activeWord, `<span class="js-active-word">${activeWord}</span>` );
 }
+
+function scroll() {
+  if ( window.scrollY > 900 ) {
+    scrollUpBtn.classList.remove('js-scroll-up-hidden')
+    scrollUpBtn.addEventListener( 'click', () => {
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  } else {
+    scrollUpBtn.classList.add('js-scroll-up-hidden')
+  }
+}
+
+

@@ -77,3 +77,39 @@
 .js-active-word {
   color: var(--all-categories-active);
 }
+
+/* ******SCROLL UP******** */
+
+.js-scroll-up {
+  position: fixed;
+  opacity: 1;
+  left: 50px;
+  bottom: 50px;
+  width: 64px;
+  height: 64px;
+  color: transparent;
+  background-color: var(--all-categories-active);
+  border-radius: 50%;
+  border: 5px solid transparent;
+  transition: border-color 0.3s ease, transform 0.7s ease, opacity 0.5s;
+  cursor: pointer;
+}
+
+.js-scroll-up-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.js-scroll-up:hover {
+  border-color: var(--logo-bg);
+  transform: scale(1.2);
+}
+
+.scroll-up-arrow {
+  width: 24px;
+  height: 24px;
+  fill: var(--logo-bg);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
