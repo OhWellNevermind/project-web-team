@@ -20,8 +20,15 @@ let book = {};
 
 categoriesElements.booksWrapperEl.addEventListener('click', onOpenPopUp);
 
-function popUpMarkUp(book) {
-  const { author, buy_links, description, book_image, title, _id } = book;
+function popUpMarkUp(book = {}) {
+  const {
+    author = '',
+    buy_links = '',
+    description = '',
+    book_image = '',
+    title = '',
+    _id = '',
+  } = book;
   const defaultInfo =
     'Currently there is no description! Please come and check later;)';
   const amazonUrl = buy_links[0].url;
@@ -148,7 +155,10 @@ function onRemoveShopingList(event) {
 }
 
 function onCloseModalPop(event) {
-  if (event.target.nodeName != 'BUTTON') {
+  if (
+    event.target.nodeName != 'BUTTON' ||
+    !event.target.classList.contains('close-btn-modal-icon')
+  ) {
     return;
   }
   document.body.style.overflow = '';
