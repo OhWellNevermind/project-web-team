@@ -55,6 +55,7 @@ async function getSelectedCategory(category) {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
+    const booksOfSelectegCategory = await response.json();
     categoriesElements.booksWrapperEl.innerHTML = createSelectCategoryMarkup(
       booksOfSelectegCategory
     );

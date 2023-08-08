@@ -66,6 +66,7 @@ function topBooksSeeMore(event) {
   let categoryName = event.target.parentElement.querySelector(
     '.home__books-all-category'
   ).textContent;
+  console.log(categoryName);
   getSelectedCategory(categoryName);
   const categoriesArray = [
     ...categoriesElements.categoriesListWrapper.children,

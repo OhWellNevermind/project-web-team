@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { getDatabase, set, ref, get, child, onValue } from 'firebase/database';
 import Notiflix from 'notiflix';
+import { authElements } from './authElements';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyC21irvS_Vtx8oDn1M3olbsyDbGLdW0Zhg',
@@ -25,37 +26,19 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
-const userName = document.querySelector('.js-modal-username');
-const userEmail = document.querySelector('.js-modal-email');
-const userPassword = document.querySelector('.js-modal-password');
-const authForm = document.querySelector('.js-modal-form');
-const signUpBtn = document.querySelector('.js-btn-sign-up');
-const signInBtn = document.querySelector('.js-btn-sign-in');
-const signOutBtn = document.querySelector('.js-log-out');
-const modalBackdrop = document.querySelector('.backdrop');
-const loggedUserContainer = document.querySelector('.logged-user');
-
-authForm.addEventListener('submit', event => {
+authElements.authForm.addEventListener('submit', event => {
   event.preventDefault();
   event.currentTarget.reset();
 });
 
-signUpBtn.addEventListener('click', userSignUp);
-signInBtn.addEventListener('click', userSignIn);
-signOutBtn.addEventListener('click', userSignOut);
-
-// function writeUserData(userId, shoppingListBook) {
-//   const db = getDatabase(app);
-//   set(ref(db, userId), {
-//     userId: userId,
-//     books: shoppingListBook,
-//   });
-// }
+authElements.signUpBtn.addEventListener('click', userSignUp);
+authElements.signInBtn.addEventListener('click', userSignIn);
+authElements.signOutBtn.addEventListener('click', userSignOut);
 
 async function userSignUp() {
-  const signUpName = userName.value;
-  const signUpEmail = userEmail.value;
-  const signUpPassword = userPassword.value;
+  const signUpName = authElements.userName.value;
+  const signUpEmail = authElements.userEmail.value;
+  const signUpPassword = authElements.userPassword.value;
   await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then(userCredential => {
       const user = userCredential.user;
@@ -76,16 +59,16 @@ async function userSignUp() {
 }
 
 async function userSignIn() {
-  const usernameInput = userName.value;
-  const signInEmail = userEmail.value;
-  const signInPassword = userPassword.value;
+  const usernameInput = authElements.userName.value;
+  const signInEmail = authElements.userEmail.value;
+  const signInPassword = authElements.userPassword.value;
   await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
     .then(user => {
       console.log(getUserName(user.user), usernameInput);
       if (getUserName(user.user) !== usernameInput) {
         throw new Error('auth/wrong-username');
       }
-      modalBackdrop.classList.add('is-hidden');
+      authElements.modalBackdrop.classList.add('is-hidden');
       checkAuthState();
     })
     .catch(error => {
@@ -109,15 +92,14 @@ async function checkAuthState() {
   await onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
-      console.log(username);
-      loggedUserContainer.classList.remove('logged-user-hidden');
-      loggedUserContainer.querySelector('.user-name').textContent = username;
+      authElements.loggedUserContainer.classList.remove('logged-user-hidden');
+      authElements.loggedUserContainer.querySelector('.user-name').textContent =
+        username;
 
       headerNavWrapper.classList.remove('logged-user-hidden');
       signUpBtnHeader.classList.add('logged-user-hidden');
-      //   getBooksFromDB(user.uid);
     } else {
-      loggedUserContainer.classList.add('logged-user-hidden');
+      authElements.loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
       signUpBtnHeader.classList.remove('logged-user-hidden');
     }
@@ -133,17 +115,10 @@ function getUserName(user) {
   const userRef = ref(database, 'users/' + user.uid);
   onValue(userRef, snapshot => {
     username = snapshot.val().username;
-    loggedUserContainer.querySelector('.user-name').textContent = username;
+    authElements.loggedUserContainer.querySelector('.user-name').textContent =
+      username;
   });
   return username;
 }
-// async function getBooksFromDB(userId) {
-//   const dbRef = ref(database);
-//   get(child(dbRef, `${userId}`)).then(snapshot => {
-//     if (snapshot.exists()) {
-//       console.log(JSON.parse(snapshot.val().books));
-//     }
-//   });
-// }
 
 setTimeout(checkAuthState, 1000);
