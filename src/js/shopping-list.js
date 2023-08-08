@@ -10,8 +10,9 @@ import * as suport_ukraine from './support_Ukraine.js';
 import * as header from './header.js';
 import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
+// import Swiper from 'swiper';
 
-const slList = document.querySelector('.sl-list');
+const slList = document.querySelector('.sl-list .swiper-wrapper');
 document.querySelector('.sl-link').classList.add('current');
 document.querySelector('.home-link').classList.remove('current');
 const defaultMessage = 'Currently there is no description';
@@ -54,13 +55,23 @@ function handleDeleteClick(event) {
   console.log(books);
   localStorage.setItem('book-anotation', JSON.stringify(books));
   renderCards();
+  document.location.reload();
+  updateSwiper();
   console.log(bookId, parentLi);
 }
 
 function createShopListMarkUp() {
-  return books
-    .map(({ title, description, book_image, list_name, author, _id }) => {
-      return `<li class="sl-list-item">
+  const itemsPerSlide = 3;
+  let slides = [];
+  let currentSlide = [];
+
+  books.forEach(
+    ({ title, description, book_image, list_name, author, _id }, index) => {
+      if (index > 0 && index % itemsPerSlide === 0) {
+        slides.push(currentSlide);
+        currentSlide = [];
+      }
+      currentSlide.push(`<li class="sl-list-item">
                     <div class="sl-list-item-info-book">
                         <div class="sl-img-container">
                           <img src="${book_image}" class="ls-list-item-img" alt="">
@@ -102,7 +113,41 @@ function createShopListMarkUp() {
                             </div>
                         </div>
                     </div>
-                </li>`;
-    })
+                </li>`);
+    }
+  );
+  if (currentSlide.length > 0) {
+    slides.push(currentSlide);
+  }
+  return slides
+    .map(
+      item => `<div class="swiper-slide">
+  <ul class="sl-list">
+  ${item.join('')}</ul>
+  </div>`
+    )
     .join('');
+}
+
+let swiper;
+const className = 'pagination-page';
+function initialSwiper() {
+  swiper = new Swiper('.mySwiper', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return `<span class="${className}">${index + 1}</span>`;
+      },
+    },
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+  });
+}
+initialSwiper();
+function updateSwiper() {
+  swiper.destroy(true, true);
+  initialSwiper();
 }

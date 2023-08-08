@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./sass/index.scss" />
     <title>Document</title>
   </head>
@@ -14,10 +18,20 @@
         <h1 class="sl-title">
           Shopping <span class="sl-title-color">List</span>
         </h1>
-        <ul class="sl-list"></ul>
+        <div class="sl-list">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-nav-wrapper">
+              <!-- <div class="swiper-button-prev"></div> -->
+              <div class="swiper-pagination"></div>
+              <!-- <div class="swiper-button-next"></div> -->
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <include src="./partials/sign_up_modal.html"></include>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script type="module" src="./js/shopping-list.js"></script>
   </body>
 </html>

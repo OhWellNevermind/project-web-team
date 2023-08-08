@@ -23,6 +23,7 @@
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "posthtml-doctype": "^1.1.1",
+    "swiper": "^10.1.0",
     "throttle": "^1.0.3"
   },
   "devDependencies": {
