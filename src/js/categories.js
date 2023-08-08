@@ -298,7 +298,7 @@ function onOpenPopUp(event) {
 
 function onCloseModalPopEsc(event) {
   console.log(event);
-  if (event.key !== 'Escape') {
+  if (event.key != 'Escape') {
     return;
   }
   document.body.style.overflow = '';
@@ -322,19 +322,16 @@ function onRemoveShopingList(event) {
 }
 
 function onCloseModalPop(event) {
-  if (
-    event.target === backdropPop ||
-    event.target.nodeName === 'svg' ||
-    event.target.nodeName === 'use'
-  ) {
-    document.body.style.overflow = '';
-    backdropPop.classList.add('pop-up-is-hidden');
-    window.removeEventListener('keydown', onCloseModalPop, true);
-    btnCloseModal.removeEventListener('click', onCloseModalPop);
-    backdropPop.removeEventListener('click', onCloseModalPop);
-    btnAddShopingList.removeEventListener('click', onAddShopingList);
-    btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
+  if (event.target.nodeName != 'BUTTON') {
+    return;
   }
+  document.body.style.overflow = '';
+  backdropPop.classList.add('pop-up-is-hidden');
+  window.removeEventListener('keydown', onCloseModalPop, true);
+  btnCloseModal.removeEventListener('click', onCloseModalPop);
+  backdropPop.removeEventListener('click', onCloseModalPop);
+  btnAddShopingList.removeEventListener('click', onAddShopingList);
+  btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
 }
 
 function checkLocalStorage(id) {
