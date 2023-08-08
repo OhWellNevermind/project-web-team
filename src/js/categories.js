@@ -197,6 +197,7 @@ async function getBookById(id) {
 }
 
 function popUpMarkUp(book) {
+  console.log(book);
   const { author, buy_links, description, book_image, title, _id } = book;
   const defaultInfo =
     'Currently there is no description! Please come and check later;)';
