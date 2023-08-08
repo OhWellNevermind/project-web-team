@@ -197,7 +197,6 @@ async function getBookById(id) {
 }
 
 function popUpMarkUp(book) {
-  console.log(book);
   const { author, buy_links, description, book_image, title, _id } = book;
   const defaultInfo =
     'Currently there is no description! Please come and check later;)';
@@ -297,7 +296,6 @@ function onOpenPopUp(event) {
 }
 
 function onCloseModalPopEsc(event) {
-  console.log(event);
   if (event.key != 'Escape') {
     return;
   }
@@ -322,16 +320,21 @@ function onRemoveShopingList(event) {
 }
 
 function onCloseModalPop(event) {
-  if (event.target.nodeName != 'BUTTON') {
+  if (
+    (event.target.nodeName =
+      'BUTTON' || event.target.classList.contains('backdrop-pop ')) &&
+    !event.target.classList.contains('btn-add-shop-list')
+  ) {
+    document.body.style.overflow = '';
+    backdropPop.classList.add('pop-up-is-hidden');
+    window.removeEventListener('keydown', onCloseModalPop, true);
+    btnCloseModal.removeEventListener('click', onCloseModalPop);
+    backdropPop.removeEventListener('click', onCloseModalPop);
+    btnAddShopingList.removeEventListener('click', onAddShopingList);
+    btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
+  } else {
     return;
   }
-  document.body.style.overflow = '';
-  backdropPop.classList.add('pop-up-is-hidden');
-  window.removeEventListener('keydown', onCloseModalPop, true);
-  btnCloseModal.removeEventListener('click', onCloseModalPop);
-  backdropPop.removeEventListener('click', onCloseModalPop);
-  btnAddShopingList.removeEventListener('click', onAddShopingList);
-  btnRemoveShopingList.removeEventListener('click', onRemoveShopingList);
 }
 
 function checkLocalStorage(id) {
@@ -345,9 +348,7 @@ function checkLocalStorage(id) {
 }
 
 function addBookStorage() {
-  console.log(bookStorage);
   bookStorage.push(book);
-  console.log(bookStorage);
   localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
 }
 
