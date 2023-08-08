@@ -55,6 +55,7 @@ getTopBooks();
 async function getAllCategories() {
   try {
     const response = await fetch(`${BASIC_URL}category-list`);
+    console.log(response);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
