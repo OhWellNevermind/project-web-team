@@ -321,8 +321,8 @@ function onRemoveShopingList(event) {
 
 function onCloseModalPop(event) {
   if (
-    (event.target.nodeName =
-      'BUTTON' || event.target.classList.contains('backdrop-pop ')) &&
+    (event.target.nodeName == 'BUTTON' ||
+      event.target.classList.contains('backdrop-pop ')) &&
     !event.target.classList.contains('btn-add-shop-list')
   ) {
     document.body.style.overflow = '';
