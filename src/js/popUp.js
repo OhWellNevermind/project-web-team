@@ -20,15 +20,8 @@ let book = {};
 
 categoriesElements.booksWrapperEl.addEventListener('click', onOpenPopUp);
 
-function popUpMarkUp(book = {}) {
-  const {
-    author = '',
-    buy_links = '',
-    description = '',
-    book_image = '',
-    title = '',
-    _id = '',
-  } = book;
+function popUpMarkUp(book) {
+  const { author, buy_links, description, book_image, title, _id } = book;
   const defaultInfo =
     'Currently there is no description! Please come and check later;)';
   const amazonUrl = buy_links[0].url;
@@ -123,7 +116,6 @@ async function onOpenPopUp(event) {
   document.body.style.overflow = 'hidden';
   const parentLi = event.target.parentElement;
   const bookId = parentLi.querySelector('.book-id').textContent;
-  await getBookById(bookId);
   await getBookById(bookId).then(element => {
     book = element;
   });
@@ -172,6 +164,9 @@ function onCloseModalPop(event) {
 
 function checkLocalStorage(id) {
   const books = localStorage.getItem('book-anotation');
+  if (!books) {
+    return;
+  }
   JSON.parse(books).forEach(element => {
     if (element._id === id) {
       btnAddShopingList.classList.add('pop-up-is-hidden');
