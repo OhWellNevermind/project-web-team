@@ -6,9 +6,8 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
-const throttle = require( 'lodash.throttle' );
+const throttle = require('lodash.throttle');
 
-Notiflix.Loading.pulse({
 Notiflix.Loading.init({
   className: 'notiflix-loading',
   zindex: 4000,
@@ -35,9 +34,8 @@ const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 const categoriesListWrapper = document.querySelector('.js-categories-list');
 const allCategoriesItem = document.querySelector('.js-all-categories');
 const booksWrapperEl = document.querySelector('.js-books-wrapper');
-const booksTitleEl = document.querySelector( '.js-books-title' );
-const scrollUpBtn = document.querySelector( '.js-scroll-up' );
 const booksTitleEl = document.querySelector('.js-books-title');
+const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 
@@ -119,7 +117,7 @@ function createAllBooksMarkup(array) {
   return array
     .map(
       category =>
-      `<li class="home__books-all-wrapper">
+        `<li class="home__books-all-wrapper">
       <p class="home__books-all-category">${category.list_name}</p>
       <ul class="home__books-all-items">
         ${createSelectCategoryMarkup(category.books)}
@@ -191,23 +189,26 @@ function topBooksSeeMore(event) {
   addActiveClass(target);
 }
 
-function makeLastWordActive( string ) {
-  if ( !string ) {
+function makeLastWordActive(string) {
+  if (!string) {
     return;
   }
-  const words = string.split( ' ' );
+  const words = string.split(' ');
   const activeWord = words[words.length - 1];
-  return string.replace( activeWord, `<span class="js-active-word">${activeWord}</span>` );
+  return string.replace(
+    activeWord,
+    `<span class="js-active-word">${activeWord}</span>`
+  );
 }
 
 function scroll() {
-  if ( window.scrollY > 900 ) {
-    scrollUpBtn.classList.remove('js-scroll-up-hidden')
-    scrollUpBtn.addEventListener( 'click', () => {
-       window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (window.scrollY > 900) {
+    scrollUpBtn.classList.remove('js-scroll-up-hidden');
+    scrollUpBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   } else {
-    scrollUpBtn.classList.add('js-scroll-up-hidden')
+    scrollUpBtn.classList.add('js-scroll-up-hidden');
   }
 }
 
@@ -348,7 +349,7 @@ function onRemoveShopingList(event) {
 function onCloseModalPop(event) {
   if (
     (event.target.nodeName == 'BUTTON' ||
-      event.target.classList.contains('backdrop-pop ')) &&
+      event.target.classList.contains('backdrop-pop')) &&
     !event.target.classList.contains('btn-add-shop-list')
   ) {
     document.body.style.overflow = '';
