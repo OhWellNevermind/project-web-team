@@ -58,7 +58,7 @@
 
 .footer_go:hover,
 .footer_go:focus {
-    text-transform: uppercase;
+    color: #4f2ee8;
 }
 
 .footer_it {
@@ -73,11 +73,12 @@
 
 .footer_active {
     font-weight: 700;
+    text-transform: uppercase;
 
 }
 
 
 .footer_active:hover,
 .footer_active:focus {
-    text-transform: uppercase;
+    color: #4f2ee8;
 }
