@@ -6,6 +6,8 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
+const throttle = require('lodash.throttle');
+
 Notiflix.Loading.init({
   className: 'notiflix-loading',
   zindex: 4000,
@@ -33,12 +35,14 @@ const categoriesListWrapper = document.querySelector('.js-categories-list');
 const allCategoriesItem = document.querySelector('.js-all-categories');
 const booksWrapperEl = document.querySelector('.js-books-wrapper');
 const booksTitleEl = document.querySelector('.js-books-title');
+const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
 booksWrapperEl.addEventListener('click', topBooksSeeMore);
+document.addEventListener('scroll', throttle(scroll, 300));
 
 let currentCategory = allCategoriesItem;
 const deafultInfo = 'Coming soon';
@@ -86,7 +90,7 @@ async function getTopBooks() {
   Notiflix.Loading.pulse();
   try {
     booksWrapperEl.innerHTML = '';
-    booksTitleEl.textContent = 'Best sellers book';
+    booksTitleEl.innerHTML = makeLastWordActive('Best sellers book');
     const response = await fetch(`${BASIC_URL}top-books `);
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -145,7 +149,7 @@ function createSelectCategoryMarkup(array) {
 async function getSelectedCategory(category) {
   Notiflix.Loading.pulse();
 
-  booksTitleEl.textContent = category;
+  booksTitleEl.innerHTML = makeLastWordActive(category);
   booksWrapperEl.innerHTML = '';
   try {
     const response = await fetch(`${BASIC_URL}category?category=${category}`);
@@ -183,6 +187,29 @@ function topBooksSeeMore(event) {
     element => element.textContent === categoryName
   );
   addActiveClass(target);
+}
+
+function makeLastWordActive(string) {
+  if (!string) {
+    return;
+  }
+  const words = string.split(' ');
+  const activeWord = words[words.length - 1];
+  return string.replace(
+    activeWord,
+    `<span class="js-active-word">${activeWord}</span>`
+  );
+}
+
+function scroll() {
+  if (window.scrollY > 900) {
+    scrollUpBtn.classList.remove('js-scroll-up-hidden');
+    scrollUpBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  } else {
+    scrollUpBtn.classList.add('js-scroll-up-hidden');
+  }
 }
 
 async function getBookById(id) {
@@ -322,7 +349,7 @@ function onRemoveShopingList(event) {
 function onCloseModalPop(event) {
   if (
     (event.target.nodeName == 'BUTTON' ||
-      event.target.classList.contains('backdrop-pop ')) &&
+      event.target.classList.contains('backdrop-pop')) &&
     !event.target.classList.contains('btn-add-shop-list')
   ) {
     document.body.style.overflow = '';
