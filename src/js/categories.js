@@ -409,3 +409,4 @@ function onSignUp(event) {
   modalSignUp.classList.remove('is-hidden');
   btnSignUp.removeEventListener('click', onSignUp);
 }
+
