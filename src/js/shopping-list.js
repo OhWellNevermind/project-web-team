@@ -20,7 +20,7 @@ const books = JSON.parse(localStorage.getItem('book-anotation'));
 renderCards();
 function renderCards() {
   console.log(books);
-  if (!books) {
+  if (!books || !books.length) {
     console.log('here');
     slList.innerHTML = `
         <div class="sl-empty-container">

@@ -48,8 +48,7 @@ let btnRemoveShopingList = null;
 let addBtnShopList = null;
 let removeBtnShopList = null;
 let book = {};
-let bookStorage = JSON.parse(localStorage.getItem('book-anotation'));
-
+let bookStorage = JSON.parse(localStorage.getItem('book-anotation')) || [];
 getAllCategories();
 getTopBooks();
 
