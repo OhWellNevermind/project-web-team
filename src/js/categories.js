@@ -6,6 +6,7 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
+import { callShowCards } from './books-home';
 const throttle = require('lodash.throttle');
 
 Notiflix.Loading.init({
@@ -100,6 +101,7 @@ async function getTopBooks() {
     }
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
+    callShowCards();
     Notiflix.Loading.remove();
   } catch (err) {
     Notiflix.Loading.remove();
