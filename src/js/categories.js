@@ -38,6 +38,8 @@ const booksTitleEl = document.querySelector('.js-books-title');
 const scrollUpBtn = document.querySelector('.js-scroll-up');
 const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
+const logUser = document.querySelector('.user-name');
+const modalSignUp = document.querySelector('[data-modal]');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -47,6 +49,7 @@ document.addEventListener('scroll', throttle(scroll, 300));
 let currentCategory = allCategoriesItem;
 const deafultInfo = 'Coming soon';
 let btnCloseModal = null;
+let btnSignUp;
 let btnAddShopingList = null;
 let btnRemoveShopingList = null;
 let addBtnShopList = null;
@@ -283,17 +286,21 @@ function popUpMarkUp(book) {
       </button>
 
       <div class="wraper-remove js-wraper-remove pop-up-is-hidden">
-      <button class="btn-add-shop-list btn-remove js-remove  " type="button">
-        remove from the shopping list
-      </button>
+        <button class="btn-add-shop-list btn-remove js-remove  " type="button">
+          remove from the shopping list
+        </button>
 
-      <p class="msg-add-shoplist js-remove " >
-        Сongratulations! You have added the book to the shopping list. To
-        delete, press the button “Remove from the shopping list”.
-      </p>
+        <p class="msg-add-shoplist js-remove" >
+          Сongratulations! You have added the book to the shopping list. To
+          delete, press the button “Remove from the shopping list”.
+        </p>
       </div>
-      </div>
-    </div>`;
+      <div class="wrap-btn-sign-up pop-up-is-hidden">
+       <button class=" btn-add-shop-list  " type="button">
+        Sign up
+      </button>
+      </div> 
+      </div>`;
   popUpEl.innerHTML = markUp;
   backdropPop.classList.remove('pop-up-is-hidden');
   backdropPop.addEventListener('click', onCloseModalPop);
@@ -308,8 +315,10 @@ function popUpMarkUp(book) {
   btnRemoveShopingList.addEventListener('click', onRemoveShopingList);
   addBtnShopList = document.querySelector('.js-add');
   removeBtnShopList = document.querySelector('.js-remove');
-
+  btnSignUp = document.querySelector('.wrap-btn-sign-up');
+  btnSignUp.addEventListener('click', onSignUp);
   checkLocalStorage(_id);
+  notLogOut();
 }
 
 function onOpenPopUp(event) {
@@ -387,4 +396,18 @@ function removeBookStorage() {
       localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
     }
   });
+}
+
+function notLogOut() {
+  if (!logUser.outerText.trim()) {
+    btnAddShopingList.classList.add('logged-user-hidden');
+    btnSignUp.classList.remove('pop-up-is-hidden');
+    btnRemoveShopingList.classList.add('logged-user-hidden');
+  }
+}
+
+function onSignUp(event) {
+  backdropPop.classList.add('pop-up-is-hidden');
+  modalSignUp.classList.remove('is-hidden');
+  btnSignUp.removeEventListener('click', onSignUp);
 }
