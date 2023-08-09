@@ -42,6 +42,7 @@ svg {
 .sl-list-item-remove-items-container {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .ls-list-item-img {
@@ -55,6 +56,8 @@ svg {
 }
 
 .sl-list-item-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--text-color);
   margin-bottom: 4px;
   font-size: 16px;
@@ -62,6 +65,8 @@ svg {
   line-height: 1.12; /* 112.5% */
   letter-spacing: -0.64px;
   text-transform: uppercase;
+  white-space: nowrap;
+  width: calc(100% - 40px);
 }
 
 .sl-img-container {
@@ -96,9 +101,12 @@ svg {
 }
 
 .sl-list-item-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
+  word-wrap: break-word;
   color: var(--text-color);
-  text-overflow: ellipsis;
   font-size: 14px;
   line-height: 1.28; /* 128.571% */
   letter-spacing: -0.56px;
