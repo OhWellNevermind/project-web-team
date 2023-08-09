@@ -126,6 +126,7 @@ async function checkAuthState() {
 
 async function userSignOut() {
   await signOut(auth);
+  window.location.reload();
 }
 
 function getUserName(user) {
