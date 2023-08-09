@@ -4,14 +4,14 @@
 }
 
 .footer-team {
-    max-height: 106px;
-    padding: 40px;
+    padding: 40px 40px;
     background-color:var(--footer-team);
     display: flex;
     justify-content: space-between;
 }
 
 .logo-link {
+    height: 46px;
     color: var(--footer-text-logo);
     display: flex;
     flex-wrap: wrap;
@@ -19,13 +19,23 @@
 }
 
 .footer-btn {
+    padding: 10px 15px;
+    font-weight: 700;
+    min-width: 124px;
+    height: 46px;
     cursor: pointer;
     background-color: var(--footer-team);
     border-radius: 40px;
-    border-color: var(--footer-copyright);
+    border-color: var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .copyright {
+    padding: 16px 15px;
     max-height: 90px;
     padding: 40px;
     background-color: var(--footer-copyright);
