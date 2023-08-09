@@ -114,8 +114,6 @@ svg {
   outline: none;
 }
 
-
-
 .wraper {
   display: flex;
   flex-direction: column;
@@ -270,4 +268,8 @@ svg {
   }
 }
 @media screen and (min-width: 1440px) {
+}
+
+.logged-user-hidden {
+  display: none;
 }
