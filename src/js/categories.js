@@ -40,6 +40,7 @@ const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 const logUser = document.querySelector('.user-name');
 const modalSignUp = document.querySelector('[data-modal]');
+
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
 booksWrapperEl.addEventListener('click', topBooksSeeMore);
@@ -48,6 +49,7 @@ document.addEventListener('scroll', throttle(scroll, 300));
 let currentCategory = allCategoriesItem;
 const deafultInfo = 'Coming soon';
 let btnCloseModal = null;
+let btnSignUp;
 let btnAddShopingList = null;
 let btnRemoveShopingList = null;
 let addBtnShopList = null;
@@ -327,7 +329,6 @@ function onOpenPopUp(event) {
   const parentLi = event.target.parentElement;
   const bookId = parentLi.querySelector('.book-id').textContent;
   getBookById(bookId);
-
 }
 
 function onCloseModalPopEsc(event) {
@@ -409,4 +410,3 @@ function onSignUp(event) {
   modalSignUp.classList.remove('is-hidden');
   btnSignUp.removeEventListener('click', onSignUp);
 }
-
