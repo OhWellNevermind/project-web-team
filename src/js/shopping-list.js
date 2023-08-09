@@ -10,10 +10,18 @@ import * as suport_ukraine from './support_Ukraine.js';
 import * as header from './header.js';
 import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
+import './burgerOpen';
+import './burger__menu';
 
 const slList = document.querySelector('.sl-list');
 document.querySelector('.sl-link').classList.add('current');
 document.querySelector('.home-link').classList.remove('current');
+document
+  .querySelector('.burger-home')
+  .classList.remove('burger-menu-nav-item-changed');
+document
+  .querySelector('.burger-sl')
+  .classList.add('burger-menu-nav-item-changed');
 const defaultMessage = 'Currently there is no description';
 
 const books = JSON.parse(localStorage.getItem('book-anotation'));
