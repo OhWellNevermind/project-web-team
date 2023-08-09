@@ -117,6 +117,7 @@ async function checkAuthState() {
       signUpBtnHeader.classList.add('logged-user-hidden');
       //   getBooksFromDB(user.uid);
     } else {
+      loggedUserContainer.querySelector('.user-name').textContent = '';
       loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
       signUpBtnHeader.classList.remove('logged-user-hidden');

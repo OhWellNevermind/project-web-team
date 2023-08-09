@@ -286,14 +286,14 @@ function popUpMarkUp(book) {
       </button>
 
       <div class="wraper-remove js-wraper-remove pop-up-is-hidden">
-      <button class="btn-add-shop-list btn-remove js-remove  " type="button">
-        remove from the shopping list
-      </button>
+        <button class="btn-add-shop-list btn-remove js-remove  " type="button">
+          remove from the shopping list
+        </button>
 
-      <p class="msg-add-shoplist js-remove " >
-        Сongratulations! You have added the book to the shopping list. To
-        delete, press the button “Remove from the shopping list”.
-      </p>
+        <p class="msg-add-shoplist js-remove" >
+          Сongratulations! You have added the book to the shopping list. To
+          delete, press the button “Remove from the shopping list”.
+        </p>
       </div>
       <div class="wrap-btn-sign-up pop-up-is-hidden">
        <button class=" btn-add-shop-list  " type="button">
@@ -402,9 +402,10 @@ function notLogOut() {
   if (!logUser.outerText.trim()) {
     btnAddShopingList.classList.add('logged-user-hidden');
     btnSignUp.classList.remove('pop-up-is-hidden');
-    removeBtnShopList.classList.add('logged-user-hidden');
+    btnRemoveShopingList.classList.add('logged-user-hidden');
   }
 }
+
 function onSignUp(event) {
   backdropPop.classList.add('pop-up-is-hidden');
   modalSignUp.classList.remove('is-hidden');
