@@ -123,6 +123,7 @@ async function checkAuthState() {
         .classList.remove('logged-user-hidden');
       burgerMenuLogOut.classList.add('logged-user-hidden');
       burgerMenu.querySelector('.user').classList.add('logged-user-hidden');
+      loggedUserContainer.querySelector('.user-name').textContent = '';
       loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
       signUpBtnHeader.classList.remove('logged-user-hidden');
@@ -132,6 +133,7 @@ async function checkAuthState() {
 
 async function userSignOut() {
   await signOut(auth);
+  window.location.reload();
 }
 
 function getUserName(user) {
