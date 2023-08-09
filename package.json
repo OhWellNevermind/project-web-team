@@ -19,15 +19,18 @@
   },
   "dependencies": {
     "firebase": "^10.1.0",
+    "jquery": "^3.7.0",
     "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "posthtml-doctype": "^1.1.1",
     "swiper": "^10.1.0",
-    "throttle": "^1.0.3"
+    "throttle": "^1.0.3",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "@types/node": "^20.4.9",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",

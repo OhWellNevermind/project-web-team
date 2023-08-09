@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./sass/_shopping_list_partials.scss" />
-    <title>Document</title>
+    <title>Shopping List</title>
   </head>
   <body>
     <include src="./partials/header.html"></include>
@@ -14,20 +14,17 @@
         <h1 class="sl-title">
           Shopping <span class="sl-title-color">List</span>
         </h1>
-        <div class="sl-list">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper"></div>
-            <div class="swiper-nav-wrapper">
-              <!-- <div class="swiper-button-prev"></div> -->
-              <div class="swiper-pagination"></div>
-              <!-- <div class="swiper-button-next"></div> -->
-            </div>
-          </div>
-        </div>
+        <ul class="sl-list"></ul>
+        <div id="tui-pagination-container" class="tui-pagination"></div>
       </section>
     </main>
     <include src="./partials/sign_up_modal.html"></include>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script type="module" src="./js/shopping-list.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>
