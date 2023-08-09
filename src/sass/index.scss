@@ -5,6 +5,7 @@
 @import './partials_style/partial_styles';
 @import './partials_style/./footer.scss';
 
+
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +19,11 @@ body {
   font-family: 'DMSans', serif;
   color: var(--text-color);
   background-color: var(--page-bg);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
 }
 
 .container {
