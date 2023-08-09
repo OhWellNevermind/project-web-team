@@ -11,7 +11,7 @@ import * as header from './header.js';
 import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
 const Pagination = require('tui-pagination');
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 
 const slList = document.querySelector('.sl-list');
 document.querySelector('.sl-link').classList.add('current');
@@ -33,7 +33,7 @@ const options = {
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      '<strong class="tui-page-btn tui-is-selected tui-bullet">{{page}}</strong>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} tui-active"> ' +
       '<span class="tui-ico-{{type}} tui-ico-text">{{type}}</span>' +
@@ -147,8 +147,25 @@ function createShopListMarkUp() {
 }
 
 const container = document.querySelector('#tui-pagination-container');
-const instance = new Pagination(container, options);
-
+let instance;
+setPagesCount();
+instance = new Pagination(container, options);
 instance.on('afterMove', eventData => {
   showItemsForPage(eventData.page);
 });
+function setPagesCount() {
+  if (window.outerWidth < 320) {
+    options.visiblePages = 1;
+  } else if (window.outerWidth >= 320 && window.outerWidth < 374) {
+    options.visiblePages = 1;
+  } else if (window.outerWidth >= 375 && window.outerWidth < 767) {
+    options.visiblePages = 2;
+  } else {
+    options.visiblePages = 3;
+  }
+  if (instance) {
+    instance._options = options;
+  }
+}
+
+window.addEventListener('resize', setPagesCount);
