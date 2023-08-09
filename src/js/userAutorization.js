@@ -105,10 +105,10 @@ async function checkAuthState() {
   await onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
-      console.log(username);
       loggedUserContainer.classList.remove('logged-user-hidden');
       loggedUserContainer.querySelector('.user-name').textContent = username;
-      burgerUserName.textContent = username;
+      console.log(username);
+      burgerMenu.querySelector('.burger-user-name').textContent = username;
       burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
       burgerMenuLogOut.classList.remove('logged-user-hidden');
 
@@ -153,3 +153,4 @@ function getUserName(user) {
 // }
 
 setTimeout(checkAuthState, 1000);
+export { checkAuthState };

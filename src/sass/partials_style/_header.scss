@@ -174,9 +174,14 @@
   display: none;
 }
 
-.btn-burger {
+.btn-burger,
+.btn-close-burger {
   border: none;
   background-color: transparent;
+}
+
+.hidden-burger {
+  display: none;
 }
 
 // Logged in user
