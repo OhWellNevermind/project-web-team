@@ -6,6 +6,7 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 
+import { callShowCards } from './books-home';
 const throttle = require('lodash.throttle');
 
 Notiflix.Loading.init({
@@ -100,6 +101,7 @@ async function getTopBooks() {
     }
     const topBooks = await response.json();
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
+    callShowCards();
     Notiflix.Loading.remove();
   } catch (err) {
     Notiflix.Loading.remove();
@@ -126,7 +128,7 @@ function createAllBooksMarkup(array) {
         ${createSelectCategoryMarkup(category.books)}
       </ul>
       <button class="home__books-all-btn" type="button">
-        See more
+      <span class="home__books-all-btn-text">See more</span>
       </button>
     </li>`
     )
@@ -141,7 +143,7 @@ function createSelectCategoryMarkup(array) {
       <img class="home__books-img" src="${book_image || defoultImg}" alt="${
           title || deafultInfo
         }" />
-      <h3 class="home__books-title">${title || deafultInfo}</h3>
+      <h3 class="home__book-title">${title || deafultInfo}</h3>
       <p class="home__books-author">${author || deafultInfo}</p>
       <p style="display:none" class="book-id">${_id}</p>
     </li>`
