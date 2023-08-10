@@ -34,6 +34,9 @@ const signInBtn = document.querySelector('.js-btn-sign-in');
 const signOutBtn = document.querySelector('.js-log-out');
 const modalBackdrop = document.querySelector('.backdrop');
 const loggedUserContainer = document.querySelector('.logged-user');
+const burgerMenu = document.querySelector('.burger-menu-container');
+const burgerMenuLogOut = burgerMenu.querySelector('.burger-menu-btn-logout');
+const burgerUserName = burgerMenu.querySelector('.burger-user-name');
 
 authForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -43,14 +46,7 @@ authForm.addEventListener('submit', event => {
 signUpBtn.addEventListener('click', userSignUp);
 signInBtn.addEventListener('click', userSignIn);
 signOutBtn.addEventListener('click', userSignOut);
-
-// function writeUserData(userId, shoppingListBook) {
-//   const db = getDatabase(app);
-//   set(ref(db, userId), {
-//     userId: userId,
-//     books: shoppingListBook,
-//   });
-// }
+burgerMenuLogOut.addEventListener('click', userSignOut);
 
 async function userSignUp() {
   const signUpName = userName.value;
@@ -81,7 +77,6 @@ async function userSignIn() {
   const signInPassword = userPassword.value;
   await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
     .then(user => {
-      console.log(getUserName(user.user), usernameInput);
       if (getUserName(user.user) !== usernameInput) {
         throw new Error('auth/wrong-username');
       }
@@ -109,14 +104,23 @@ async function checkAuthState() {
   await onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
-      console.log(username);
       loggedUserContainer.classList.remove('logged-user-hidden');
       loggedUserContainer.querySelector('.user-name').textContent = username;
+      burgerMenu.querySelector('.burger-user-name').textContent = username;
+      burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
+      burgerMenuLogOut.classList.remove('logged-user-hidden');
 
       headerNavWrapper.classList.remove('logged-user-hidden');
       signUpBtnHeader.classList.add('logged-user-hidden');
-      //   getBooksFromDB(user.uid);
+      burgerMenu
+        .querySelector('.burger-menu-signup-btn')
+        .classList.add('logged-user-hidden');
     } else {
+      burgerMenu
+        .querySelector('.burger-menu-signup-btn')
+        .classList.remove('logged-user-hidden');
+      burgerMenuLogOut.classList.add('logged-user-hidden');
+      burgerMenu.querySelector('.user').classList.add('logged-user-hidden');
       loggedUserContainer.querySelector('.user-name').textContent = '';
       loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
@@ -139,13 +143,6 @@ function getUserName(user) {
   });
   return username;
 }
-// async function getBooksFromDB(userId) {
-//   const dbRef = ref(database);
-//   get(child(dbRef, `${userId}`)).then(snapshot => {
-//     if (snapshot.exists()) {
-//       console.log(JSON.parse(snapshot.val().books));
-//     }
-//   });
-// }
 
 setTimeout(checkAuthState, 1000);
+export { checkAuthState };
