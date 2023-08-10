@@ -4,40 +4,44 @@
 }
 
 .footer-team {
-    padding: 40px 40px;
-    background-color:var(--footer-team);
+    padding: 40px 74px;
+    background-color:#D9D9D9;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .logo-link {
-    height: 46px;
-    color: var(--footer-text-logo);
+    margin-bottom: 40px;
+    // height: 46px;
+    // color: #000000;
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    // flex-wrap: wrap;
+    // gap: 20px;
 }
 
 .footer-btn {
-    padding: 10px 15px;
+    padding: 13px 27px;
+    // padding: 10px 15px;
     font-weight: 700;
-    min-width: 124px;
-    height: 46px;
+    // min-width: 124px;
+    // height: 46px;
     cursor: pointer;
-    background-color: var(--footer-team);
+    background-color: #D9D9D9;
     border-radius: 40px;
-    border-color: var(--border);
+    border-color: #4f2ee8;
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
+    // gap: 10px;
 }
 
 .footer-btn:hover,
 .footer-btn:focus {
-    background-color: var(--footer-copyright);
-    color: var(--footer-text);
+    background-color: #4f2ee8;
+    color: #FFF;
 }
 
 .heart-icon {
@@ -59,12 +63,14 @@
 
 
 .copyright {
-    padding: 16px 15px;
     padding: 40px;
-    background-color: var(--footer-copyright);
-    color: var(--footer-text);
+    background-color: #4f2ee8;
+    color: #FFF;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
 
 }
 
@@ -90,4 +96,33 @@
 
 .footer-year {
     font-weight: 700;
+}
+
+/* -----------------------MEDIA-MOBILE------------------------- */
+@media screen and (min-width: 768px) {
+    .footer-team {
+        padding: 40px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo-link {
+        align-items: center;
+        margin: 0;
+        gap: 5px;
+    }
+
+    .copyright{
+        padding: 20px 40px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    }
+
+
+/* --------------------------MEDIA-DESKTOP------------------------- */
+@media screen and (min-width: 1200px) {
+    .footer-team {
+        padding: 20px 40px;
+    }
 }
