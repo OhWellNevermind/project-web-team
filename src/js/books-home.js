@@ -4,7 +4,6 @@ window.addEventListener('resize', callShowCards);
 function callShowCards() {
   const lists = document.querySelectorAll('.home__books-all-items');
   const vw = document.documentElement.clientWidth;
-  console.log(vw);
   lists.forEach(ul => {
     const listElements = Array.from(ul.querySelectorAll('.home__books-item'));
     listElements.forEach(li => {
@@ -22,7 +21,6 @@ function callShowCards() {
 
 function showCards(number, lists) {
   const li = Array.from(lists.querySelectorAll('li'));
-  console.log(number);
   for (let i = 0; i < number; i++) {
     li[i].style.display = 'flex';
   }

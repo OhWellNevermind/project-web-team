@@ -308,15 +308,15 @@ function popUpMarkUp(book) {
       </div>`;
   popUpEl.innerHTML = markUp;
   if (!checkAuthState()) {
-    popUp.querySelector('.js-add').classList.remove('logged-user-hidden');
-    popUp
-      .querySelector('.wrap-btn-sign-up')
-      .classList.add('logged-user-hidden');
-  } else {
     popUp.querySelector('.js-add').classList.add('logged-user-hidden');
     popUp
       .querySelector('.wrap-btn-sign-up')
       .classList.remove('logged-user-hidden');
+  } else {
+    popUp.querySelector('.js-add').classList.remove('logged-user-hidden');
+    popUp
+      .querySelector('.wrap-btn-sign-up')
+      .classList.add('logged-user-hidden');
   }
   backdropPop.classList.remove('pop-up-is-hidden');
   backdropPop.addEventListener('click', onCloseModalPop);

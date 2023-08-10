@@ -37,6 +37,7 @@ const loggedUserContainer = document.querySelector('.logged-user');
 const burgerMenu = document.querySelector('.burger-menu-container');
 const burgerMenuLogOut = burgerMenu.querySelector('.burger-menu-btn-logout');
 const burgerUserName = burgerMenu.querySelector('.burger-user-name');
+const isLoggedIn = { logged: null };
 
 authForm.addEventListener('submit', event => {
   event.preventDefault();
@@ -98,10 +99,10 @@ async function userSignIn() {
     });
 }
 
-async function checkAuthState() {
+function checkAuthState() {
   const headerNavWrapper = document.querySelector('.header-nav-wrapper');
   const signUpBtnHeader = document.querySelector('.btn-outline-success');
-  await onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
       loggedUserContainer.classList.remove('logged-user-hidden');
@@ -114,8 +115,9 @@ async function checkAuthState() {
       burgerMenu
         .querySelector('.burger-menu-signup-btn')
         .classList.add('logged-user-hidden');
-      return true;
+      isLoggedIn.logged = true;
     } else {
+      isLoggedIn.logged = false;
       burgerMenu
         .querySelector('.burger-menu-signup-btn')
         .classList.remove('logged-user-hidden');
@@ -125,9 +127,9 @@ async function checkAuthState() {
       loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
       signUpBtnHeader.classList.remove('logged-user-hidden');
-      return false;
     }
   });
+  return isLoggedIn.logged;
 }
 
 async function userSignOut() {
