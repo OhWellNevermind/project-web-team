@@ -115,7 +115,7 @@ function createShopListMarkUp() {
                             <div class="sl-list-text-wrapper">
                                 <h2 class="sl-list-item-title">${title}</h2>
                                 <h3 class="sl-list-item-subtitle">${list_name}</h3>
-                                <button value="${_id}" class="sl-list-item-icon-button">
+                                <button aria-label="Delete book" value="${_id}" class="sl-list-item-icon-button">
                                     <svg class="sl-list-item-icon sl-list-delete-icon">
                                         <use class="sl-list-delete-icon" href="${sprite}#trash-icon"></use>
                                     </svg>

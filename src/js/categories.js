@@ -130,7 +130,7 @@ function createAllBooksMarkup(array) {
       <ul class="home__books-all-items">
         ${createSelectCategoryMarkup(category.books)}
       </ul>
-      <button class="home__books-all-btn" type="button">
+      <button aria-label="See more" class="home__books-all-btn" type="button">
       See more
       </button>
     </li>`
@@ -238,7 +238,7 @@ function popUpMarkUp(book) {
   const amazonUrl = buy_links[0].url;
   const appleUrl = buy_links[1].url;
   const bookShopUrl = buy_links[2].url;
-  let markUp = `<button class="close-btn-modal js-btn-close-modal">
+  let markUp = `<button aria-label="Close modal" class="close-btn-modal js-btn-close-modal">
       <svg class="close-btn-modal-icon" width="24" height="24">
         <use href="${sprite}#close-icon"></use>
       </svg>
@@ -286,12 +286,12 @@ function popUpMarkUp(book) {
     </div>
 
     <div class="wraper">
-      <button class="btn-add-shop-list js-add" type="button">
+      <button aria-label="Add to shopping list" class="btn-add-shop-list js-add" type="button">
         add to shopping
       </button>
 
       <div class="wraper-remove js-wraper-remove logged-user-hidden">
-        <button class="btn-add-shop-list btn-remove js-remove  " type="button">
+        <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove  " type="button">
           remove from the shopping list
         </button>
 
@@ -301,7 +301,7 @@ function popUpMarkUp(book) {
         </p>
       </div>
       <div class="wrap-btn-sign-up">
-       <button class="btn-add-shop-list" type="button">
+       <button aria-label="Sign up" class="btn-add-shop-list" type="button">
         Sign up
       </button>
       </div> 

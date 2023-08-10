@@ -60,12 +60,16 @@
         <label class="theme-switch__label">
           <span class="switcher"></span>
         </label>
-        <button type="button" class="btn-burger">
+        <button aria-label="Open burger menu" type="button" class="btn-burger">
           <svg class="burger-menu-icon">
             <use href="./images/sprite.svg#burger-nemu-icon"></use>
           </svg>
         </button>
-        <button type="button" class="btn-close-burger hidden-burger">
+        <button
+          aria-label="Close burger menu"
+          type="button"
+          class="btn-close-burger hidden-burger"
+        >
           <svg class="burger-menu-icon">
             <use href="./images/sprite.svg#close-icon"></use>
           </svg>
@@ -87,7 +91,11 @@
             </svg>
           </div>
         </div>
-        <button class="btn-outline-success" data-modal-open>
+        <button
+          aria-label="Sign Up"
+          class="btn-outline-success"
+          data-modal-open
+        >
           Sign up
           <svg class="userbar-btn__icon" width="20" height="20">
             <use href="./images/sprite.svg#arrow-right-login"></use>
