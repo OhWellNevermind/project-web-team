@@ -109,12 +109,12 @@ async function checkAuthState() {
       burgerMenu.querySelector('.burger-user-name').textContent = username;
       burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
       burgerMenuLogOut.classList.remove('logged-user-hidden');
-
       headerNavWrapper.classList.remove('logged-user-hidden');
       signUpBtnHeader.classList.add('logged-user-hidden');
       burgerMenu
         .querySelector('.burger-menu-signup-btn')
         .classList.add('logged-user-hidden');
+      return true;
     } else {
       burgerMenu
         .querySelector('.burger-menu-signup-btn')
@@ -125,6 +125,7 @@ async function checkAuthState() {
       loggedUserContainer.classList.add('logged-user-hidden');
       headerNavWrapper.classList.add('logged-user-hidden');
       signUpBtnHeader.classList.remove('logged-user-hidden');
+      return false;
     }
   });
 }

@@ -5,6 +5,7 @@ import bookShopLogo from '/src/images/book-shop-logo.png';
 import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
+import { checkAuthState } from './userAutorization';
 
 import { callShowCards } from './books-home';
 const throttle = require('lodash.throttle');
@@ -41,6 +42,7 @@ const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 const logUser = document.querySelector('.user-name');
 const modalSignUp = document.querySelector('[data-modal]');
+const popUp = document.querySelector('.js-popUp');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -57,6 +59,7 @@ let addBtnShopList = null;
 let removeBtnShopList = null;
 let book = {};
 let bookStorage = JSON.parse(localStorage.getItem('book-anotation')) || [];
+
 getAllCategories();
 getTopBooks();
 
@@ -287,7 +290,7 @@ function popUpMarkUp(book) {
         add to shopping
       </button>
 
-      <div class="wraper-remove js-wraper-remove pop-up-is-hidden">
+      <div class="wraper-remove js-wraper-remove logged-user-hidden">
         <button class="btn-add-shop-list btn-remove js-remove  " type="button">
           remove from the shopping list
         </button>
@@ -297,13 +300,24 @@ function popUpMarkUp(book) {
           delete, press the button “Remove from the shopping list”.
         </p>
       </div>
-      <div class="wrap-btn-sign-up pop-up-is-hidden">
-       <button class=" btn-add-shop-list  " type="button">
+      <div class="wrap-btn-sign-up">
+       <button class="btn-add-shop-list" type="button">
         Sign up
       </button>
       </div> 
       </div>`;
   popUpEl.innerHTML = markUp;
+  if (!checkAuthState()) {
+    popUp.querySelector('.js-add').classList.remove('logged-user-hidden');
+    popUp
+      .querySelector('.wrap-btn-sign-up')
+      .classList.add('logged-user-hidden');
+  } else {
+    popUp.querySelector('.js-add').classList.add('logged-user-hidden');
+    popUp
+      .querySelector('.wrap-btn-sign-up')
+      .classList.remove('logged-user-hidden');
+  }
   backdropPop.classList.remove('pop-up-is-hidden');
   backdropPop.addEventListener('click', onCloseModalPop);
   btnCloseModal = document.querySelector('.js-btn-close-modal');
@@ -320,7 +334,6 @@ function popUpMarkUp(book) {
   btnSignUp = document.querySelector('.wrap-btn-sign-up');
   btnSignUp.addEventListener('click', onSignUp);
   checkLocalStorage(_id);
-  notLogOut();
 }
 
 function onOpenPopUp(event) {
@@ -398,14 +411,6 @@ function removeBookStorage() {
       localStorage.setItem('book-anotation', JSON.stringify(bookStorage));
     }
   });
-}
-
-function notLogOut() {
-  if (!logUser.outerText.trim()) {
-    btnAddShopingList.classList.add('logged-user-hidden');
-    btnSignUp.classList.remove('pop-up-is-hidden');
-    btnRemoveShopingList.classList.add('logged-user-hidden');
-  }
 }
 
 function onSignUp(event) {
