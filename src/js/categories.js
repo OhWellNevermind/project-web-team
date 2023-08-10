@@ -291,7 +291,7 @@ function popUpMarkUp(book) {
       </button>
 
       <div class="wraper-remove js-wraper-remove logged-user-hidden">
-        <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove  " type="button">
+        <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove" type="button">
           remove from the shopping list
         </button>
 
@@ -360,12 +360,12 @@ function onCloseModalPopEsc(event) {
 
 function onAddShopingList(event) {
   btnAddShopingList.classList.add('pop-up-is-hidden');
-  btnRemoveShopingList.classList.remove('pop-up-is-hidden');
+  btnRemoveShopingList.classList.remove('logged-user-hidden');
   addBookStorage();
 }
 
 function onRemoveShopingList(event) {
-  btnRemoveShopingList.classList.add('pop-up-is-hidden');
+  btnRemoveShopingList.classList.add('logged-user-hidden');
   btnAddShopingList.classList.remove('pop-up-is-hidden');
   removeBookStorage();
 }
