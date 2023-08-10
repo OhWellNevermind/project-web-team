@@ -161,6 +161,7 @@ instance = new Pagination(container, options);
 instance.on('afterMove', eventData => {
   showItemsForPage(eventData.page);
 });
+
 function setPagesCount() {
   if (window.outerWidth < 320) {
     options.visiblePages = 1;

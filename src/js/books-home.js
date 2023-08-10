@@ -10,7 +10,7 @@ function callShowCards() {
     listElements.forEach(li => {
       li.style.display = 'none';
     });
-    if (vw >= 375 && vw < 767) {
+    if (vw >= 320 && vw < 767) {
       showCards(1, ul);
     } else if (vw >= 768 && vw < 1439) {
       showCards(3, ul);
