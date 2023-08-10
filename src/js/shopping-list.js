@@ -153,15 +153,17 @@ function createShopListMarkUp() {
     .join('');
 }
 
+let instance;
 if (books) {
   showItemsForPage(1);
   const container = document.querySelector('#tui-pagination-container');
-  let instance;
   setPagesCount();
   instance = new Pagination(container, options);
   instance.on('afterMove', eventData => {
     showItemsForPage(eventData.page);
   });
+
+  window.addEventListener('resize', setPagesCount);
 }
 
 function setPagesCount() {
@@ -178,5 +180,3 @@ function setPagesCount() {
     instance._options = options;
   }
 }
-
-window.addEventListener('resize', setPagesCount);
