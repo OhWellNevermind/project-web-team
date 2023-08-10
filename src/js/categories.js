@@ -359,14 +359,14 @@ function onCloseModalPopEsc(event) {
 }
 
 function onAddShopingList(event) {
-  btnAddShopingList.classList.add('pop-up-is-hidden');
+  btnAddShopingList.classList.add('logged-user-hidden');
   btnRemoveShopingList.classList.remove('logged-user-hidden');
   addBookStorage();
 }
 
 function onRemoveShopingList(event) {
   btnRemoveShopingList.classList.add('logged-user-hidden');
-  btnAddShopingList.classList.remove('pop-up-is-hidden');
+  btnAddShopingList.classList.remove('logged-user-hidden');
   removeBookStorage();
 }
 
@@ -392,8 +392,8 @@ function checkLocalStorage(id) {
   const books = localStorage.getItem('book-anotation');
   JSON.parse(books).forEach(element => {
     if (element._id === id) {
-      btnAddShopingList.classList.add('pop-up-is-hidden');
-      btnRemoveShopingList.classList.remove('pop-up-is-hidden');
+      btnAddShopingList.classList.add('logged-user-hidden');
+      btnRemoveShopingList.classList.remove('logged-user-hidden');
     }
   });
 }
