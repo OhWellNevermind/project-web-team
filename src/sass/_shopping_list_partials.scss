@@ -7,6 +7,8 @@
 @import './partials_style/shopping_list';
 @import './partials_style/pop_up';
 @import './partials_style/burger_menu';
+@import '../../node_modules/tui-pagination/dist/tui-pagination.min.css';
+@import './partials_style/pagination_style';
 
 * {
   margin: 0;
@@ -27,3 +29,4 @@ body {
 img {
   display: block;
 }
+
