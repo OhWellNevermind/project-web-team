@@ -12,9 +12,9 @@ function callShowCards() {
     });
     if (vw >= 375 && vw < 767) {
       showCards(1, ul);
-    } else if (vw >= 768 && vw < 1023) {
+    } else if (vw >= 768 && vw < 1439) {
       showCards(3, ul);
-    } else if (vw >= 1024) {
+    } else if (vw >= 1440) {
       showCards(listElements.length, ul);
     }
   });
