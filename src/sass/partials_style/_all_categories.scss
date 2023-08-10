@@ -216,6 +216,10 @@
   letter-spacing: -0.14px;
   text-transform: uppercase;
   width: fit-content;
+
+  span {
+    pointer-events: none;
+  }
 }
 
 .home__books-all-btn-text {

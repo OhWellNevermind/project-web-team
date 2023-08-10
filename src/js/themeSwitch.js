@@ -2,6 +2,9 @@ const themeSwitcher = document.querySelector('.theme-switch__input');
 
 function getTheme() {
   let theme = localStorage.getItem('theme');
+  if (!theme) {
+    theme = 'light';
+  }
   document.documentElement.setAttribute('data-theme', theme);
   if (theme === 'dark') {
     themeSwitcher.checked = true;

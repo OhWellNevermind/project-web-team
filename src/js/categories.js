@@ -128,7 +128,7 @@ function createAllBooksMarkup(array) {
         ${createSelectCategoryMarkup(category.books)}
       </ul>
       <button class="home__books-all-btn" type="button">
-      <span class="home__books-all-btn-text">See more</span>
+      See more
       </button>
     </li>`
     )
