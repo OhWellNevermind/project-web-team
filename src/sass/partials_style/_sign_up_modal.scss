@@ -33,7 +33,7 @@
 .modal {
   position: absolute;
   max-width: 579px;
-  width: 100%;
+  width: 335px;
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
@@ -142,4 +142,10 @@
   fill: var(--sign-up-icon-color);
   width: 28px;
   height: 28px;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 100%;
+  }
 }

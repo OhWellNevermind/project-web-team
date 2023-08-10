@@ -69,7 +69,6 @@ function showItemsForPage(page) {
 }
 
 renderCards();
-showItemsForPage(1);
 
 function renderCards() {
   if (!books || !books.length) {
@@ -154,13 +153,16 @@ function createShopListMarkUp() {
     .join('');
 }
 
-const container = document.querySelector('#tui-pagination-container');
-let instance;
-setPagesCount();
-instance = new Pagination(container, options);
-instance.on('afterMove', eventData => {
-  showItemsForPage(eventData.page);
-});
+if (books) {
+  showItemsForPage(1);
+  const container = document.querySelector('#tui-pagination-container');
+  let instance;
+  setPagesCount();
+  instance = new Pagination(container, options);
+  instance.on('afterMove', eventData => {
+    showItemsForPage(eventData.page);
+  });
+}
 
 function setPagesCount() {
   if (window.outerWidth < 320) {
