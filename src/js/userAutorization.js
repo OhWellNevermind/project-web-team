@@ -77,7 +77,6 @@ async function userSignIn() {
   const signInPassword = userPassword.value;
   await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
     .then(user => {
-      console.log(getUserName(user.user), usernameInput);
       if (getUserName(user.user) !== usernameInput) {
         throw new Error('auth/wrong-username');
       }
@@ -107,7 +106,6 @@ async function checkAuthState() {
       const username = getUserName(user);
       loggedUserContainer.classList.remove('logged-user-hidden');
       loggedUserContainer.querySelector('.user-name').textContent = username;
-      console.log(username);
       burgerMenu.querySelector('.burger-user-name').textContent = username;
       burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
       burgerMenuLogOut.classList.remove('logged-user-hidden');
@@ -145,14 +143,6 @@ function getUserName(user) {
   });
   return username;
 }
-// async function getBooksFromDB(userId) {
-//   const dbRef = ref(database);
-//   get(child(dbRef, `${userId}`)).then(snapshot => {
-//     if (snapshot.exists()) {
-//       console.log(JSON.parse(snapshot.val().books));
-//     }
-//   });
-// }
 
 setTimeout(checkAuthState, 1000);
 export { checkAuthState };
