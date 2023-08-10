@@ -34,6 +34,24 @@
     gap: 10px;
 }
 
+.heart-icon {
+    transition: transform 0.3s;
+}
+
+.heart-icon.moving {
+    animation: pulseHeart 1s infinite;
+}
+
+@keyframes pulseHeart {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
 .copyright {
     padding: 16px 15px;
     max-height: 90px;
