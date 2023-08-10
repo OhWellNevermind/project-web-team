@@ -12,6 +12,8 @@ import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
 import './burgerOpen';
 import './burger__menu';
+const Pagination = require('tui-pagination');
+// import 'tui-pagination/dist/tui-pagination.css';
 
 const slList = document.querySelector('.sl-list');
 document.querySelector('.sl-link').classList.add('current');
@@ -22,14 +24,55 @@ document
 document
   .querySelector('.burger-sl')
   .classList.add('burger-menu-nav-item-changed');
+
 const defaultMessage = 'Currently there is no description';
 
 const books = JSON.parse(localStorage.getItem('book-anotation'));
+
+const options = {
+  // below default value of options
+  totalItems: books?.length,
+  itemsPerPage: 3,
+  visiblePages: 3,
+  page: 1,
+  centerAlign: false,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage:
+      '<strong class="tui-page-btn tui-is-selected tui-bullet">{{page}}</strong>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}} tui-active"> ' +
+      '<span class="tui-ico-{{type}} tui-ico-text">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}} tui-ico-text">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+function showItemsForPage(page) {
+  const itemsPerPage = options.itemsPerPage;
+  slList.childNodes.forEach((item, index) => {
+    if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+      item.style.display = 'list-item';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
 renderCards();
+showItemsForPage(1);
+
 function renderCards() {
-  console.log(books);
   if (!books || !books.length) {
-    console.log('here');
     slList.innerHTML = `
         <div class="sl-empty-container">
             <h1 class="sl-empty-title">This page is empty, add some books and proceed to order.</h1>
@@ -52,17 +95,13 @@ function handleDeleteClick(event) {
 
   const bookId = event.target.value;
   const parentLi = event.target.closest('.sl-list-item');
-  console.log(books);
   books
     .filter(book => book._id === bookId)
     .map(book => {
-      console.log(book);
       books.splice(books.indexOf(book), 1);
     });
-  console.log(books);
   localStorage.setItem('book-anotation', JSON.stringify(books));
   renderCards();
-  console.log(bookId, parentLi);
 }
 
 function createShopListMarkUp() {
@@ -114,3 +153,27 @@ function createShopListMarkUp() {
     })
     .join('');
 }
+
+const container = document.querySelector('#tui-pagination-container');
+let instance;
+setPagesCount();
+instance = new Pagination(container, options);
+instance.on('afterMove', eventData => {
+  showItemsForPage(eventData.page);
+});
+function setPagesCount() {
+  if (window.outerWidth < 320) {
+    options.visiblePages = 1;
+  } else if (window.outerWidth >= 320 && window.outerWidth < 374) {
+    options.visiblePages = 1;
+  } else if (window.outerWidth >= 375 && window.outerWidth < 767) {
+    options.visiblePages = 2;
+  } else {
+    options.visiblePages = 3;
+  }
+  if (instance) {
+    instance._options = options;
+  }
+}
+
+window.addEventListener('resize', setPagesCount);
