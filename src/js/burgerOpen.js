@@ -14,4 +14,9 @@ function toggleHidden(event) {
   burgerRefs.burgerMenu.classList.toggle('burger-hidden');
   burgerRefs.burgerBtn.classList.toggle('hidden-burger');
   burgerRefs.burgerBtnClose.classList.toggle('hidden-burger');
+  if (burgerRefs.burgerMenu.classList.contains('burger-hidden')) {
+    document.body.style.overflow = 'auto';
+  } else {
+    document.body.style.overflow = 'hidden';
+  }
 }
