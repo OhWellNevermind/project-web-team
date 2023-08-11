@@ -270,7 +270,7 @@
 @media screen and (min-width: 1440px) {
     .team-modal {
         height: 889px;
-        width: 1342px;
+        width: 1350px;
     }
 
     .our-team-container {
@@ -281,6 +281,6 @@
     }
     
     .team-item {
-        width: calc((100% - 40px) / 6);
+        width: calc((100% - 20px) / 6);
     }
 }
