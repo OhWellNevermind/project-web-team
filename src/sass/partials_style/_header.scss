@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 ::-webkit-scrollbar {
   height: 15px;
   width: 5px;
@@ -116,7 +112,6 @@
 .header {
   display: flex;
   align-items: center;
-  // justify-content: space-between;
   border: 1.5px solid var(--header-border-color);
   border-radius: 0 0 8px 8px;
   background-color: var(--header-bg);
@@ -183,8 +178,6 @@
 .hidden-burger {
   display: none;
 }
-
-// Logged in user
 
 .logged-user {
   display: none;
