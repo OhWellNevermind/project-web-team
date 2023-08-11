@@ -29,13 +29,17 @@
       el.classList.toggle('hidden-submit');
     });
     if (element.nextElementSibling) {
+      refs.modal.querySelector('.js-modal-username').style.display = 'flex';
       element.classList.toggle('modal-toggle__el--current');
       element.nextElementSibling.classList.toggle('modal-toggle__el--current');
+      return;
     } else {
+      refs.modal.querySelector('.js-modal-username').style.display = 'none';
       element.classList.toggle('modal-toggle__el--current');
       element.previousElementSibling.classList.toggle(
         'modal-toggle__el--current'
       );
+      return;
     }
   }
 })();

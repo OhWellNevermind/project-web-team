@@ -76,27 +76,20 @@ async function userSignIn() {
   const usernameInput = userName.value;
   const signInEmail = userEmail.value;
   const signInPassword = userPassword.value;
-  await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-    .then(user => {
-      if (getUserName(user.user) !== usernameInput) {
-        throw new Error('auth/wrong-username');
-      }
-      checkAuthState();
-      window.location.reload();
-    })
-    .catch(error => {
+  await signInWithEmailAndPassword(auth, signInEmail, signInPassword).catch(
+    error => {
       if (error.code === 'auth/user-not-found') {
         Notiflix.Notify.failure(
           `User with this email address ${signInEmail} is not found.`
         );
       } else if (error.code === 'auth/wrong-password') {
         Notiflix.Notify.failure(`Wrong password. Please try again.`);
-      } else if (error.message === 'auth/wrong-username') {
-        Notiflix.Notify.failure(`Wrong username. Please try again.`);
       } else {
         console.log(error.message);
       }
-    });
+    }
+  );
+  window.location.reload();
 }
 
 function checkAuthState() {
