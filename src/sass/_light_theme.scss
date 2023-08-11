@@ -1,0 +1,59 @@
+:root[data-theme='light'] {
+  // Global
+  --page-bg: #f6f6f6;
+  --logo-bg: #fff;
+  --text-color: #111;
+  --icons-color: #111111;
+
+  // Main
+  // Header
+  --header-bg: #fff;
+  --header-border-color: #111;
+  --header-highlight: #eac645;
+
+  // All categories
+  --all-categories-active: #4f2ee8;
+  --all-categories-text-color: rgba(17, 17, 17, 0.6);
+  --all-categories-scroll-color: #e0e0e0;
+
+  // Shopping list
+  --empty-message-text-color: rgba(0, 0, 0, 0.6);
+  --bg-color: #f6f6f6;
+
+  // Pagination section
+  --pagination-left-bg: #111;
+  --pagination-left-arrow: #fff;
+  --pagination-rigth-bg: #eac645;
+  --pagination-rigth-arrow: #000;
+  --pagination-text: #111;
+  --pagination-border: #111;
+  --pagination-active: #111;
+  --pagination-active-text: #fff;
+
+  // Sign up modal window
+  --sign-up-btn-bg: #111;
+  --sign-up-icon-color: #111;
+  --sign-up-active-text-color: #4f2ee8;
+  --sign-up-text-color: rgba(17, 17, 17, 0.5);
+  --sign-up-border-color: #111111;
+  --sign-up-btn-text-color: #f3f3f3;
+  --sign-up-bg: #f6f6f6;
+
+  // Pop-up
+  --pop-up-border-color: #111;
+  --pop-up-bg-color: #fff;
+  --pop-up-text-second-color: #b4afaf;
+  --pop-up-btn-border-color: #4f2ee8;
+  --pop-up-text-color: #111;
+  --pop-up-msg-color: rgba(17, 17, 17, 0.5);
+  --pop-up-amazon-icon-color: #111;
+  --pop-up-close-btn-color: #111111;
+  --pop-up-hover-color: rgba(0, 0, 0, 0.15);
+
+  // FOOTER
+  --footer-copyright: #4f2ee8;
+  --footer-team: #D9D9D9;
+  --footer-text-logo: #000000;
+  --footer-text:#FFF;
+  --border: #4f2ee8;
+}

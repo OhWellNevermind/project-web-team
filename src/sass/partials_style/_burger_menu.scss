@@ -1,42 +1,16 @@
 li {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
-
-<<<<<<< Updated upstream
-.stephen {
-    // height: 50px;
-    // display: none;
-}
-=======
-// .stephen {
-//     height: 50px;
-//     display: none;
-// }
->>>>>>> Stashed changes
 
 .burger-menu-nav-item-home {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .burger-menu-signup-btn {
-<<<<<<< Updated upstream
-    min-width: 184px;
-    cursor: pointer;
-    background: #4f2ee8;
-    border: 1.5px solid #111;
-    border-radius: 18px;
-    justify-content: space-between;
-    align-items: center;
-    // margin-top: 20px;
-    margin-left: 20px;
-    padding: 13px 14px;
-    display: flex; //flex!!!!!!!!!!!!//
-    margin-bottom: 130px;
-=======
   min-width: 184px;
   cursor: pointer;
   background: #4f2ee8;
@@ -45,81 +19,66 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 13px 14px;
-  display: flex; 
->>>>>>> Stashed changes
+  display: flex;
 }
 
 .burger-menu-signup-btn-text {
-    letter-spacing: -.04em;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28571;
 }
 
 .burger-menu-container {
-    width: 375px;
-    height: 812px;
-    z-index: 1;
-    // opacity: 0;
-    // visibility: hidden;
-    // pointer-events: none;
-    transition: opacity 250ms cubic-bezier(.4, 0, .2, 1), transform 250ms cubic-bezier(.4, 0, .2, 1);
-    background: linear-gradient(#4f2ee8 0%, #fff 130%);
-    position: fixed;
-    top: 0;
-    left: 0;
-    position: relative;
-    padding-top: 40px;
-    // transform: translateY(-100%);
+  z-index: 50;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#4f2ee8 0%, #fff 130%);
+  position: fixed;
+  padding: 20px;
+  transform: translateX(0vw);
+  transition: transform 250ms ease-in-out;
+  overflow-y: scroll;
 }
 
+.burger-hidden {
+  transform: translate(110%, 0);
+}
 
 .burger-menu-nav-backgimage-container {
-    background-image: url(/src/images/burger-menu-image.png);
-<<<<<<< Updated upstream
-    background-position: bottom 248px right 0px;   
-=======
-    background-position: bottom 248px right 0px;
->>>>>>> Stashed changes
-    background-repeat: no-repeat;
-    padding: 0;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
+  background-image: url(/src/images/burger-menu-image-min.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 450px;
+  height: 439px;
+  transform: rotate(-15deg);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
-
-// .is-hidden {
-//     opacity: 1;
-//     visibility: visible;
-//     pointer-events: auto;
-//     transform: translateY(0);
-// }
-
 .burger-menu-nav {
-    display: flex;
-    justify-content: center;
-    margin-top: 126px;
+  display: flex;
+  justify-content: center;
+  padding-top: 126px;
+  margin-bottom: 120px;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-
-<<<<<<< Updated upstream
+.burger-menu-nav-item {
+  padding: 8px 16px;
 }
 
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-//код для зміненого стилю  кнопки home і shopping list///
-=======
->>>>>>> Stashed changes
+.user {
+  display: flex;
+  align-items: center;
+}
+
 .burger-menu-nav-item-changed {
     background-color: #eac645;
     border-radius: 36px;
@@ -139,56 +98,99 @@ ul {
     display: flex;
 }
 
-.burger-menu-nav-item {
-    padding: 8px 16px;
+.logged-user-icon {
+  width: 19px;
+  height: 19px;
+}
+
+.logged-user-wrapper {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 9px;
+}
+
+.burger-user-name {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.44px;
+  color: #fff;
+  margin-right: 4px;
 }
 
 .burger-menu-nav-link-sl {
-    letter-spacing: -.04em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    align-items: center;
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.28;
-    display: flex;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  align-items: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  display: flex;
 }
 
 .burger-menu-nav-svg-sl {
-<<<<<<< Updated upstream
-    fill: #FFFFFF; 
-=======
-    fill: #FFFFFF;
->>>>>>> Stashed changes
-    margin-left: 4px;
+  fill: #ffffff;
+  margin-left: 4px;
+}
+
+.burger-menu-nav-item-changed {
+  width: fit-content;
+  background-color: #eac645;
+  color: #111;
+  border-radius: 36px;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+}
+
+.burger-menu-nav-link-changed {
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #111;
+  text-align: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
 }
 
 .burger-menu-btn-logout {
-    cursor: pointer;
-    background-color: #fff;
-    border: 1.5px solid #111;
-    border-radius: 18px;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 20px;
-    padding: 14px 24px;
-    display: flex;
-    position: absolute;
-    bottom: 20px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: #fff;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  padding: 14px 24px;
+  display: flex;
+  position: absolute;
+  bottom: 100px;
 }
 
 .burger-menu-btn-logout-text {
-    font-family: inherit;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.28;
-    letter-spacing: -0.04em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28;
+  letter-spacing: -0.04em;
 
-    color: #111111;
+  color: #111111;
 }
 
 .burger-menu-btn-logout-svg {
-    margin-left: 4px;
+  margin-left: 4px;
+}
+
+.logged-user-hidden {
+  display: none;
 }

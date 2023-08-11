@@ -1,0 +1,135 @@
+.continer-ukraine {
+  width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.support-ukraine-container {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  height: 352px;
+  padding: 24px 40px 20px;
+  background-color: #4f2ee8;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 46, 232, 1) 0%,
+    rgba(255, 255, 255, 1) 130%
+  );
+  color: white;
+  border-radius: 16px;
+}
+
+.support-ukraine-div {
+  display: flex;
+  margin-bottom: 40px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.support-ukraine-titel {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.09; /* 109.091% */
+  letter-spacing: -0.88px;
+}
+
+.support-ukraine-icon {
+  height: 32px;
+}
+
+.support-ukraine-list {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 186px;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.support-ukraine-united-img {
+  width: 149px;
+}
+
+.support-ukraine-icons {
+  filter: brightness(0) invert(1);
+  display: flex;
+  align-items: center;
+  max-width: 132px;
+  height: 32px;
+}
+
+:hover.support-ukraine-icons {
+  -webkit-filter: hue-rotate(360deg);
+  filter: hue-rotate(360deg);
+}
+
+.support-counter {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.ukraine-button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 0 #fff;
+  border-radius: 50%;
+}
+:hover.ukraine-button {
+  svg {
+    fill: #fff;
+  }
+  background-color: #4f2ee8;
+}
+
+.section-button-support-ukraine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.support-ukraine-img {
+  max-width: 131px;
+  height: 32px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.button-icon-support-ukraine {
+  transform: rotate(180deg);
+  fill: #4f2ee8;
+  width: 20px;
+  height: 20px;
+  border: 0 none white;
+}
+
+@media screen and (min-width: 768px) {
+  .section-button-support-ukraine {
+    margin-top: 32px;
+  }
+
+  .support-ukraine-container {
+    width: 335px;
+    height: 474px;
+  }
+
+  .support-ukraine-list {
+    height: 474px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .support-ukraine-container {
+    height: 474px;
+  }
+}

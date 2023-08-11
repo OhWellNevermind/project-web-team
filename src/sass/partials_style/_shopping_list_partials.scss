@@ -1,0 +1,15 @@
+.support-ukraine-container {
+  display: none;
+}
+
+.burger-menu-nav-item-changed {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+  .support-ukraine-container {
+    display: flex;
+  }
+}

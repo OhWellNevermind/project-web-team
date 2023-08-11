@@ -1,8 +1,9 @@
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 @import './fonts/fonts';
+@import './light_theme';
 @import './dark_theme';
-@import './ligth_theme';
 @import './partials_style/partial_styles';
+@import './partials_style/./footer.scss';
 
 * {
   margin: 0;
@@ -14,31 +15,30 @@ li {
 }
 
 body {
-  font-family: 'DMSans';
+  font-family: 'DMSans', serif;
   color: var(--text-color);
   background-color: var(--page-bg);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
 }
 
 .container {
-  width: 335px;
-  padding-right: 20px;
+  width: 100%;
   padding-left: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  padding-right: 20px;
 
-@media screen and (min-width: 767px) {
-  .container {
-    width: 704px;
-    padding-right: 32px;
-    padding-left: 32px;
+  @media screen and (min-width: 375px) {
+    width: 375px;
   }
-}
-
-@media screen and (min-width: 1439px) {
-  .container {
-    width: 1392px;
-    padding-right: 24px;
+  @media screen and (min-width: 768px) {
+    width: 768px;
     padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
   }
 }

@@ -1,0 +1,74 @@
+<div class="is-hidden backdrop" data-modal>
+  <div class="modal">
+    <button
+      aria-label="Close modal"
+      class="modal-close"
+      data-modal-close
+      type="button"
+    >
+      <svg class="userbar-btn__icon-close" width="28" height="28">
+        <use href="./images/sprite.svg#close-icon"></use>
+      </svg>
+    </button>
+    <form class="modal-form js-modal-form">
+      <input
+        class="modal-input js-modal-username"
+        type="text"
+        placeholder="NAME"
+        name="user_name"
+      />
+      <label class="modal-form__label">
+        <input
+          class="modal-input js-modal-email"
+          type="email"
+          placeholder="EMAIL"
+          name="user_eMAIL"
+        />
+        <svg class="modal-form__icon">
+          <use href="./images/sprite.svg#mail-icon"></use>
+        </svg>
+      </label>
+      <label class="modal-form__label">
+        <input
+          class="modal-input js-modal-password"
+          type="password"
+          placeholder="PASSWORD"
+          name="user_password"
+        />
+        <svg class="modal-form__icon">
+          <use href="./images/sprite.svg#lock-icon"></use>
+        </svg>
+      </label>
+      <button
+        aria-label="Sign up"
+        type="submit"
+        class="modal-form__submit js-btn-sign-up"
+      >
+        Sign up
+      </button>
+      <button
+        aria-label="Sign in"
+        type="submit"
+        class="modal-form__submit js-btn-sign-in hidden-submit"
+      >
+        Sign in
+      </button>
+    </form>
+    <div class="modal-toggle">
+      <button
+        aria-label="Switch to sign up"
+        type="button"
+        class="modal-toggle__el modal-toggle__el--current"
+      >
+        Sign up
+      </button>
+      <button
+        aria-label="Switch to sign in"
+        type="button"
+        class="modal-toggle__el"
+      >
+        Sign in
+      </button>
+    </div>
+  </div>
+</div>

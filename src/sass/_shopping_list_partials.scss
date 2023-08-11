@@ -1,0 +1,31 @@
+@import './light_theme';
+@import './dark_theme';
+@import './fonts/fonts';
+@import './partials_style/header';
+@import './partials_style/sign_up_modal';
+@import './partials_style/support_Ukraine';
+@import './partials_style/shopping_list';
+@import './partials_style/pop_up';
+@import './partials_style/burger_menu';
+@import '../../node_modules/tui-pagination/dist/tui-pagination.min.css';
+@import './partials_style/pagination_style';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: 'DMSans', serif;
+  color: var(--text-color);
+  background-color: var(--page-bg);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+}
