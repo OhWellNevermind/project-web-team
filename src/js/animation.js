@@ -12,7 +12,7 @@ array.forEach(element => {
   element.setAttribute( 'data-wow-duration', '2s' );
 });
 }
-export function selectedCategorieAnimation() {
+export function selectedCategorieAnimation(booksWrapperEl) {
   booksWrapperEl.classList.add( 'animate__animated' );
   booksWrapperEl.classList.add( 'animate__bounceInRight' ); 
   booksWrapperEl.classList.add( 'animate__slow' ); 
