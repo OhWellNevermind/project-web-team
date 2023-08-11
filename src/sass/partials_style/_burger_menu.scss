@@ -19,7 +19,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 13px 14px;
-  display: flex; //flex!!!!!!!!!!!!//
+  display: flex;
 }
 
 .burger-menu-signup-btn-text {
@@ -79,6 +79,25 @@ ul {
   align-items: center;
 }
 
+.burger-menu-nav-item-changed {
+    background-color: #eac645;
+    border-radius: 36px;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+}
+
+.burger-menu-nav-link-changed {
+    letter-spacing: -.04em;
+    text-transform: uppercase;
+    color: #111;
+    align-items: center;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.28;
+    display: flex;
+}
+
 .logged-user-icon {
   width: 19px;
   height: 19px;
@@ -122,7 +141,6 @@ ul {
   margin-left: 4px;
 }
 
-//код для зміненого стилю  кнопки home і shopping list///
 .burger-menu-nav-item-changed {
   width: fit-content;
   background-color: #eac645;
@@ -132,7 +150,6 @@ ul {
   margin-bottom: 15px;
 }
 
-//код для зміненого стилю кнопки home і shopping list//
 .burger-menu-nav-link-changed {
   letter-spacing: -0.04em;
   text-transform: uppercase;
