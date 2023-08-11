@@ -39,6 +39,7 @@ a {
   padding: 20px;
   transform: translateX(0vw);
   transition: transform 250ms ease-in-out;
+  overflow-y: scroll;
 }
 
 .burger-hidden {
@@ -46,7 +47,7 @@ a {
 }
 
 .burger-menu-nav-backgimage-container {
-  background-image: url(/src/images/burger-menu-image.png);
+  background-image: url(/src/images/burger-menu-image-min.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 450px;
@@ -123,6 +124,7 @@ ul {
 
 //код для зміненого стилю  кнопки home і shopping list///
 .burger-menu-nav-item-changed {
+  width: fit-content;
   background-color: #eac645;
   color: #111;
   border-radius: 36px;

@@ -1,6 +1,11 @@
 <div class="is-hidden backdrop" data-modal>
   <div class="modal">
-    <button class="modal-close" data-modal-close type="button">
+    <button
+      aria-label="Close modal"
+      class="modal-close"
+      data-modal-close
+      type="button"
+    >
       <svg class="userbar-btn__icon-close" width="28" height="28">
         <use href="./images/sprite.svg#close-icon"></use>
       </svg>
@@ -34,10 +39,15 @@
           <use href="./images/sprite.svg#lock-icon"></use>
         </svg>
       </label>
-      <button type="submit" class="modal-form__submit js-btn-sign-up">
+      <button
+        aria-label="Sign up"
+        type="submit"
+        class="modal-form__submit js-btn-sign-up"
+      >
         Sign up
       </button>
       <button
+        aria-label="Sign in"
         type="submit"
         class="modal-form__submit js-btn-sign-in hidden-submit"
       >
@@ -45,10 +55,20 @@
       </button>
     </form>
     <div class="modal-toggle">
-      <button type="button" class="modal-toggle__el modal-toggle__el--current">
+      <button
+        aria-label="Switch to sign up"
+        type="button"
+        class="modal-toggle__el modal-toggle__el--current"
+      >
         Sign up
       </button>
-      <button type="button" class="modal-toggle__el">Sign in</button>
+      <button
+        aria-label="Switch to sign in"
+        type="button"
+        class="modal-toggle__el"
+      >
+        Sign in
+      </button>
     </div>
   </div>
 </div>

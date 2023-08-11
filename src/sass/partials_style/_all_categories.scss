@@ -1,5 +1,10 @@
 // додав основні стилі але тут треба доробити !!!!!!!!!!!!!!!!
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .home {
   padding-top: 20px;
 }
@@ -60,9 +65,6 @@
 }
 
 /* ******ALL BOOKS******** */
-.home__books {
-  width: 335px;
-}
 
 .home__books-all-wrapper {
   width: 300px;
@@ -173,6 +175,7 @@
   flex-direction: column;
   gap: 20px;
   display: flex;
+  width: fit-content;
 }
 .home__books-all-categoty {
   letter-spacing: 0.03em;
@@ -190,7 +193,7 @@
   gap: 8px;
 }
 .home__books-img {
-  width: 335px;
+  min-width: 335px;
   height: 485px;
   border-radius: 8px;
 }
@@ -225,6 +228,10 @@
 .home__books-all-btn-text {
   display: block;
   width: 68px;
+}
+
+.home__books {
+  width: 335px;
 }
 
 .support-ukraine-container {
@@ -298,6 +305,7 @@ button {
   }
 
   .home__books-img {
+    min-width: unset;
     border-radius: 8px;
     width: 218px;
     height: 316px;

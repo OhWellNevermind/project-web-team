@@ -69,7 +69,6 @@ function showItemsForPage(page) {
 }
 
 renderCards();
-showItemsForPage(1);
 
 function renderCards() {
   if (!books || !books.length) {
@@ -116,7 +115,7 @@ function createShopListMarkUp() {
                             <div class="sl-list-text-wrapper">
                                 <h2 class="sl-list-item-title">${title}</h2>
                                 <h3 class="sl-list-item-subtitle">${list_name}</h3>
-                                <button value="${_id}" class="sl-list-item-icon-button">
+                                <button aria-label="Delete book" value="${_id}" class="sl-list-item-icon-button">
                                     <svg class="sl-list-item-icon sl-list-delete-icon">
                                         <use class="sl-list-delete-icon" href="${sprite}#trash-icon"></use>
                                     </svg>
@@ -154,13 +153,19 @@ function createShopListMarkUp() {
     .join('');
 }
 
-const container = document.querySelector('#tui-pagination-container');
 let instance;
-setPagesCount();
-instance = new Pagination(container, options);
-instance.on('afterMove', eventData => {
-  showItemsForPage(eventData.page);
-});
+if (books) {
+  showItemsForPage(1);
+  const container = document.querySelector('#tui-pagination-container');
+  setPagesCount();
+  instance = new Pagination(container, options);
+  instance.on('afterMove', eventData => {
+    showItemsForPage(eventData.page);
+  });
+
+  window.addEventListener('resize', setPagesCount);
+}
+
 function setPagesCount() {
   if (window.outerWidth < 320) {
     options.visiblePages = 1;
@@ -175,5 +180,3 @@ function setPagesCount() {
     instance._options = options;
   }
 }
-
-window.addEventListener('resize', setPagesCount);
