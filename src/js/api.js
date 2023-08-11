@@ -5,6 +5,7 @@ import {
   createAllCategoriesListMarkup,
   createSelectCategoryMarkup,
 } from './categoryMarkUp';
+import { animOnScroll, allCategoriesAnimation, selectedCategorieAnimation } from './animation';
 
 const BASIC_URL = 'https://books-backend.p.goit.global/books/';
 
@@ -38,6 +39,8 @@ async function getTopBooks() {
     categoriesElements.booksWrapperEl.innerHTML =
       createAllBooksMarkup(topBooks);
     Notiflix.Loading.remove();
+    allCategoriesAnimation();
+    animOnScroll();
   } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
@@ -60,6 +63,7 @@ async function getSelectedCategory(category) {
       booksOfSelectegCategory
     );
     Notiflix.Loading.remove();
+    selectedCategorieAnimation();
   } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');

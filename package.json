@@ -18,10 +18,12 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "firebase": "^10.1.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
-    "posthtml-doctype": "^1.1.1"
+    "posthtml-doctype": "^1.1.1",
+    "wow.js": "^1.2.2"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",

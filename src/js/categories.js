@@ -11,7 +11,7 @@ import * as popUp from './popUp';
 Notiflix.Loading.init({
   className: 'notiflix-loading',
   zindex: 4000,
-  backgroundColor: 'rgba(0,0,0,0.8)',
+  backgroundColor: 'rgba(0,0,0,1)',
   rtl: false,
   fontFamily: 'Quicksand',
   cssAnimation: true,
