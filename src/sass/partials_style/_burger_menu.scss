@@ -23,6 +23,7 @@ a {
 }
 
 .burger-menu-signup-btn {
+<<<<<<< Updated upstream
     min-width: 184px;
     cursor: pointer;
     background: #4f2ee8;
@@ -35,6 +36,17 @@ a {
     padding: 13px 14px;
     display: flex; //flex!!!!!!!!!!!!//
     margin-bottom: 130px;
+=======
+  min-width: 184px;
+  cursor: pointer;
+  background: #4f2ee8;
+  border: 1.5px solid #111;
+  border-radius: 18px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 14px;
+  display: flex; 
+>>>>>>> Stashed changes
 }
 
 .burger-menu-signup-btn-text {
@@ -102,9 +114,12 @@ ul {
 <<<<<<< Updated upstream
 }
 
+<<<<<<< Updated upstream
 =======
 >>>>>>> Stashed changes
 //код для зміненого стилю  кнопки home і shopping list///
+=======
+>>>>>>> Stashed changes
 .burger-menu-nav-item-changed {
     background-color: #eac645;
     border-radius: 36px;
@@ -112,7 +127,6 @@ ul {
     margin-bottom: 15px;
 }
 
-//код для зміненого стилю кнопки home і shopping list//
 .burger-menu-nav-link-changed {
     letter-spacing: -.04em;
     text-transform: uppercase;
