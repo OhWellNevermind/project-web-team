@@ -225,6 +225,12 @@
   }
 }
 
+.home__books-all-btn:hover,
+.home__books-all-btn:focus {
+  background-color: var(--footer-activ-bg);
+  color: var(--footer-activ-color);
+}
+
 .home__books-all-btn-text {
   display: block;
   width: 68px;
