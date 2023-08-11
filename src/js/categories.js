@@ -6,6 +6,7 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 import { checkAuthState } from './userAutorization';
+import { animOnScroll, allCategoriesAnimation, selectedCategorieAnimation } from './animation';
 
 import { callShowCards } from './books-home';
 const throttle = require('lodash.throttle');
@@ -13,7 +14,7 @@ const throttle = require('lodash.throttle');
 Notiflix.Loading.init({
   className: 'notiflix-loading',
   zindex: 4000,
-  backgroundColor: 'rgba(0,0,0,0.8)',
+  backgroundColor: 'rgba(0,0,0,1)',
   rtl: false,
   fontFamily: 'Quicksand',
   cssAnimation: true,
@@ -42,7 +43,8 @@ const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 const logUser = document.querySelector('.user-name');
 const modalSignUp = document.querySelector('[data-modal]');
-const popUp = document.querySelector('.js-popUp');
+const popUp = document.querySelector( '.js-popUp' );
+const supportUkraineEl = document.querySelector( '.support-ukraine-container' );
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -106,6 +108,12 @@ async function getTopBooks() {
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
     callShowCards();
     Notiflix.Loading.remove();
+    if ( document.documentElement.clientWidth < 767 ) {
+      return;
+    } else {
+      allCategoriesAnimation(categoriesListWrapper, supportUkraineEl);
+      animOnScroll(booksWrapperEl);
+    }
   } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
@@ -169,6 +177,11 @@ async function getSelectedCategory(category) {
       booksOfSelectegCategory
     );
     Notiflix.Loading.remove();
+    if ( document.documentElement.clientWidth < 767 ) {
+      return;
+    } else {
+      selectedCategorieAnimation(booksWrapperEl);
+    }
   } catch (err) {
     Notiflix.Loading.remove();
     Notiflix.Notify.failure('Somesing was wrong! Please restart page!');
