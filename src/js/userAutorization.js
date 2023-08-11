@@ -60,7 +60,6 @@ async function userSignUp() {
       set(ref(database, 'users/' + user.uid), {
         username: signUpName,
       });
-      window.location.reload();
     })
     .catch(error => {
       if (error.code === 'auth/email-already-exists') {
