@@ -39,7 +39,7 @@
 
 .home__categories-item {
   color: var(--all-categories-text-color);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.33;
   cursor: pointer;
@@ -48,6 +48,7 @@
 
 .home__categories-item:hover {
   color: var(--all-categories-active);
+  text-transform: uppercase;
 }
 
 .home__categories-item-active {
@@ -275,6 +276,7 @@ button {
     letter-spacing: -0.36px;
     gap: 32px;
   }
+
   .home__categories-item {
     font-size: 15px;
     line-height: 1.33;
