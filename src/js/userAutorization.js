@@ -60,7 +60,7 @@ async function userSignUp() {
       set(ref(database, 'users/' + user.uid), {
         username: signUpName,
       });
-      modalBackdrop.classList.add('is-hidden');
+      window.location.reload();
     })
     .catch(error => {
       if (error.code === 'auth/email-already-exists') {
@@ -82,8 +82,8 @@ async function userSignIn() {
       if (getUserName(user.user) !== usernameInput) {
         throw new Error('auth/wrong-username');
       }
-      modalBackdrop.classList.add('is-hidden');
       checkAuthState();
+      window.location.reload();
     })
     .catch(error => {
       if (error.code === 'auth/user-not-found') {
