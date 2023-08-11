@@ -46,12 +46,14 @@ fill: var(--footer-text-first);
   align-items: center;
   gap: 6px;
   // gap: 10px;
+  transition: 350ms cubic-bezier(.94,-0.01,.15,.99);
 }
 
 .footer-btn:hover,
 .footer-btn:focus {
   background-color: var(--footer-activ-bg);
   color: var(--footer-activ-color);
+  transition: 350ms cubic-bezier(.94,-0.01,.15,.99);
 }
 
 .heart-icon {

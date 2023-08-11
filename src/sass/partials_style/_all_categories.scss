@@ -226,6 +226,13 @@
   }
 }
 
+.home__books-all-btn:hover,
+.home__books-all-btn:focus {
+  background-color: var(--footer-activ-bg);
+  color: var(--footer-activ-color);
+  transition: 350ms cubic-bezier(.94,-0.01,.15,.99);
+}
+
 .home__books-all-btn-text {
   display: block;
   width: 68px;
