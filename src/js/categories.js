@@ -290,7 +290,7 @@ function popUpMarkUp(book) {
         add to shopping
       </button>
 
-      <div class="wraper-remove js-wraper-remove logged-user-hidden">
+      <div class="wraper-remove js-wraper-remove logged-user-hidden pop-up-is-hidden">
         <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove" type="button">
           remove from the shopping list
         </button>
@@ -300,7 +300,7 @@ function popUpMarkUp(book) {
           delete, press the button “Remove from the shopping list”.
         </p>
       </div>
-      <div class="wrap-btn-sign-up">
+      <div class="wrap-btn-sign-up logged-user-hidden">
        <button aria-label="Sign up" class="btn-add-shop-list" type="button">
         Sign up
       </button>
@@ -310,10 +310,16 @@ function popUpMarkUp(book) {
   if (!checkAuthState()) {
     popUp.querySelector('.js-add').classList.add('logged-user-hidden');
     popUp
+      .querySelector('.js-wraper-remove')
+      .classList.add('logged-user-hidden');
+    popUp
       .querySelector('.wrap-btn-sign-up')
       .classList.remove('logged-user-hidden');
   } else {
     popUp.querySelector('.js-add').classList.remove('logged-user-hidden');
+    popUp
+      .querySelector('.js-wraper-remove')
+      .classList.remove('logged-user-hidden');
     popUp
       .querySelector('.wrap-btn-sign-up')
       .classList.add('logged-user-hidden');
@@ -361,6 +367,7 @@ function onCloseModalPopEsc(event) {
 function onAddShopingList(event) {
   btnAddShopingList.classList.add('logged-user-hidden');
   btnRemoveShopingList.classList.remove('logged-user-hidden');
+  btnRemoveShopingList.classList.remove('pop-up-is-hidden');
   addBookStorage();
 }
 

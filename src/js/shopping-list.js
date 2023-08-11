@@ -57,6 +57,8 @@ const options = {
   },
 };
 
+let instance;
+
 function showItemsForPage(page) {
   const itemsPerPage = options.itemsPerPage;
   slList.childNodes.forEach((item, index) => {
@@ -84,6 +86,7 @@ function renderCards() {
     const booksMarkUp = createShopListMarkUp(books);
     slList.innerHTML = booksMarkUp;
     slList.addEventListener('click', handleDeleteClick);
+    createPagnation();
   }
 }
 
@@ -101,6 +104,7 @@ function handleDeleteClick(event) {
     });
   localStorage.setItem('book-anotation', JSON.stringify(books));
   renderCards();
+  createPagnation();
 }
 
 function createShopListMarkUp() {
@@ -153,19 +157,6 @@ function createShopListMarkUp() {
     .join('');
 }
 
-let instance;
-if (books) {
-  showItemsForPage(1);
-  const container = document.querySelector('#tui-pagination-container');
-  setPagesCount();
-  instance = new Pagination(container, options);
-  instance.on('afterMove', eventData => {
-    showItemsForPage(eventData.page);
-  });
-
-  window.addEventListener('resize', setPagesCount);
-}
-
 function setPagesCount() {
   if (window.outerWidth < 320) {
     options.visiblePages = 1;
@@ -178,5 +169,19 @@ function setPagesCount() {
   }
   if (instance) {
     instance._options = options;
+  }
+}
+
+function createPagnation() {
+  if (books) {
+    showItemsForPage(1);
+    const container = document.querySelector('#tui-pagination-container');
+    setPagesCount();
+    instance = new Pagination(container, options);
+    instance.on('afterMove', eventData => {
+      showItemsForPage(eventData.page);
+    });
+
+    window.addEventListener('resize', setPagesCount);
   }
 }

@@ -36,7 +36,8 @@ const modalBackdrop = document.querySelector('.backdrop');
 const loggedUserContainer = document.querySelector('.logged-user');
 const burgerMenu = document.querySelector('.burger-menu-container');
 const burgerMenuLogOut = burgerMenu.querySelector('.burger-menu-btn-logout');
-const burgerUserName = burgerMenu.querySelector('.burger-user-name');
+const headerNavWrapper = document.querySelector('.header-nav-wrapper');
+const signUpBtnHeader = document.querySelector('.btn-outline-success');
 const isLoggedIn = { logged: null };
 
 authForm.addEventListener('submit', event => {
@@ -59,7 +60,7 @@ async function userSignUp() {
       set(ref(database, 'users/' + user.uid), {
         username: signUpName,
       });
-      modalBackdrop.classList.add('is-hidden');
+      window.location.reload();
     })
     .catch(error => {
       if (error.code === 'auth/email-already-exists') {
@@ -81,8 +82,8 @@ async function userSignIn() {
       if (getUserName(user.user) !== usernameInput) {
         throw new Error('auth/wrong-username');
       }
-      modalBackdrop.classList.add('is-hidden');
       checkAuthState();
+      window.location.reload();
     })
     .catch(error => {
       if (error.code === 'auth/user-not-found') {
@@ -100,33 +101,16 @@ async function userSignIn() {
 }
 
 function checkAuthState() {
-  const headerNavWrapper = document.querySelector('.header-nav-wrapper');
-  const signUpBtnHeader = document.querySelector('.btn-outline-success');
   onAuthStateChanged(auth, user => {
     if (user) {
       const username = getUserName(user);
-      loggedUserContainer.classList.remove('logged-user-hidden');
       loggedUserContainer.querySelector('.user-name').textContent = username;
       burgerMenu.querySelector('.burger-user-name').textContent = username;
-      burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
-      burgerMenuLogOut.classList.remove('logged-user-hidden');
-      headerNavWrapper.classList.remove('logged-user-hidden');
-      signUpBtnHeader.classList.add('logged-user-hidden');
-      burgerMenu
-        .querySelector('.burger-menu-signup-btn')
-        .classList.add('logged-user-hidden');
+      onLogged();
       isLoggedIn.logged = true;
     } else {
+      onNotLogged();
       isLoggedIn.logged = false;
-      burgerMenu
-        .querySelector('.burger-menu-signup-btn')
-        .classList.remove('logged-user-hidden');
-      burgerMenuLogOut.classList.add('logged-user-hidden');
-      burgerMenu.querySelector('.user').classList.add('logged-user-hidden');
-      loggedUserContainer.querySelector('.user-name').textContent = '';
-      loggedUserContainer.classList.add('logged-user-hidden');
-      headerNavWrapper.classList.add('logged-user-hidden');
-      signUpBtnHeader.classList.remove('logged-user-hidden');
     }
   });
   return isLoggedIn.logged;
@@ -135,6 +119,29 @@ function checkAuthState() {
 async function userSignOut() {
   await signOut(auth);
   window.location.reload();
+}
+
+function onLogged() {
+  loggedUserContainer.classList.remove('logged-user-hidden');
+  burgerMenu.querySelector('.user').classList.remove('logged-user-hidden');
+  burgerMenuLogOut.classList.remove('logged-user-hidden');
+  headerNavWrapper.classList.remove('logged-user-hidden');
+  signUpBtnHeader.classList.add('logged-user-hidden');
+  burgerMenu
+    .querySelector('.burger-menu-signup-btn')
+    .classList.add('logged-user-hidden');
+}
+
+function onNotLogged() {
+  burgerMenu
+    .querySelector('.burger-menu-signup-btn')
+    .classList.remove('logged-user-hidden');
+  burgerMenuLogOut.classList.add('logged-user-hidden');
+  burgerMenu.querySelector('.user').classList.add('logged-user-hidden');
+  loggedUserContainer.querySelector('.user-name').textContent = '';
+  loggedUserContainer.classList.add('logged-user-hidden');
+  headerNavWrapper.classList.add('logged-user-hidden');
+  signUpBtnHeader.classList.remove('logged-user-hidden');
 }
 
 function getUserName(user) {

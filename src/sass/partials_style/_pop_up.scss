@@ -174,13 +174,6 @@ svg {
   fill: #4f2ee8;
 }
 
-.pop-up-is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  display: none;
-}
-
 .close-btn-modal-icon {
   fill: var(--pop-up-close-btn-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -270,5 +263,12 @@ svg {
 }
 
 .logged-user-hidden {
+  display: none;
+}
+
+.pop-up-is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   display: none;
 }
