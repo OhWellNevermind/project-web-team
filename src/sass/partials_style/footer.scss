@@ -52,6 +52,7 @@ fill: var(--footer-text-first);
 .footer-btn:focus {
   background-color: var(--footer-activ-bg);
   color: var(--footer-activ-color);
+  transition: 350ms cubic-bezier(.94,-0.01,.15,.99);
 }
 
 .heart-icon {
