@@ -179,7 +179,6 @@ async function getSelectedCategory(category) {
       booksOfSelectegCategory
     );
     Notiflix.Loading.remove();
-    console.log(document.documentElement.clientWidth);
     if (document.documentElement.clientWidth > 1439) {
       selectedCategorieAnimation(booksWrapperEl);
     }
@@ -405,8 +404,6 @@ function onCloseModalPop(event) {
 
 function checkLocalStorage(id) {
   const books = localStorage.getItem('book-anotation');
-  console.log(!books);
-  console.log(books);
   JSON.parse(books).forEach(element => {
     if (element._id === id) {
       btnAddShopingList.classList.add('logged-user-hidden');
