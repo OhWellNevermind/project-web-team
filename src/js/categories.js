@@ -305,7 +305,7 @@ function popUpMarkUp(book) {
           add to shopping
         </button>
   
-        <div class="wraper-remove js-wraper-remove">
+        <div class="wraper-remove js-wraper-remove logged-user-hidden">
           <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove" type="button">
             remove from the shopping list
           </button>
@@ -405,6 +405,8 @@ function onCloseModalPop(event) {
 
 function checkLocalStorage(id) {
   const books = localStorage.getItem('book-anotation');
+  console.log(!books);
+  console.log(books);
   JSON.parse(books).forEach(element => {
     if (element._id === id) {
       btnAddShopingList.classList.add('logged-user-hidden');
