@@ -12,9 +12,7 @@ import * as auth from './userAutorization.js';
 import * as modal from './modal.js';
 import './burgerOpen';
 import './burger__menu';
-const Pagination = require('tui-pagination');
-// import { Pagination } from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+const Pagination = require('./tui-pagination');
 
 const slList = document.querySelector('.sl-list');
 document.querySelector('.sl-link').classList.add('current');
