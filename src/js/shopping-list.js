@@ -13,6 +13,7 @@ import * as modal from './modal.js';
 import './burgerOpen';
 import './burger__menu';
 const Pagination = require('tui-pagination');
+// import { Pagination } from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 
 const slList = document.querySelector('.sl-list');
@@ -35,13 +36,13 @@ const options = {
   itemsPerPage: 3,
   visiblePages: 3,
   page: 1,
-  centerAlign: false,
+  centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    page: '<a href="#" class="tui-page-btn"><span>{{page}}</span></a>',
     currentPage:
-      '<strong class="tui-page-btn tui-is-selected tui-bullet">{{page}}</strong>',
+      '<a class="tui-page-btn tui-is-selected tui-bullet"><span>{{page}}</span></a>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}} tui-active"> ' +
       '<span class="tui-ico-{{type}} tui-ico-text">{{type}}</span>' +

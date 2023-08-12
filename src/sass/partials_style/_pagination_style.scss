@@ -1,303 +1,72 @@
- .tui-pagination * {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+a {
+  text-decoration: none;
 }
 
-#tui-pagination-container {
-  display: flex;
-}
-
-.tui-ico-ellipsis,
-.tui-ico-first,
-.tui-ico-last,
-.tui-ico-next,
-.tui-ico-prev {
-  overflow: hidden;
+.tui-wrapper {
+  padding-top: 20px;
+  margin-bottom: 40px;
 }
 
 .tui-pagination {
-  height: 28px;
-  margin: 40px 0 40px;
-  line-height: normal;
-  text-align: center;
-  font-size: 0;
-}
-
-.tui-pagination .tui-page-btn {
-  display: inline-block;
-  position: relative;
-  width: 44px;
-  height: 44px;
-  padding: 8px 0 6px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1;
-  text-align: center;
-  color: var(--pagination-text);
-  text-decoration: none;
-  vertical-align: middle;
-  border: 2px solid #111;
-  border-radius: 50%;
-  border-width: 1px 0;
-}
-
-.tui-pagination .tui-page-btn:hover {
-  background-color: #4f2ee8;
-}
-
-.tui-pagination .tui-is-selected,
-.tui-pagination strong {
-  background: #111;
-  border-color: #111;
-  cursor: default;
-}
-
-.tui-pagination .tui-is-selected:hover {
-  background-color: #4f2ee8;
-}
-
-.tui-pagination .tui-first-child.tui-is-selected,
-.tui-pagination strong.tui-first-child {
-  margin-left: 0;
-}
-
-.tui-pagination .tui-first-child,
-.tui-pagination .tui-prev-is-ellip {
-  border-left: 1px solid #fff;
-}
-
-.tui-pagination .tui-last-child,
-.tui-pagination .tui-next-is-ellip {
-  border-right: 1px solid #fff;
-}
-
-.tui-pagination .tui-first-child.tui-is-selected {
-  border-left: 1px solid #fff;
-}
-
-.tui-pagination .tui-last-child.tui-is-selected {
-  border-right: 1px solid #4b96e6;
-}
-
-.tui-pagination .tui-first,
-.tui-pagination .tui-prev,
-.tui-pagination .tui-next,
-.tui-pagination .tui-last,
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
-  overflow: hidden;
-  height: 44px;
-  padding: 0;
-  font-size: 0;
-  line-height: 44px;
-  white-space: nowrap;
-  font-weight: normal;
-  border: 1px solid #111;
-}
-
-.tui-pagination .tui-first,
-.tui-pagination .tui-prev {
-  background: #111;
-}
-
-
-.tui-pagination .tui-last {
-  background-color: #eac645;
-}
-
-.tui-pagination .tui-prev-is-ellip {
-  border-right: 0;
-}
-
-.tui-pagination .tui-next-is-ellip {
-  border-left: 0;
-}
-
-.tui-pagination .tui-first+.tui-prev,
-.tui-pagination .tui-next+.tui-last {
-  border-left: 0;
-}
-
-.tui-pagination .tui-ico-first,
-.tui-pagination .tui-ico-prev,
-.tui-pagination .tui-ico-next,
-.tui-pagination .tui-ico-last,
-.tui-pagination .tui-ico-ellip {
-  display: inline-block;
-
-  vertical-align: middle;
-  font-size: 0px;
-}
-
-.tui-pagination .tui-prev-is-ellip,
-.tui-pagination .tui-next-is-ellip {
-  padding: 0;
-  line-height: 1;
-}
-
-.tui-pagination .tui-next {
-  margin-left: 0;
-  background-color: #eac645;
-}
-
-.tui-pagination .tui-ico-first {
-  width: 11px;
-  height: 10px;
-  background-position: 0px 0px;
-}
-
-.tui-pagination .tui-ico-prev {
-  width: 6px;
-  height: 10px;
-  background-position: -26px 0px;
-}
-
-.tui-pagination .tui-ico-next {
-  width: 6px;
-  height: 10px;
-  background-position: -13px -24px;
-}
-
-.tui-pagination .tui-ico-last {
-  width: 11px;
-  height: 10px;
-  background-position: 0px -12px;
-}
-
-.tui-pagination .tui-ico-ellip {
-  width: 10px;
-  height: 2px;
-  margin-top: 16px;
-  vertical-align: top;
-  background-position: 0px -24px;
-}
-
-.tui-pagination .tui-is-disabled:hover {
-  background: #4f2ee8;
-  cursor: default;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-prev {
-  background-position: -26px -12px;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-first {
-  background-position: -13px 0px;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-next {
-  background-position: -21px -24px;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-last {
-  background-position: -13px -12px;
-}
-
-.tui-page-inputs {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.tui-page-inputs .tui-page-input {
-  display: inline-block;
-  width: 10px;
-  height: 12px;
-  padding: 8px 0 6px;
-  font-size: 18px;
-  text-align: center;
-  color: #333;
-  border: 0;
-  outline: none;
-}
-
-.tui-page-inputs .tui-page-current {
-  color: #4b96e6;
-}
-
-.tui-page-separator {
-  display: inline-block;
-  font-size: 12px;
-  height: 12px;
-  padding: 8px 0 6px;
-  vertical-align: top;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tui-page-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pagination-border);
   margin-right: 8px;
+  border-radius: 50%;
+  color: var(--pagination-text);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.22; /* 122.222% */
+}
+
+.tui-last-child {
+  margin-right: 14px;
 }
 
 .tui-first {
   margin-right: 5px;
 }
 
-.tui-pagination .tui-prev {
-  margin-right: 14px;
+.tui-prev {
+  margin-right: 24px;
 }
 
-
-.tui-next-is-ellip {
-  border-width: 1px 1px;
-  margin-right: 14px;
-}
-
-.tui-next {
-  margin-right: 8px;
-}
-
-.tui-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.tui-pagination .tui-page-btn {
-  border-width: 1px 1px;
-}
-
-.tui-pagination .tui-first-child,
-.tui-pagination .tui-prev-is-ellip {
-  border: 1px solid #111;
-}
-
-
-.tui-pagination .tui-first-child.tui-is-selected {
+.tui-first,
+.tui-prev {
   border: none;
+  background-color: var(--pagination-left-bg);
 }
 
+.tui-next,
+.tui-last {
+  background-color: var(--pagination-rigth-arrow);
+  background-color: var(--pagination-rigth-bg);
+}
 
-
-.tui-pagination .tui-is-selected,
-.tui-pagination strong {
-  color: var(--pagination-active-text);
+.tui-is-selected {
   background-color: var(--pagination-active);
+  color: var(--pagination-active-text);
 }
-
-.tui-pagination .tui-page-btn {
-  border-color: var(--pagination-border);
-}
-
-.tui-pagination .tui-next, .tui-pagination .tui-last, .tui-pagination .tui-first, .tui-pagination .tui-prev {
-  border-color: transparent;
-}
-
 
 @media screen and (min-width: 768px) {
   .tui-page-btn {
-    margin-right: 10px;
+    width: 44px;
+    height: 44px;
   }
 
-  .tui-first {
-    margin-right: 8px;
-  }
-
-  .tui-pagination .tui-prev {
-    margin-right: 24px;
-  }
-
-
-  .tui-next-is-ellip {
+  .tui-last-child {
     margin-right: 24px;
   }
 }

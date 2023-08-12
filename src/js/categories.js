@@ -6,7 +6,11 @@ import bookShopLogo2x from '/src/images/book-shop-logo@2x.png';
 import Notiflix from 'notiflix';
 import defoultImg from '../images/deafult-img.jpg';
 import { checkAuthState } from './userAutorization';
-import { animOnScroll, allCategoriesAnimation, selectedCategorieAnimation } from './animation';
+import {
+  animOnScroll,
+  allCategoriesAnimation,
+  selectedCategorieAnimation,
+} from './animation';
 
 import { callShowCards } from './books-home';
 const throttle = require('lodash.throttle');
@@ -43,8 +47,8 @@ const popUpEl = document.querySelector('.js-popUp');
 const backdropPop = document.querySelector('.js-backdrop-pop');
 const logUser = document.querySelector('.user-name');
 const modalSignUp = document.querySelector('[data-modal]');
-const popUp = document.querySelector( '.js-popUp' );
-const supportUkraineEl = document.querySelector( '.support-ukraine-container' );
+const popUp = document.querySelector('.js-popUp');
+const supportUkraineEl = document.querySelector('.support-ukraine-container');
 
 categoriesListWrapper.addEventListener('click', handleCategoryClick);
 booksWrapperEl.addEventListener('click', onOpenPopUp);
@@ -108,9 +112,7 @@ async function getTopBooks() {
     booksWrapperEl.innerHTML = createAllBooksMarkup(topBooks);
     callShowCards();
     Notiflix.Loading.remove();
-    if ( document.documentElement.clientWidth < 767 ) {
-      return;
-    } else {
+    if (document.documentElement.clientWidth > 1439) {
       allCategoriesAnimation(categoriesListWrapper, supportUkraineEl);
       animOnScroll(booksWrapperEl);
     }
@@ -177,9 +179,8 @@ async function getSelectedCategory(category) {
       booksOfSelectegCategory
     );
     Notiflix.Loading.remove();
-    if ( document.documentElement.clientWidth < 767 ) {
-      return;
-    } else {
+    console.log(document.documentElement.clientWidth);
+    if (document.documentElement.clientWidth > 1439) {
       selectedCategorieAnimation(booksWrapperEl);
     }
   } catch (err) {

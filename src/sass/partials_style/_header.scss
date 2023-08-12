@@ -232,8 +232,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    height: 45px;
+    padding: 4px 12px;
     background-color: #4f2ee8;
     border-radius: 36px;
     position: relative;
@@ -272,9 +271,7 @@
   }
 
   .header {
-    width: 100vw;
-    padding: 22px 32px;
-    height: 72px;
+    padding: 14px 32px;
   }
 
   .container {
@@ -343,7 +340,7 @@
 
 @media screen and (min-width: 1440px) {
   .header {
-    padding: 22px 24px;
+    padding: 13px 24px;
   }
 
   .header-logo {
