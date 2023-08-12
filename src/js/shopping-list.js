@@ -60,7 +60,14 @@ let instance;
 
 function showItemsForPage(page) {
   const itemsPerPage = options.itemsPerPage;
+  console.log(slList.childNodes);
+  if (slList.childNodes[0].nodeName != 'LI') {
+    console.log('bla');
+    document.querySelector('.tui-wrapper').style.display = 'none';
+    return;
+  }
   slList.childNodes.forEach((item, index) => {
+    console.log(item);
     if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
       item.style.display = 'list-item';
     } else {
