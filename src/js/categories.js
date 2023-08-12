@@ -300,42 +300,36 @@ function popUpMarkUp(book) {
     </div>
 
     <div class="wraper">
-      <button aria-label="Add to shopping list" class="btn-add-shop-list js-add" type="button">
-        add to shopping
-      </button>
-
-      <div class="wraper-remove js-wraper-remove logged-user-hidden pop-up-is-hidden">
-        <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove" type="button">
-          remove from the shopping list
+      <div class="logged-pop-btn">
+        <button aria-label="Add to shopping list" class="btn-add-shop-list js-add" type="button">
+          add to shopping
         </button>
-
-        <p class="msg-add-shoplist js-remove" >
-          Сongratulations! You have added the book to the shopping list. To
-          delete, press the button “Remove from the shopping list”.
-        </p>
+  
+        <div class="wraper-remove js-wraper-remove">
+          <button aria-label="Remove from shopping list" class="btn-add-shop-list btn-remove js-remove" type="button">
+            remove from the shopping list
+          </button>
+  
+          <p class="msg-add-shoplist js-remove" >
+            Сongratulations! You have added the book to the shopping list. To
+            delete, press the button “Remove from the shopping list”.
+          </p>
+        </div>
       </div>
-      <div class="wrap-btn-sign-up logged-user-hidden">
+      <div class="wrap-btn-sign-up">
        <button aria-label="Sign up" class="btn-add-shop-list" type="button">
         Sign up
       </button>
       </div> 
       </div>`;
   popUpEl.innerHTML = markUp;
-  if (!checkAuthState()) {
-    popUp.querySelector('.js-add').classList.add('logged-user-hidden');
-    popUp
-      .querySelector('.js-wraper-remove')
+  if (checkAuthState()) {
+    backdropPop
+      .querySelector('.wrap-btn-sign-up')
       .classList.add('logged-user-hidden');
-    popUp
-      .querySelector('.wrap-btn-sign-up')
-      .classList.remove('logged-user-hidden');
   } else {
-    popUp.querySelector('.js-add').classList.remove('logged-user-hidden');
-    popUp
-      .querySelector('.js-wraper-remove')
-      .classList.remove('logged-user-hidden');
-    popUp
-      .querySelector('.wrap-btn-sign-up')
+    backdropPop
+      .querySelector('.logged-pop-btn')
       .classList.add('logged-user-hidden');
   }
   backdropPop.classList.remove('pop-up-is-hidden');
